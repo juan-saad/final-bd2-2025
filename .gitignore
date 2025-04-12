@@ -398,3 +398,30 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# SSIS project specific artifacts
+*.ispac                # SSIS deployment package
+*.dtproj.user          # SSIS project user settings (should be ignored)
+*.deploymentmanifest   # Optional - used during package deployment
+
+# Docker-specific
+.docker/
+docker-compose.override.yml
+
+# Docker environment files
+.env
+.env.*                 # Optional: if you use multiple env files like .env.dev, .env.prod
+
+# Docker build cache or volume folders (optional, if you map host dirs)
+**/data/
+**/volumes/
+
+# SQL Server temp or output files
+*.bak
+*.log
+*.trn
+*.mdmp                 # SQL Server dump files
+
+# Dacpac/Bacpac
+*.dacpac
+*.bacpac
