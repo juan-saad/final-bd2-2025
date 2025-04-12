@@ -410,7 +410,7 @@ docker-compose.override.yml
 
 # Docker environment files
 .env
-.env.*                 # Optional: if you use multiple env files like .env.dev, .env.prod
+.env.*
 
 # Docker build cache or volume folders (optional, if you map host dirs)
 **/data/
@@ -420,7 +420,8 @@ docker-compose.override.yml
 *.bak
 *.log
 *.trn
-*.mdmp                 # SQL Server dump files
+*.mdmp
+/data/
 
 # Dacpac/Bacpac
 *.dacpac
