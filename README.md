@@ -25,6 +25,35 @@ Para más detalles sobre el software necesario, consulta el documento [BasesDato
    cd final-bd2-2025
    ```
 
+2. **Configura el valor de `DB_SUFFIX`:**
+
+   El valor de `DB_SUFFIX` se utiliza para definir el sufijo de las bases de datos creadas. Para cambiarlo debes ir a:
+
+   - **En el archivo `Dockerfile`:** Si prefieres configurar el valor directamente en el archivo `Dockerfile`, edita la línea correspondiente:
+     ```dockerfile
+     ENV DB_SUFFIX=g01
+     ```
+     Cambia `g01` por el sufijo que desees.
+
+3. **Construye e inicia los contenedores:**
+
+   Una vez configurado el valor de `DB_SUFFIX`, ejecuta el siguiente comando para construir e iniciar los contenedores en segundo plano:
+
+   ```bash
+   docker compose up -d --build
+   ```
+
+   Este comando se encargará de construir las imágenes necesarias y levantar los servicios definidos en el archivo `docker-compose.yml`.
+
+4. **Verifica que las bases de datos se hayan creado correctamente:**
+
+   Ingresa al contenedor de SQL Server y verifica que las bases de datos con el sufijo configurado se hayan creado correctamente:
+   ```bash
+   docker exec -it "<nombre_del_contenedor>" /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "<tu_contraseña>" -N -C -Q "SELECT name FROM sys.databases"
+   ```
+
+   Reemplaza `<nombre_del_contenedor>` y `<tu_contraseña>` con los valores correspondientes.
+
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
