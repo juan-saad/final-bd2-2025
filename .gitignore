@@ -422,6 +422,7 @@ docker-compose.override.yml
 *.trn
 *.mdmp
 /data/
+/secrets/
 
 # Dacpac/Bacpac
 *.dacpac
