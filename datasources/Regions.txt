@@ -1,0 +1,275 @@
+West   |California |San Jose    |91520
+West   |California |Morgan Hill |95200
+West   |California |Gilroy      |95300       
+East   |New York   |Manhattan   |12111
+East   |New York   |Manhattan   |12112
+East   |New York   |Manhattan   |12113
+East   |New York   |Manhattan   |12114
+East   |New York   |Manhattan   |12115
+East   |New York   |Manhattan   |12117
+East   |New York   |Manhattan   |12118
+East   |New York   |Manhattan   |12120
+East   |New York   |Yonkers    |14099
+East   |New York   |Yonkers    |14101
+East   |New York   |Yonkers    |14102
+East   |New York   |Yonkers    |14105
+East   |New York   |Long Island   |19084
+East   |New York   |Long Island   |19085
+East   |New York   |Long Island   |19088
+East   |New York   |Long Island   |19090
+East   |New York   |Long Island   |19092
+East   |New York   |Poughkeepsie   |21093
+East   |New York   |Poughkeepsie   |21098
+East   |New York   |Poughkeepsie   |21099
+East   |New York   |Poughkeepsie   |21100
+East   |New York   |Poughkeepsie   |21101
+East   |New York   |Millbrook   |24591
+East   |New York   |Millbrook   |24592
+East   |New York   |Millbrook   |24596
+East   |New York   |Millbrook   |24598
+East   |New York   |Millbrook   |24599
+East   |New York   |Ithaca     |27921
+East   |New York   |Ithaca     |27922
+East   |New York   |Ithaca     |27923
+East   |New York   |Yorktown   |29844
+East   |New York   |Yorktown   |29845
+East   |New York   |Yorktown   |29846
+East   |New York   |Yorktown   |29847
+East   |New York   |Yorktown   |29849
+East   |New York   |Yorktown   |29850
+East   |New York   |Buffalo    |30093
+East   |New York   |Buffalo    |30095
+East   |New York   |Buffalo    |30097
+East   |New York   |Buffalo    |30098
+East   |Massachusetts   |Boston     |04032
+East   |Massachusetts   |Boston     |04033
+East   |Massachusetts   |Boston     |04038
+East   |Massachusetts   |Boston     |04039
+East   |Massachusetts   |Boston     |04040
+East   |Massachusetts   |Acton      |10900
+East   |Massachusetts   |Acton      |10901
+East   |Massachusetts   |Acton      |10902
+East   |Massachusetts   |Acton      |10903
+East   |Massachusetts   |Acton      |10904
+East   |Massachusetts   |Acton      |10905
+East   |Massachusetts   |Acton      |10908
+East   |Massachusetts   |Sudbury    |11003
+East   |Massachusetts   |Sudbury    |11007
+East   |Massachusetts   |Sudbury    |11008
+East   |Massachusetts   |Sudbury    |11009
+East   |Massachusetts   |Sudbury    |11010
+East   |Massachusetts   |Cape Cod   |10976
+East   |Massachusetts   |Cape Cod   |10977
+East   |Massachusetts   |Cape Cod   |10978
+East   |Massachusetts   |Cape Cod   |10979
+East   |Massachusetts   |Cape Cod   |10980
+East   |Massachusetts   |Cape Cod   |10981
+East   |Massachusetts   |Cape Cod   |10982
+East   |Massachusetts   |Cape Cod   |10983
+East   |Massachusetts   |Cape Cod   |10985
+East   |Massachusetts   |Andover    |08732
+East   |Massachusetts   |Andover    |08733
+East   |Massachusetts   |Andover    |08735
+East   |Massachusetts   |Andover    |08736
+East   |Massachusetts   |Andover    |08737
+East   |Massachusetts   |Andover    |08738
+East   |Massachusetts   |Andover    |08739
+East   |Massachusetts   |Andover    |08741
+East   |New Hampshire   |Manchester   |07564
+East   |New Hampshire   |Manchester   |07565
+East   |New Hampshire   |Manchester   |07566
+East   |New Hampshire   |Manchester   |07567
+East   |New Hampshire   |Manchester   |07568
+East   |New Hampshire   |Manchester   |07569
+East   |New Hampshire   |Manchester   |07570
+East   |New Hampshire   |Manchester   |07571
+East   |New Hampshire   |Manchester   |07572
+East   |New Hampshire   |Manchester   |07573
+East   |New Hampshire   |Portsmouth   |06548
+East   |New Hampshire   |Portsmouth   |06549
+East   |New Hampshire   |Portsmouth   |06550
+East   |New Hampshire   |Portsmouth   |06552
+East   |New Hampshire   |Portsmouth   |06553
+East   |New Hampshire   |Portsmouth   |06555
+East   |New Hampshire   |Portsmouth   |06556
+East   |New Hampshire   |Portsmouth   |06557
+East   |Connecticut   |New Canaan   |13245
+East   |Connecticut   |New Canaan   |13246
+East   |Connecticut   |New Canaan   |13247
+East   |Connecticut   |New Canaan   |13248
+East   |Connecticut   |New Canaan   |13249
+East   |Connecticut   |New Canaan   |13250
+East   |Connecticut   |New Canaan   |13251
+East   |Connecticut   |New Canaan   |13252
+East   |Connecticut   |New Canaan   |13254
+East   |Connecticut   |New London   |13786
+East   |Connecticut   |New London   |13787
+East   |Connecticut   |New London   |13788
+East   |Connecticut   |New London   |13789
+East   |Connecticut   |New London   |13790
+East   |Connecticut   |New London   |13791
+East   |Connecticut   |New London   |13792
+East   |Connecticut   |New London   |13793
+East   |Connecticut   |New London   |13794
+East   |Connecticut   |New London   |13795
+East   |Connecticut   |Danbury    |14012
+East   |Connecticut   |Danbury    |14013
+East   |Connecticut   |Danbury    |14014
+East   |Connecticut   |Danbury    |14015
+East   |Connecticut   |Danbury    |14016
+East   |Connecticut   |Danbury    |14017
+East   |Connecticut   |Danbury    |14018
+East   |Connecticut   |Danbury    |14020
+East   |Vermont    |Burlington   |03020
+East   |Maine      |Bangor      |01010
+East   |Maine      |Brunswick   |02016
+East   |Florida    |Miami      |33354
+East   |Florida    |Miami      |33356
+East   |Florida    |Miami      |33357
+East   |Florida    |Miami      |33358
+East   |Florida    |Miami      |33359
+East   |Florida    |Miami      |33360
+East   |Florida    |Miami      |33362
+East   |Florida    |Miami       |33363
+East   |Florida    |Orlando    |33542
+East   |Florida    |Orlando     |33543
+East   |Florida    |Orlando    |33544
+East   |Florida    |Orlando    |33548
+East   |Florida    |Orlando    |33549
+East   |Florida    |Orlando    |33550
+East   |Florida    |Orlando    |33551
+East   |Florida    |Tampa Bay   |37699
+East   |Florida    |Tampa Bay   |37700
+East   |Florida    |Tampa Bay   |37701
+East   |Florida    |Tampa Bay   |37702
+East   |Florida    |Tampa Bay   |37703
+East   |Florida    |Tampa Bay   |37704
+East   |Florida    |Tampa Bay   |37705
+East   |Florida    |Tampa Bay   |37706
+East   |Florida    |Tampa Bay   |37707
+Central   |Illinois   |ORD         |51234
+Central   |Illinois   |ORD         |51235
+Central   |Illinois   |ORD        |51236
+Central   |Illinois   |ORD         |51237
+Central   |Illinois   |ORD         |51238
+Central   |Illinois   |ORD         |51239
+Central   |Illinois   |ORD        |51240
+Central   |Illinois   |ORD         |51241
+Central   |Illinois   |ORD          |51242
+Central   |Illinois   |ORD          |51243
+Central   |Illinois   |Peoria     |52346
+Central   |Illinois   |Peoria     |52347
+Central   |Illinois   |Peoria     |52348
+Central   |Illinois   |Peoria     |52349
+Central   |Illinois   |Peoria     |52350
+Central   |Illinois   |Peoria     |52351
+Central   |Illinois   |Peoria     |52352
+Central   |Illinois   |Peoria     |52353
+Central   |Illinois   |Peoria     |52354
+Central   |Illinois   |Peoria     |52355
+Central   |Wisconsin   |Milwaukee   |57896
+Central   |Wisconsin   |Milwaukee   |57898
+Central   |Wisconsin   |Milwaukee   |57900
+Central   |Wisconsin   |Milwaukee   |57901
+Central   |Wisconsin   |Milwaukee   |57902
+Central   |Wisconsin   |Milwaukee   |57903
+Central   |Wisconsin   |Milwaukee   |57904
+Central   |Wisconsin   |Madison    |60980
+Central   |Wisconsin   |Madison    |60981
+Central   |Wisconsin   |Madison    |60982
+Central   |Wisconsin   |Madison    |60983
+Central   |Wisconsin   |Madison    |60984
+Central   |Wisconsin   |Madison    |60985
+Central   |Wisconsin   |Madison    |60986
+Central   |Wisconsin   |Madison    |60987
+Central   |Wisconsin   |Madison    |60988
+Central   |Wisconsin   |Madison    |60989
+Central   |Wisconsin   |Appleton   |61001
+Central   |Wisconsin   |Appleton   |61002
+Central   |Wisconsin   |Appleton   |61003
+Central   |Wisconsin   |Appleton   |61004
+Central   |Wisconsin   |Appleton   |61006
+Central   |Wisconsin   |Appleton   |61007
+Central   |Wisconsin   |Appleton   |61008
+Central   |Wisconsin   |Appleton   |61009
+Central   |Ohio       |Columbus   |61200
+Central   |Ohio       |Columbus   |61203
+Central   |Ohio       |Columbus   |61204
+Central   |Ohio       |Columbus   |61205
+Central   |Ohio       |Columbus   |61206
+Central   |Ohio       |Columbus   |61207
+Central   |Ohio       |Columbus   |61208
+Central   |Ohio       |Akron      |61987
+Central   |Ohio       |Akron      |61988
+Central   |Ohio        |Akron      |61989
+Central   |Ohio       |Akron      |61990
+Central   |Ohio       |Akron      |61992
+Central   |Ohio       |Akron      |61994
+Central   |Ohio       |Akron      |61995
+Central   |Ohio       |Akron      |61996
+Central   |Ohio       |Toledo     |62101
+Central   |Ohio       |Toledo     |62103
+Central   |Ohio       |Toledo     |62104
+Central   |Ohio       |Toledo     |62105
+Central   |Ohio       |Toledo     |62107
+Central   |Ohio       |Toledo     |62108
+Central   |Ohio       |Toledo     |62109
+Central   |Ohio       |Cleveland   |62210
+Central   |Ohio       |Cleveland   |62213
+Central   |Ohio       |Cleveland   |62214
+Central   |Ohio       |Cleveland   |62215
+Central   |Ohio       |Cleveland   |62216
+Central   |Ohio       |Cleveland   |62217
+Central   |Ohio       |Cleveland   |62218
+Central   |Missouri   |St. Loius   |64094
+Central   |Missouri   |St. Loius   |64095
+Central   |Missouri   |St. Loius   |64096
+Central   |Missouri   |St. Loius   |64097
+Central   |Missouri   |St. Loius   |64098
+Central   |Missouri   |St. Loius   |64100
+Central   |Missouri   |St. Loius   |64102
+Central   |Missouri   |St. Loius   |64103
+Central   |Missouri   |Kansas City   |64506
+Central   |Missouri   |Kansas City   |64507
+Central   |Missouri   |Kansas City   |64509
+Central   |Missouri   |Kansas City   |64510
+Central   |Missouri   |Kansas City   |64511
+Central   |Missouri   |Kansas City   |64512
+Central   |Missouri   |Kansas City   |64513
+Central   |Missouri   |Kansas City   |64514
+Central   |Missouri   |Kansas City   |64515
+Central   |Iowa       |Des Moines   |65790
+Central   |Iowa       |Dubuque    |66804
+Central   |Iowa       |Dubuque    |66800
+South   |Oklahoma   |Tulsa      |70009
+South   |Oklahoma   |Oklahoma City   |70204
+South   |Louisiana   |New Orleans   |70450
+South   |Louisiana   |Shreveport   |70543
+South   |Texas      |Dallas     |81023
+South   |Texas      |Houston    |81342
+South   |Texas      |Sweetwater   |82227
+South   |Texas      |San Antonio   |83425
+South   |Texas      |Amarillo   |84433
+South   |New Mexico   |Albuquerque   |87102
+Central   |Colorado   |Aspen      |84352
+Central   |Colorado   |Grand Junction   |84451
+Central   |Colorado   |Grand Junction   |84453
+Central   |Colorado   |Denver     |84654
+West   |Utah       |Salt Lake City   |90001
+West   |Utah       |Provo       |90011
+West   |Nevada     |Reno       |90023
+West   |Nevada     |Carson City   |90112
+West   |Nevada     |Las Vegas   |90213
+West   |Oregon     |Bend       |96543
+West   |Oregon     |Portland   |97653
+West   |California   |San Francisco   |94501
+West   |California   |Los Angeles   |93078
+West   |California   |Santa Clara   |95054
+West   |California   |San Diego   |92087
+West   |California   |Bakersfield   |92321
+West   |California   |Fresno      |93450
+West   |California   |Sacramento   |96701
+West   |California   |Eureka     |96887
+West   |Washington   |Seattle    |98023
+West   |Washington   |Redmond    |98123
+West   |Washington   |Spokane    |98320

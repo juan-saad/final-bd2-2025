@@ -1,0 +1,42 @@
+01               |Kool Cola                      |1 Liter
+02               |Kool Cola                      |2 Liter
+03               |Kool Cola                      |500 cm3 can
+04               |Diet Cola                      |1 Liter
+05               |Diet Cola                      |2 Liter
+06               |Diet Cola                      |500 cm3 can
+07               |Caffeine Free Cola             |1 Liter
+08               |Caffeine Free Cola             |2 Liter
+09               |Caffeine Free Cola             |500 cm3 can
+10               |Old Fashioned Root Beer        |1 Liter
+11               |Old Fashioned Root Beer        |2 Liter
+12               |Old Fashioned Root Beer        |500 cm3 can
+13               |Diet Root Beer                 |1 Liter
+14               |Diet Root Beer                 |2 Liter
+15               |Diet Root Beer                 |500 cm3 can
+16               |Energy drink                   |1 Liter
+17               |Energy drink                   |2 Liter
+18               |Energy drink                   |500 cm3 can
+19               |Birch Beer                     |1 Liter
+20               |Birch Beer                     |2 Liter
+21               |Birch Beer                     |500 cm3 can
+22               |Dark Cream Soda                |1 Liter
+23               |Dark Cream Soda                |2 Liter
+24               |Dark Cream Soda                |500 cm3 can
+25               |Vanilla Cream Soda             |1 Liter
+26               |Vanilla Cream Soda             |2 Liter
+27               |Vanilla Cream Soda             |670 cm3
+28               |Vanilla Cream Soda             |500 cm3 can
+29               |Diet Cream Soda                |1 Liter
+30               |Diet Cream Soda                |2 Liter
+31               |Diet Cream Soda                |500 cm3 can
+32               |Grapefruit juice               |1 Liter
+33               |Grapefruit juice               |2 Liter
+34               |Grapefruit juice               |500 cm3 can
+35               |Orange juice                   |1 Liter
+36               |Orange juice                   |2 Liter
+37               |Orange juice                   |500 cm3 can
+38               |Diet energy drink              |1 Liter
+39               |Diet energy drink              |2 Liter
+40               |Diet energy drink              |500 cm3 can
+41               |Trappiste Beer                 |330 cm3 can
+42               |Orval Beer                     |330 cm3 can
