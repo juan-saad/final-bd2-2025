@@ -1,0 +1,21 @@
+services:
+  sqlserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sqlserver_dev
+    environment:
+      MSSQL_SA_PASSWORD: "Sup3rS3cretPassw0rd!"
+      ACCEPT_EULA: "Y"
+      MSSQL_AGENT_ENABLED: "true"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./data:/var/opt/mssql/data
+      - ./logs:/var/opt/mssql/log
+    healthcheck:
+      test: ["CMD", "/usr/src/app/healthcheck.sh"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 10s
