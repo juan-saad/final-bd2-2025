@@ -12,5 +12,8 @@ COPY scripts/ ./scripts/
 # Expose SQL Server port
 EXPOSE 1433
 
+# Set default suffix value
+ENV DB_SUFFIX=g01
+
 # Use the entrypoint script to start SQL Server
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh", "$DB_SUFFIX"]
