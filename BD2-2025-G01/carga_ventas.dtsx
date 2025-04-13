@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{33E8F29B-C1B9-439B-AC7D-0AA2C90D77D8}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{C192F6E1-CF8E-4768-AF82-59F8F6F4D1E0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,11 +25,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=arggf.ddns.net;User ID=TUIA_ALUMNOS;Initial Catalog=TDChistorySales;Provider=MSOLEDBSQL.1;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=arggf.ddns.net;User ID=TUIA_ALUMNOS;Initial Catalog=TDChistorySales;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package1-{AF614C3D-FD8D-4BAC-8610-286BAB8B7E75}arggf.ddns.net.TDChistorySales.TUIA_ALUMNOS;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABdDxJY4YYQwLqmauN1qYnVMUQinEVL8OJqOVigca9x6gAAAAAOgAAAAAIAACAAAAAykKSI1iCVVUSIIbjw2uyDV8lMkaP0kPqIHmRdHKBgWiAAAAA2+jvpNe1MeWAOqH8pX9+yHvg4rFAnzeiwGUXi9NcyWEAAAABqtcXGvLVvQWYZdPHHABT0bFKVrHzAIY0uLjmsE57IVPdObKLASYwbZtjtRoQku3boezLnIZ0Oe6ppS7abPnwg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABRLhJugUFcOIwzrulFfNlpSjZ4EV/jCNmKJSl9pVx12wAAAAAOgAAAAAIAACAAAADua9YCR+4agKDMkeQQ9CUtBIR7MdX3ozQkD87s0OFJRSAAAADygVgZxfkuyRBBlE/GIbigJttUnUXDCLLPnhZdZSB4CUAAAAC56P+iw9jeLgtdZQiGxwCw9MDW5Dzzj8PSdsWfoLqEDQYhWG3lhybVKPcvw9aZ6z9rVOBQ8BE9uLwsI5FdiXJD</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -565,13 +565,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="214.4,41.6"
-          Id="Package\Carga ventas historicas staging\Ventas historicas SQL Server"
-          TopLeft="74.1666626143789,69.333332851198" />
-        <NodeLayout
           Size="150.4,41.6"
           Id="Package\Carga ventas historicas staging\stg_ventas_hist"
           TopLeft="107.499994126459,180.266665413115" />
+        <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\Carga ventas historicas staging\Ventas historicas SQL Server"
+          TopLeft="74.1666626143789,69.333332851198" />
         <EdgeLayout
           Id="Package\Carga ventas historicas staging.Paths[OLE DB Source Output]"
           TopLeft="182.033328370419,110.933332851198">
@@ -598,7 +598,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga ventas historicas staging\Ventas historicas SQL Server">
+    design-time-name="Package\Carga ventas historicas staging\stg_ventas_hist">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -611,7 +611,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga ventas historicas staging\stg_ventas_hist">
+    design-time-name="Package\Carga ventas historicas staging\Ventas historicas SQL Server">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
