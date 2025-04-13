@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost.staging_2025_g01.sa"
+  DTS:DTSID="{D6007274-3C00-4CA7-9755-908AF3256B73}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=staging_2025_g01;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAACAAAAAAAQZgAAAAEAACAAAADf+QqngXxcs0jQ5Nla1FWdmSsnBCOhofYKRRw/qIWhDQAAAAAOgAAAAAIAACAAAAAe1kOUjQ7mySLnTaGnf9UV5pQ0FSneIfiC5ktNBajHQoAAAACLCW/UMMk7Nkx0g/RRpPjG3kxovlSNR4wEmGrlpwsIkPQp94FEEJpuOBWVmjGBIDPglu8RkarbTBjEy3cqCuRoRY2SYgyALylGfGPRjqFRCu6/KK9QamjSk6WglRFv0AcSk68pO+ST01SSRp6K6JTE131GdocH4UEE0hNdahXa2UAAAADNOyVnnoN7ff71g1liCQ4eNRJgLaGqkuGc81hqQRQiJjDxGQawKTTfHHIuYo5dhBcZsBHizWhKn2S5XgVSAiO2</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
