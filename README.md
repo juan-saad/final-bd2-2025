@@ -31,9 +31,9 @@ Para más detalles sobre el software necesario, consulta el documento [BasesDato
 
    - **En el archivo `Dockerfile`:** Si prefieres configurar el valor directamente en el archivo `Dockerfile`, edita la línea correspondiente:
      ```dockerfile
-     ENV DB_SUFFIX=g01
+     ENV DB_SUFFIX=01
      ```
-     Cambia `g01` por el sufijo que desees.
+     Cambia `01` por el sufijo que desees.
 
 3. **Construye e inicia los contenedores:**
 
@@ -51,6 +51,8 @@ Para más detalles sobre el software necesario, consulta el documento [BasesDato
    ```bash
    docker exec -it "<nombre_del_contenedor>" /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "<tu_contraseña>" -N -C -Q "SELECT name FROM sys.databases"
    ```
+
+   Tambien podés verificarlo con tu gestor de base de datos SQL, indicando como servidor `localhost` y como `contraseña` el valor que corresponda
 
    Reemplaza `<nombre_del_contenedor>` y `<tu_contraseña>` con los valores correspondientes.
 
