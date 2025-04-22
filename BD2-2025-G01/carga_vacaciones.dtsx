@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{E01608BD-9B37-4E08-81FE-2237509EBF0A}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{C0A0DF45-D773-4AA4-9434-B62EBFF32DBE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -197,11 +197,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Carga vacaciones staging\stg_vacaciones"
+              refId="Package\Carga vacaciones staging\stg_vacaciones_G01"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="stg_vacaciones"
+              name="stg_vacaciones_G01"
               usesDispositions="true"
               version="4">
               <properties>
@@ -212,7 +212,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[stg_vacaciones]</property>
+                  name="OpenRowset">[stg_vacaciones_G01]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -254,7 +254,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Carga vacaciones staging\stg_vacaciones.Connections[OleDbConnection]"
+                  refId="Package\Carga vacaciones staging\stg_vacaciones_G01.Connections[OleDbConnection]"
                   connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
                   description="The OLE DB runtime connection used to access the database."
@@ -262,34 +262,34 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Carga vacaciones staging\stg_vacaciones.Inputs[OLE DB Destination Input]"
+                  refId="Package\Carga vacaciones staging\stg_vacaciones_G01.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga vacaciones staging\stg_vacaciones.Inputs[OLE DB Destination Input].Columns[DATE]"
+                      refId="Package\Carga vacaciones staging\stg_vacaciones_G01.Inputs[OLE DB Destination Input].Columns[DATE]"
                       cachedDataType="date"
                       cachedName="DATE"
-                      externalMetadataColumnId="Package\Carga vacaciones staging\stg_vacaciones.Inputs[OLE DB Destination Input].ExternalColumns[DATE]"
+                      externalMetadataColumnId="Package\Carga vacaciones staging\stg_vacaciones_G01.Inputs[OLE DB Destination Input].ExternalColumns[DATE]"
                       lineageId="Package\Carga vacaciones staging\Excel Vacaciones.Outputs[Excel Source Output].Columns[DATE]" />
                     <inputColumn
-                      refId="Package\Carga vacaciones staging\stg_vacaciones.Inputs[OLE DB Destination Input].Columns[HOLIDAY]"
+                      refId="Package\Carga vacaciones staging\stg_vacaciones_G01.Inputs[OLE DB Destination Input].Columns[HOLIDAY]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="HOLIDAY"
-                      externalMetadataColumnId="Package\Carga vacaciones staging\stg_vacaciones.Inputs[OLE DB Destination Input].ExternalColumns[HOLIDAY]"
+                      externalMetadataColumnId="Package\Carga vacaciones staging\stg_vacaciones_G01.Inputs[OLE DB Destination Input].ExternalColumns[HOLIDAY]"
                       lineageId="Package\Carga vacaciones staging\Excel Vacaciones.Outputs[Excel Source Output].Columns[HOLIDAY]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Carga vacaciones staging\stg_vacaciones.Inputs[OLE DB Destination Input].ExternalColumns[DATE]"
+                      refId="Package\Carga vacaciones staging\stg_vacaciones_G01.Inputs[OLE DB Destination Input].ExternalColumns[DATE]"
                       dataType="dbTimeStamp"
                       name="DATE" />
                     <externalMetadataColumn
-                      refId="Package\Carga vacaciones staging\stg_vacaciones.Inputs[OLE DB Destination Input].ExternalColumns[HOLIDAY]"
+                      refId="Package\Carga vacaciones staging\stg_vacaciones_G01.Inputs[OLE DB Destination Input].ExternalColumns[HOLIDAY]"
                       dataType="wstr"
                       length="255"
                       name="HOLIDAY" />
@@ -298,22 +298,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Carga vacaciones staging\stg_vacaciones.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Carga vacaciones staging\stg_vacaciones_G01.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Carga vacaciones staging\stg_vacaciones.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Carga vacaciones staging\stg_vacaciones_G01.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga vacaciones staging\stg_vacaciones.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Carga vacaciones staging\stg_vacaciones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Carga vacaciones staging\stg_vacaciones.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Carga vacaciones staging\stg_vacaciones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Carga vacaciones staging\stg_vacaciones.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Carga vacaciones staging\stg_vacaciones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Carga vacaciones staging\stg_vacaciones.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Carga vacaciones staging\stg_vacaciones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -325,7 +325,7 @@
           <paths>
             <path
               refId="Package\Carga vacaciones staging.Paths[Excel Source Output]"
-              endId="Package\Carga vacaciones staging\stg_vacaciones.Inputs[OLE DB Destination Input]"
+              endId="Package\Carga vacaciones staging\stg_vacaciones_G01.Inputs[OLE DB Destination Input]"
               name="Excel Source Output"
               startId="Package\Carga vacaciones staging\Excel Vacaciones.Outputs[Excel Source Output]" />
           </paths>
@@ -346,7 +346,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D6007274-3C00-4CA7-9755-908AF3256B73}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE [staging_2025_g01].dbo.[stg_vacaciones]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_staging_2025_G01].dbo.[stg_vacaciones_G01]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -483,23 +483,23 @@
           Id="Package\Carga vacaciones staging\Excel Vacaciones"
           TopLeft="537.499970632296,62.3999995660782" />
         <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Carga vacaciones staging\stg_vacaciones"
+          Size="175.2,41.6"
+          Id="Package\Carga vacaciones staging\stg_vacaciones_G01"
           TopLeft="534.99997076889,164.666665521595" />
         <EdgeLayout
           Id="Package\Carga vacaciones staging.Paths[Excel Source Output]"
-          TopLeft="614.049970700593,103.999999566078">
+          TopLeft="620.249970700593,103.999999566078">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.666665955517"
+              EndConnector="0,60.6666659555168"
               Start="0,0"
-              End="0,53.166665955517">
+              End="0,53.1666659555168">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.166665955517" />
+                    End="0,53.1666659555168" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -525,7 +525,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga vacaciones staging\stg_vacaciones">
+    design-time-name="Package\Carga vacaciones staging\stg_vacaciones_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

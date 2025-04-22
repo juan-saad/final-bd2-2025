@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{C192F6E1-CF8E-4768-AF82-59F8F6F4D1E0}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{6B4EABC6-2D0C-45EF-B534-8DC0C33E1D16}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABRLhJugUFcOIwzrulFfNlpSjZ4EV/jCNmKJSl9pVx12wAAAAAOgAAAAAIAACAAAADua9YCR+4agKDMkeQQ9CUtBIR7MdX3ozQkD87s0OFJRSAAAADygVgZxfkuyRBBlE/GIbigJttUnUXDCLLPnhZdZSB4CUAAAAC56P+iw9jeLgtdZQiGxwCw9MDW5Dzzj8PSdsWfoLqEDQYhWG3lhybVKPcvw9aZ6z9rVOBQ8BE9uLwsI5FdiXJD</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACXzX+4lL6IgvYiU7qBcXwJuSosuZQEFBRv7QujouoKCgAAAAAOgAAAAAIAACAAAADdeqt9QcxYQlw9jEK4Ie8pXY5q4m/l7vEXCtW6k1q43CAAAACzvhZWB2lHgksiuVz7idIHtFlCdxwyF38n0ro+NHeqAkAAAADvpCdrkFiYzN+wU4qLc2cZbCM7g/0lzUVAI7pKb4Lafu8E1Uivy0dZ1gNmKOvmybwO06v0yK3l7wi/FQRDylju</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -51,11 +51,11 @@
           version="1">
           <components>
             <component
-              refId="Package\Carga ventas historicas staging\stg_ventas_hist"
+              refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="stg_ventas_hist"
+              name="stg_ventas_hist_G01"
               usesDispositions="true"
               version="4">
               <properties>
@@ -66,7 +66,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[stg_ventas_hist]</property>
+                  name="OpenRowset">[stg_ventas_hist_G01]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -108,7 +108,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Carga ventas historicas staging\stg_ventas_hist.Connections[OleDbConnection]"
+                  refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Connections[OleDbConnection]"
                   connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
                   description="The OLE DB runtime connection used to access the database."
@@ -116,120 +116,120 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input]"
+                  refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].Columns[id]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].Columns[ID]"
                       cachedDataType="i4"
-                      cachedName="id"
-                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[id]" />
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[ID]" />
                     <inputColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].Columns[billing_id]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].Columns[BILLING_ID]"
                       cachedDataType="i4"
-                      cachedName="billing_id"
-                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[billing_id]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[billing_id]" />
+                      cachedName="BILLING_ID"
+                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[BILLING_ID]"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[BILLING_ID]" />
                     <inputColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].Columns[date]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].Columns[DATE]"
                       cachedDataType="dbTimeStamp"
-                      cachedName="date"
-                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[date]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[date]" />
+                      cachedName="DATE"
+                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[DATE]"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[DATE]" />
                     <inputColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].Columns[CUSTOMER_ID]"
                       cachedDataType="i4"
-                      cachedName="customer_id"
-                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                      cachedName="CUSTOMER_ID"
+                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]" />
                     <inputColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].Columns[employee_id]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].Columns[EMPLOYEE_ID]"
                       cachedDataType="i4"
-                      cachedName="employee_id"
-                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[employee_id]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[employee_id]" />
+                      cachedName="EMPLOYEE_ID"
+                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYEE_ID]"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]" />
                     <inputColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].Columns[product_id]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].Columns[PRODUCT_ID]"
                       cachedDataType="i4"
-                      cachedName="product_id"
-                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[product_id]" />
+                      cachedName="PRODUCT_ID"
+                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT_ID]"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]" />
                     <inputColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].Columns[QUANTITY]"
                       cachedDataType="i4"
-                      cachedName="quantity"
-                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[quantity]" />
+                      cachedName="QUANTITY"
+                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[QUANTITY]"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[QUANTITY]" />
                     <inputColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].Columns[region]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].Columns[REGION]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="45"
-                      cachedName="region"
-                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[region]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[region]" />
+                      cachedName="REGION"
+                      externalMetadataColumnId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[REGION]"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[REGION]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
                       dataType="i4"
-                      name="id" />
+                      name="ID" />
                     <externalMetadataColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[billing_id]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[BILLING_ID]"
                       dataType="i4"
-                      name="billing_id" />
+                      name="BILLING_ID" />
                     <externalMetadataColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[DATE]"
                       dataType="dbTimeStamp"
-                      name="date" />
+                      name="DATE" />
                     <externalMetadataColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
                       dataType="i4"
-                      name="customer_id" />
+                      name="CUSTOMER_ID" />
                     <externalMetadataColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[employee_id]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYEE_ID]"
                       dataType="i4"
-                      name="employee_id" />
+                      name="EMPLOYEE_ID" />
                     <externalMetadataColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT_ID]"
                       dataType="i4"
-                      name="product_id" />
+                      name="PRODUCT_ID" />
                     <externalMetadataColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[QUANTITY]"
                       dataType="i4"
-                      name="quantity" />
+                      name="QUANTITY" />
                     <externalMetadataColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input].ExternalColumns[REGION]"
                       codePage="1252"
                       dataType="str"
                       length="45"
-                      name="region" />
+                      name="REGION" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Carga ventas historicas staging\stg_ventas_hist.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Carga ventas historicas staging\stg_ventas_hist.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Carga ventas historicas staging\stg_ventas_hist.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Carga ventas historicas staging\stg_ventas_hist.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -299,78 +299,78 @@
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[id]"
+                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].ExternalColumns[id]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[id]"
-                      name="id"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[billing_id]"
+                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[BILLING_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].ExternalColumns[billing_id]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[billing_id]"
-                      name="billing_id"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[BILLING_ID]"
+                      name="BILLING_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[date]"
+                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[DATE]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].ExternalColumns[date]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[date]"
-                      name="date"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[DATE]"
+                      name="DATE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[customer_id]"
-                      name="customer_id"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                      name="CUSTOMER_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[employee_id]"
+                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].ExternalColumns[employee_id]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[employee_id]"
-                      name="employee_id"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]"
+                      name="EMPLOYEE_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[product_id]"
+                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].ExternalColumns[product_id]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[product_id]"
-                      name="product_id"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[quantity]"
+                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[QUANTITY]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[quantity]"
-                      name="quantity"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[QUANTITY]"
+                      name="QUANTITY"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[region]"
+                      refId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[REGION]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].ExternalColumns[region]"
                       length="45"
-                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[region]"
-                      name="region"
+                      lineageId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output].Columns[REGION]"
+                      name="REGION"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -479,7 +479,7 @@
           <paths>
             <path
               refId="Package\Carga ventas historicas staging.Paths[OLE DB Source Output]"
-              endId="Package\Carga ventas historicas staging\stg_ventas_hist.Inputs[OLE DB Destination Input]"
+              endId="Package\Carga ventas historicas staging\stg_ventas_hist_G01.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\Carga ventas historicas staging\Ventas historicas SQL Server.Outputs[OLE DB Source Output]" />
           </paths>
@@ -500,7 +500,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D6007274-3C00-4CA7-9755-908AF3256B73}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE [staging_2025_g01].dbo.[stg_ventas_hist]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_staging_2025_G01].dbo.[stg_ventas_hist_G01]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -565,27 +565,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Carga ventas historicas staging\stg_ventas_hist"
-          TopLeft="107.499994126459,180.266665413115" />
+          Size="176,41.6"
+          Id="Package\Carga ventas historicas staging\stg_ventas_hist_G01"
+          TopLeft="90.8333283704188,175.066665449275" />
         <NodeLayout
           Size="214.4,41.6"
           Id="Package\Carga ventas historicas staging\Ventas historicas SQL Server"
           TopLeft="74.1666626143789,69.333332851198" />
         <EdgeLayout
           Id="Package\Carga ventas historicas staging.Paths[OLE DB Source Output]"
-          TopLeft="182.033328370419,110.933332851198">
+          TopLeft="180.099995492399,110.933332851198">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,69.3333325619168"
+              EndConnector="0,64.1333325980771"
               Start="0,0"
-              End="0,61.8333325619168">
+              End="0,56.6333325980771">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,61.8333325619168" />
+                    End="0,56.6333325980771" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -598,7 +598,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga ventas historicas staging\stg_ventas_hist">
+    design-time-name="Package\Carga ventas historicas staging\stg_ventas_hist_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

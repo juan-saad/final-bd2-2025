@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_productos"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{2554B860-0485-4C3E-B342-6F73ED1189C5}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{EBB455FF-A9D9-450F-8FD1-BD0320B00125}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -143,15 +143,15 @@
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[product_id]"
+                      refId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[PRODUCT_ID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[product_id]"
                       length="50"
-                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[product_id]"
-                      name="product_id"
+                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -165,15 +165,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[detail]"
+                      refId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[DETAIL]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[detail]"
                       length="50"
-                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[detail]"
-                      name="detail"
+                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[DETAIL]"
+                      name="DETAIL"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -187,15 +187,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[package]"
+                      refId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[PACKAGE]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[package]"
                       length="50"
-                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[package]"
-                      name="package"
+                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[PACKAGE]"
+                      name="PACKAGE"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -261,11 +261,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Carga productos staging\stg_productos"
+              refId="Package\Carga productos staging\stg_productos_G01"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="stg_productos"
+              name="stg_productos_G01"
               usesDispositions="true"
               version="4">
               <properties>
@@ -276,7 +276,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[stg_productos]</property>
+                  name="OpenRowset">[stg_productos_G01]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -318,7 +318,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Carga productos staging\stg_productos.Connections[OleDbConnection]"
+                  refId="Package\Carga productos staging\stg_productos_G01.Connections[OleDbConnection]"
                   connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
                   description="The OLE DB runtime connection used to access the database."
@@ -326,78 +326,78 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input]"
+                  refId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input].Columns[product_id]"
+                      refId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input].Columns[PRODUCT_ID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="product_id"
-                      externalMetadataColumnId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
-                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[product_id]" />
+                      cachedName="PRODUCT_ID"
+                      externalMetadataColumnId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT_ID]"
+                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[PRODUCT_ID]" />
                     <inputColumn
-                      refId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input].Columns[detail]"
+                      refId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input].Columns[DETAIL]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="detail"
-                      externalMetadataColumnId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input].ExternalColumns[detail]"
-                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[detail]" />
+                      cachedName="DETAIL"
+                      externalMetadataColumnId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[DETAIL]"
+                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[DETAIL]" />
                     <inputColumn
-                      refId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input].Columns[package]"
+                      refId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input].Columns[PACKAGE]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="package"
-                      externalMetadataColumnId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input].ExternalColumns[package]"
-                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[package]" />
+                      cachedName="PACKAGE"
+                      externalMetadataColumnId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[PACKAGE]"
+                      lineageId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output].Columns[PACKAGE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      refId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT_ID]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="product_id" />
+                      name="PRODUCT_ID" />
                     <externalMetadataColumn
-                      refId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input].ExternalColumns[detail]"
+                      refId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[DETAIL]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="detail" />
+                      name="DETAIL" />
                     <externalMetadataColumn
-                      refId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input].ExternalColumns[package]"
+                      refId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[PACKAGE]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="package" />
+                      name="PACKAGE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Carga productos staging\stg_productos.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Carga productos staging\stg_productos_G01.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga productos staging\stg_productos.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Carga productos staging\stg_productos_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Carga productos staging\stg_productos.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Carga productos staging\stg_productos_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Carga productos staging\stg_productos.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Carga productos staging\stg_productos_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Carga productos staging\stg_productos.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Carga productos staging\stg_productos_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -409,7 +409,7 @@
           <paths>
             <path
               refId="Package\Carga productos staging.Paths[Flat File Source Output]"
-              endId="Package\Carga productos staging\stg_productos.Inputs[OLE DB Destination Input]"
+              endId="Package\Carga productos staging\stg_productos_G01.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
               startId="Package\Carga productos staging\Flat File Source.Outputs[Flat File Source Output]" />
           </paths>
@@ -430,7 +430,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D6007274-3C00-4CA7-9755-908AF3256B73}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE [staging_2025_g01].dbo.[stg_productos]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_staging_2025_G01].dbo.[stg_productos_G01]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -575,39 +575,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="144,41.6"
-          Id="Package\Carga productos staging\stg_productos"
-          TopLeft="452.499975276491,165.533332182235" />
+          Size="168.8,41.6"
+          Id="Package\Carga productos staging\stg_productos_G01"
+          TopLeft="429.166643218035,154.266665593915" />
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Carga productos staging\Flat File Source"
           TopLeft="439.166642671659,65.8666662086381" />
         <EdgeLayout
           Id="Package\Carga productos staging.Paths[Flat File Source Output]"
-          TopLeft="514.766642671659,107.466666208638">
+          TopLeft="514.166642944847,107.466666208638">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.73333260483207,58.0666659735971"
+              EndConnector="0,46.7999993852772"
               Start="0,0"
-              End="9.73333260483207,50.5666659735971">
+              End="0,39.2999993852772">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.0333329867986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.0333329867986"
-                    Point2="0,29.0333329867986"
-                    Point3="4,29.0333329867986" />
-                  <mssgle:LineSegment
-                    End="5.73333260483207,29.0333329867986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.73333260483207,29.0333329867986"
-                    Point2="9.73333260483207,29.0333329867986"
-                    Point3="9.73333260483207,33.0333329867986" />
-                  <mssgle:LineSegment
-                    End="9.73333260483207,50.5666659735971" />
+                    End="0,39.2999993852772" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -620,7 +608,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga productos staging\stg_productos">
+    design-time-name="Package\Carga productos staging\stg_productos_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

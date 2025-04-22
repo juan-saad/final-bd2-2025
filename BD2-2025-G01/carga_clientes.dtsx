@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_clientes"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{7611B4C9-3E87-4B54-B584-145AF433DE4D}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{050BC510-F963-4F8B-8CFC-3D32B1B62C9C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -600,11 +600,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Carga clientes staging\stg_clientes_r"
+              refId="Package\Carga clientes staging\stg_clientes_r_G01"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="stg_clientes_r"
+              name="stg_clientes_r_G01"
               usesDispositions="true"
               version="4">
               <properties>
@@ -615,7 +615,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[stg_clientes_r]</property>
+                  name="OpenRowset">[stg_clientes_r_G01]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -657,7 +657,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Carga clientes staging\stg_clientes_r.Connections[OleDbConnection]"
+                  refId="Package\Carga clientes staging\stg_clientes_r_G01.Connections[OleDbConnection]"
                   connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
                   description="The OLE DB runtime connection used to access the database."
@@ -665,81 +665,81 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input]"
+                  refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].Columns[CUSTOMER_ID]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].Columns[CUSTOMER_ID]"
                       cachedDataType="ui2"
                       cachedName="CUSTOMER_ID"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
                       lineageId="Package\Carga clientes staging\Clientes_R.Outputs[cliente].Columns[CUSTOMER_ID]" />
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].Columns[FULL_NAME]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].Columns[FULL_NAME]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="FULL_NAME"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
                       lineageId="Package\Carga clientes staging\Clientes_R.Outputs[cliente].Columns[FULL_NAME]" />
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].Columns[BIRTH_DATE]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].Columns[BIRTH_DATE]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="BIRTH_DATE"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
                       lineageId="Package\Carga clientes staging\Clientes_R.Outputs[cliente].Columns[BIRTH_DATE]" />
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].Columns[CITY]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].Columns[CITY]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="CITY"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
                       lineageId="Package\Carga clientes staging\Clientes_R.Outputs[cliente].Columns[CITY]" />
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].Columns[STATE]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].Columns[STATE]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="STATE"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
                       lineageId="Package\Carga clientes staging\Clientes_R.Outputs[cliente].Columns[STATE]" />
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].Columns[ZIPCODE]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].Columns[ZIPCODE]"
                       cachedDataType="ui4"
                       cachedName="ZIPCODE"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCODE]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCODE]"
                       lineageId="Package\Carga clientes staging\Clientes_R.Outputs[cliente].Columns[ZIPCODE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
                       dataType="i4"
                       name="CUSTOMER_ID" />
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
                       dataType="wstr"
                       length="255"
                       name="FULL_NAME" />
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
                       dataType="wstr"
                       length="255"
                       name="BIRTH_DATE" />
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
                       dataType="wstr"
                       length="255"
                       name="CITY" />
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
                       dataType="wstr"
                       length="255"
                       name="STATE" />
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCODE]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCODE]"
                       dataType="i8"
                       name="ZIPCODE" />
                   </externalMetadataColumns>
@@ -747,22 +747,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Carga clientes staging\stg_clientes_r.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Carga clientes staging\stg_clientes_r_G01.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Carga clientes staging\stg_clientes_r.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Carga clientes staging\stg_clientes_r_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_r.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Carga clientes staging\stg_clientes_r_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Carga clientes staging\stg_clientes_r.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Carga clientes staging\stg_clientes_r_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -771,11 +771,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Carga clientes staging\stg_clientes_w"
+              refId="Package\Carga clientes staging\stg_clientes_w_G01"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="stg_clientes_w"
+              name="stg_clientes_w_G01"
               usesDispositions="true"
               version="4">
               <properties>
@@ -786,7 +786,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[stg_clientes_w]</property>
+                  name="OpenRowset">[stg_clientes_w_G01]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -828,7 +828,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Carga clientes staging\stg_clientes_w.Connections[OleDbConnection]"
+                  refId="Package\Carga clientes staging\stg_clientes_w_G01.Connections[OleDbConnection]"
                   connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
                   description="The OLE DB runtime connection used to access the database."
@@ -836,81 +836,81 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input]"
+                  refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].Columns[CUSTOMER_ID]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].Columns[CUSTOMER_ID]"
                       cachedDataType="ui2"
                       cachedName="CUSTOMER_ID"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
                       lineageId="Package\Carga clientes staging\Clientes_W.Outputs[cliente].Columns[CUSTOMER_ID]" />
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].Columns[FULL_NAME]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].Columns[FULL_NAME]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="FULL_NAME"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
                       lineageId="Package\Carga clientes staging\Clientes_W.Outputs[cliente].Columns[FULL_NAME]" />
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].Columns[BIRTH_DATE]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].Columns[BIRTH_DATE]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="BIRTH_DATE"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
                       lineageId="Package\Carga clientes staging\Clientes_W.Outputs[cliente].Columns[BIRTH_DATE]" />
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].Columns[CITY]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].Columns[CITY]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="CITY"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
                       lineageId="Package\Carga clientes staging\Clientes_W.Outputs[cliente].Columns[CITY]" />
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].Columns[STATE]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].Columns[STATE]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="STATE"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
                       lineageId="Package\Carga clientes staging\Clientes_W.Outputs[cliente].Columns[STATE]" />
                     <inputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].Columns[ZIPCODE]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].Columns[ZIPCODE]"
                       cachedDataType="ui4"
                       cachedName="ZIPCODE"
-                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCODE]"
+                      externalMetadataColumnId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCODE]"
                       lineageId="Package\Carga clientes staging\Clientes_W.Outputs[cliente].Columns[ZIPCODE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
                       dataType="i4"
                       name="CUSTOMER_ID" />
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
                       dataType="wstr"
                       length="255"
                       name="FULL_NAME" />
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
                       dataType="wstr"
                       length="255"
                       name="BIRTH_DATE" />
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
                       dataType="wstr"
                       length="255"
                       name="CITY" />
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
                       dataType="wstr"
                       length="255"
                       name="STATE" />
                     <externalMetadataColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCODE]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCODE]"
                       dataType="i8"
                       name="ZIPCODE" />
                   </externalMetadataColumns>
@@ -918,22 +918,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Carga clientes staging\stg_clientes_w.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Carga clientes staging\stg_clientes_w_G01.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Carga clientes staging\stg_clientes_w.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Carga clientes staging\stg_clientes_w_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Carga clientes staging\stg_clientes_w.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Carga clientes staging\stg_clientes_w_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Carga clientes staging\stg_clientes_w.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Carga clientes staging\stg_clientes_w_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -945,12 +945,12 @@
           <paths>
             <path
               refId="Package\Carga clientes staging.Paths[cliente]"
-              endId="Package\Carga clientes staging\stg_clientes_w.Inputs[OLE DB Destination Input]"
+              endId="Package\Carga clientes staging\stg_clientes_w_G01.Inputs[OLE DB Destination Input]"
               name="cliente"
               startId="Package\Carga clientes staging\Clientes_W.Outputs[cliente]" />
             <path
               refId="Package\Carga clientes staging.Paths[cliente1]"
-              endId="Package\Carga clientes staging\stg_clientes_r.Inputs[OLE DB Destination Input]"
+              endId="Package\Carga clientes staging\stg_clientes_r_G01.Inputs[OLE DB Destination Input]"
               name="cliente"
               startId="Package\Carga clientes staging\Clientes_R.Outputs[cliente]" />
           </paths>
@@ -971,7 +971,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D6007274-3C00-4CA7-9755-908AF3256B73}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE [staging_2025_g01].dbo.[stg_clientes_w]&#xA;&#xA;GO&#xA;&#xA;TRUNCATE TABLE [staging_2025_g01].dbo.[stg_clientes_r]&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_staging_2025_G01].dbo.[stg_clientes_w_G01]&#xA;&#xA;GO&#xA;&#xA;TRUNCATE TABLE [bd_staging_2025_G01].dbo.[stg_clientes_r_G01]&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1140,9 +1140,9 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="142.4,41.6"
-          Id="Package\Carga clientes staging\stg_clientes_r"
-          TopLeft="524.999971315266,180.266665413115" />
+          Size="168,41.6"
+          Id="Package\Carga clientes staging\stg_clientes_r_G01"
+          TopLeft="519.166638300652,171.599998806715" />
         <NodeLayout
           Size="132,41.6"
           Id="Package\Carga clientes staging\Clientes_W"
@@ -1152,23 +1152,23 @@
           Id="Package\Carga clientes staging\Clientes_R"
           TopLeft="532.499970905484,56.3333329415983" />
         <NodeLayout
-          Size="146.4,41.6"
-          Id="Package\Carga clientes staging\stg_clientes_w"
-          TopLeft="271.666651823455,185.466665376955" />
+          Size="172,41.6"
+          Id="Package\Carga clientes staging\stg_clientes_w_G01"
+          TopLeft="259.166652506425,174.199998788635" />
         <EdgeLayout
           Id="Package\Carga clientes staging.Paths[cliente1]"
-          TopLeft="596.749971110375,97.9333329415983">
+          TopLeft="600.233304603068,97.9333329415983">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,82.3333324715165"
+              EndConnector="0,73.666665865117"
               Start="0,0"
-              End="0,74.8333324715165">
+              End="0,66.166665865117">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,74.8333324715165" />
+                    End="0,66.166665865117" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1179,18 +1179,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga clientes staging.Paths[cliente]"
-          TopLeft="344.599984974663,103.133332905438">
+          TopLeft="344.749985316148,103.133332905438">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,82.3333324715164"
+              EndConnector="0,71.0666658831968"
               Start="0,0"
-              End="0,74.8333324715164">
+              End="0,63.5666658831968">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,74.8333324715164" />
+                    End="0,63.5666658831968" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1203,7 +1203,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga clientes staging\stg_clientes_r">
+    design-time-name="Package\Carga clientes staging\stg_clientes_r_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1216,7 +1216,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga clientes staging\stg_clientes_w">
+    design-time-name="Package\Carga clientes staging\stg_clientes_w_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

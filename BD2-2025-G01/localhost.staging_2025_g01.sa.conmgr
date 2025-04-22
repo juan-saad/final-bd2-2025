@@ -7,10 +7,10 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=staging_2025_g01;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;">
+      DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=bd_staging_2025_G01;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-{D6007274-3C00-4CA7-9755-908AF3256B73}localhost.staging_2025_g01.sa;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAACAAAAAAAQZgAAAAEAACAAAADf+QqngXxcs0jQ5Nla1FWdmSsnBCOhofYKRRw/qIWhDQAAAAAOgAAAAAIAACAAAAAe1kOUjQ7mySLnTaGnf9UV5pQ0FSneIfiC5ktNBajHQoAAAACLCW/UMMk7Nkx0g/RRpPjG3kxovlSNR4wEmGrlpwsIkPQp94FEEJpuOBWVmjGBIDPglu8RkarbTBjEy3cqCuRoRY2SYgyALylGfGPRjqFRCu6/KK9QamjSk6WglRFv0AcSk68pO+ST01SSRp6K6JTE131GdocH4UEE0hNdahXa2UAAAADNOyVnnoN7ff71g1liCQ4eNRJgLaGqkuGc81hqQRQiJjDxGQawKTTfHHIuYo5dhBcZsBHizWhKn2S5XgVSAiO2</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAACAAAAAAAQZgAAAAEAACAAAADtfrwt20/a8fjOb48xaw5rWZoH1sMKjIDB3qPqvfHh4gAAAAAOgAAAAAIAACAAAADIO2kgGHo5GhkqXXuottGvCu3WUeBwd/UhfNPO+JnU0oAAAAC6Lp/djFS11w56JXWsk5YFw1c+BzK59lKPplunK1SBoettHEdoI5XCzGGADPR7oVHYY7h4/uQphc8C38AvZdI0DwpEKHnPqx+upWon9yJ5P7+Pf+zKrnaXz667eYVnbAwovYEPrHa0jKGovJJ/o21KTy7D6m6EN/pidUbxHOX3FEAAAAC3uSkdKZsijDKWYxzu7GiS+gvGg/4JeDEi6CjDdq7IsdXYptuPf0VZ4oYxNFel78Tn35sMptjkfQQE8EWXZt/v</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

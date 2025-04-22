@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{5917372B-BE57-46B5-B108-815FF72BCC63}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{F8D6EC6C-561F-43A4-9E43-FB6989902B73}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -302,11 +302,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Carga empleados staging\stg_empleados"
+              refId="Package\Carga empleados staging\stg_empleados_G01"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="stg_empleados"
+              name="stg_empleados_G01"
               usesDispositions="true"
               version="4">
               <properties>
@@ -317,7 +317,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[stg_empleados]</property>
+                  name="OpenRowset">[stg_empleados_G01]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -359,7 +359,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Carga empleados staging\stg_empleados.Connections[OleDbConnection]"
+                  refId="Package\Carga empleados staging\stg_empleados_G01.Connections[OleDbConnection]"
                   connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
                   description="The OLE DB runtime connection used to access the database."
@@ -367,94 +367,94 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input]"
+                  refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].Columns[EMPLOYEE_ID]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].Columns[EMPLOYEE_ID]"
                       cachedDataType="r8"
                       cachedName="EMPLOYEE_ID"
-                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYEE_ID]"
+                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYEE_ID]"
                       lineageId="Package\Carga empleados staging\Excel Empleados.Outputs[Excel Source Output].Columns[EMPLOYEE_ID]" />
                     <inputColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].Columns[FULL_NAME]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].Columns[FULL_NAME]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="FULL_NAME"
-                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
+                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
                       lineageId="Package\Carga empleados staging\Excel Empleados.Outputs[Excel Source Output].Columns[FULL_NAME]" />
                     <inputColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].Columns[CATEGORY]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].Columns[CATEGORY]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="CATEGORY"
-                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY]"
+                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY]"
                       lineageId="Package\Carga empleados staging\Excel Empleados.Outputs[Excel Source Output].Columns[CATEGORY]" />
                     <inputColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].Columns[EMPLOYMENT_DATE]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].Columns[EMPLOYMENT_DATE]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="EMPLOYMENT_DATE"
-                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYMENT_DATE]"
+                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYMENT_DATE]"
                       lineageId="Package\Carga empleados staging\Excel Empleados.Outputs[Excel Source Output].Columns[EMPLOYMENT_DATE]" />
                     <inputColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].Columns[BIRTH_DATE]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].Columns[BIRTH_DATE]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="BIRTH_DATE"
-                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
+                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
                       lineageId="Package\Carga empleados staging\Excel Empleados.Outputs[Excel Source Output].Columns[BIRTH_DATE]" />
                     <inputColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].Columns[EDUCATION_LEVEL]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].Columns[EDUCATION_LEVEL]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="EDUCATION_LEVEL"
-                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[EDUCATION_LEVEL]"
+                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EDUCATION_LEVEL]"
                       lineageId="Package\Carga empleados staging\Excel Empleados.Outputs[Excel Source Output].Columns[EDUCATION_LEVEL]" />
                     <inputColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].Columns[GENDER]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].Columns[GENDER]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="GENDER"
-                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[GENDER]"
+                      externalMetadataColumnId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[GENDER]"
                       lineageId="Package\Carga empleados staging\Excel Empleados.Outputs[Excel Source Output].Columns[GENDER]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYEE_ID]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYEE_ID]"
                       dataType="r8"
                       name="EMPLOYEE_ID" />
                     <externalMetadataColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
                       dataType="wstr"
                       length="255"
                       name="FULL_NAME" />
                     <externalMetadataColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY]"
                       dataType="wstr"
                       length="255"
                       name="CATEGORY" />
                     <externalMetadataColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYMENT_DATE]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYMENT_DATE]"
                       dataType="wstr"
                       length="255"
                       name="EMPLOYMENT_DATE" />
                     <externalMetadataColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
                       dataType="wstr"
                       length="255"
                       name="BIRTH_DATE" />
                     <externalMetadataColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[EDUCATION_LEVEL]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EDUCATION_LEVEL]"
                       dataType="wstr"
                       length="255"
                       name="EDUCATION_LEVEL" />
                     <externalMetadataColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[GENDER]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[GENDER]"
                       dataType="wstr"
                       length="255"
                       name="GENDER" />
@@ -463,22 +463,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Carga empleados staging\stg_empleados.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Carga empleados staging\stg_empleados_G01.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Carga empleados staging\stg_empleados.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Carga empleados staging\stg_empleados_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Carga empleados staging\stg_empleados.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Carga empleados staging\stg_empleados_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Carga empleados staging\stg_empleados.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Carga empleados staging\stg_empleados_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -490,7 +490,7 @@
           <paths>
             <path
               refId="Package\Carga empleados staging.Paths[Excel Source Output]"
-              endId="Package\Carga empleados staging\stg_empleados.Inputs[OLE DB Destination Input]"
+              endId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input]"
               name="Excel Source Output"
               startId="Package\Carga empleados staging\Excel Empleados.Outputs[Excel Source Output]" />
           </paths>
@@ -511,7 +511,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D6007274-3C00-4CA7-9755-908AF3256B73}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE [staging_2025_g01].dbo.[stg_empleados]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_staging_2025_G01].dbo.[stg_empleados_G01]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -660,23 +660,23 @@
           Id="Package\Carga empleados staging\Excel Empleados"
           TopLeft="442.499975822867,53.7333329596784" />
         <NodeLayout
-          Size="148.8,41.6"
-          Id="Package\Carga empleados staging\stg_empleados"
-          TopLeft="451.666641988689,168.133332164155" />
+          Size="174.4,41.6"
+          Id="Package\Carga empleados staging\stg_empleados_G01"
+          TopLeft="434.999976232649,164.666665521595" />
         <EdgeLayout
           Id="Package\Carga empleados staging.Paths[Excel Source Output]"
-          TopLeft="523.883308905778,95.3333329596784">
+          TopLeft="521.949976027758,95.3333329596784">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,72.7999992044767"
+              EndConnector="0,69.3333325619167"
               Start="0,0"
-              End="0,65.2999992044767">
+              End="0,61.8333325619167">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65.2999992044767" />
+                    End="0,61.8333325619167" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -702,7 +702,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga empleados staging\stg_empleados">
+    design-time-name="Package\Carga empleados staging\stg_empleados_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
