@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="BD2-TUIA.tuia_alumnos"
+  DTS:DTSID="{563DA7B8-59A8-43CF-B800-5F298199FEFB}"
+  DTS:CreationName="ADO.NET:System.Data.Odbc.OdbcConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="uid=tuia_alumnos;Dsn=BD2-TUIA;">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAACAAAAAAAQZgAAAAEAACAAAADz9idZyJhj05cuhcfGa7jYxy5YlhZhgLW6rNHo1U4+OQAAAAAOgAAAAAIAACAAAAAGeT3KxoS8p1ogsBW6pSk2b604jf900WmID8Cn7Q76eXAAAABSmcaiGHgY5MKml6+oIHJDc0zLZdnNWKzyLYtQfN9xuOgkTYIexPQF47OAy4nUR/Ot45/VDpSSFsDe+Mt78cuSTPCRWYJtdpLlhNMO+tHtPvxsx+O1LfmNYDCqmJ5NW6logv0Atn+54LaEemDGX0BBQAAAABIJKXW4OpUMroICFEsKmDKWjCxdlAVKGupqL7V7SpTBp0kz5XJ2AjPvqereie7O1udibr3BSdUtIxqEE4nmunE=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
