@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{F8D6EC6C-561F-43A4-9E43-FB6989902B73}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{F070A1AC-D5E9-4BBA-9E7E-5ED74B068DC7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -51,7 +51,6 @@
       DTS:refId="Package\Carga empleados intermedia"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{2b41aced-8e65-462d-8c57-38e3e5a01b8b}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -60,7 +59,440 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga empleados intermedia\int_empleados_G01"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="int_empleados_G01"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[int_empleados_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga empleados intermedia\int_empleados_G01.Connections[OleDbConnection]"
+                  connectionManagerID="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost bd_intermedia_2025_G01 sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[EMPLOYEE_ID]"
+                      cachedDataType="r8"
+                      cachedName="EMPLOYEE_ID"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYEE_ID]"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]" />
+                    <inputColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[FULL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FULL_NAME"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[FULL_NAME]" />
+                    <inputColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[CATEGORY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CATEGORY"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY]"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                    <inputColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[EMPLOYMENT_DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EMPLOYMENT_DATE"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYMENT_DATE]"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]" />
+                    <inputColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[BIRTH_DATE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="BIRTH_DATE"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]" />
+                    <inputColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[EDUCATION_LEVEL]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EDUCATION_LEVEL"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EDUCATION_LEVEL]"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]" />
+                    <inputColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[GENDER]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GENDER"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[GENDER]"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[GENDER]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYEE_ID]"
+                      dataType="r8"
+                      name="EMPLOYEE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[FULL_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="FULL_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY]"
+                      dataType="wstr"
+                      length="255"
+                      name="CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYMENT_DATE]"
+                      dataType="dbDate"
+                      name="EMPLOYMENT_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
+                      dataType="dbDate"
+                      name="BIRTH_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      length="255"
+                      name="EDUCATION_LEVEL" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[GENDER]"
+                      dataType="wstr"
+                      length="255"
+                      name="GENDER" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga empleados intermedia\int_empleados_G01.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados intermedia\int_empleados_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\int_empleados_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados intermedia\int_empleados_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga empleados intermedia\Source stg_empleados_G01"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source stg_empleados_G01"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_empleados_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [EMPLOYEE_ID]
+      , [FULL_NAME]
+      , [CATEGORY]
+      , [EMPLOYMENT_DATE]
+      , [BIRTH_DATE]
+      , [EDUCATION_LEVEL]
+      , [GENDER]
+FROM [bd_staging_2025_G01].[dbo].[stg_empleados_G01] e
+WHERE e.EMPLOYEE_ID IS NOT NULL</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Connections[OleDbConnection]"
+                  connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYEE_ID]"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]"
+                      name="EMPLOYEE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[FULL_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[FULL_NAME]"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[FULL_NAME]"
+                      name="FULL_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[CATEGORY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY]"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[CATEGORY]"
+                      name="CATEGORY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_DATE]"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]"
+                      name="EMPLOYMENT_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE]"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]"
+                      name="BIRTH_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[EDUCATION_LEVEL]"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]"
+                      name="EDUCATION_LEVEL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[GENDER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[GENDER]"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[GENDER]"
+                      name="GENDER"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYEE_ID]"
+                      dataType="r8"
+                      name="EMPLOYEE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[FULL_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="FULL_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY]"
+                      dataType="wstr"
+                      length="255"
+                      name="CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_DATE]"
+                      dataType="wstr"
+                      length="255"
+                      name="EMPLOYMENT_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE]"
+                      dataType="wstr"
+                      length="255"
+                      name="BIRTH_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      length="255"
+                      name="EDUCATION_LEVEL" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[GENDER]"
+                      dataType="wstr"
+                      length="255"
+                      name="GENDER" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[EMPLOYEE_ID]"
+                      dataType="r8"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[EMPLOYEE_ID]"
+                      name="EMPLOYEE_ID" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[FULL_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[FULL_NAME]"
+                      name="FULL_NAME" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[CATEGORY]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[CATEGORY]"
+                      name="CATEGORY" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_DATE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_DATE]"
+                      name="EMPLOYMENT_DATE" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE]"
+                      name="BIRTH_DATE" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[EDUCATION_LEVEL]"
+                      name="EDUCATION_LEVEL" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[GENDER]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[GENDER]"
+                      name="GENDER" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga empleados intermedia.Paths[OLE DB Source Output]"
+              endId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -498,6 +930,23 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Truncate int_empleados"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d6d13205-2eea-4328-b0d7-913b4cc6cba1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate int_empleados"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6007274-3C00-4CA7-9755-908AF3256B73}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_intermedia_2025_G01].[dbo].[int_empleados_G01]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Truncate stg_empleados"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -527,8 +976,8 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{23C49054-0ED4-47D9-B5E0-C5B51F516F98}"
-      DTS:From="Package\Carga empleados staging"
+      DTS:DTSID="{4EFDA815-6698-4CB5-AE32-4A63589F5FCF}"
+      DTS:From="Package\Truncate int_empleados"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Carga empleados intermedia" />
@@ -540,6 +989,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Carga empleados Datawarehouse" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{63C6D58F-B030-4E66-B32A-1E9A8245CD43}"
+      DTS:From="Package\Carga empleados staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Truncate int_empleados" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -552,19 +1009,23 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="236,41.6"
           Id="Package\Carga empleados Datawarehouse"
-          TopLeft="520.833304876256,314.999999222557" />
+          TopLeft="494.166639666592,420.733331820634" />
         <NodeLayout
           Size="212,41.6"
           Id="Package\Carga empleados intermedia"
-          TopLeft="520.833304876256,213.399999222557" />
+          TopLeft="501.66663925681,326.933331766394" />
         <NodeLayout
           Size="196.8,41.6"
           Id="Package\Carga empleados staging"
           TopLeft="521.785685776601,116.752380140499" />
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\Truncate int_empleados"
+          TopLeft="519.999971588454,212.333331856794" />
         <NodeLayout
           Size="192.8,41.6"
           Id="Package\Truncate stg_empleados"
@@ -593,18 +1054,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="623.509495326428,158.352380140499">
+          TopLeft="611.233305422632,253.933331856794">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.0476190820573"
+              EndConnector="0,72.9999999096002"
               Start="0,0"
-              End="0,47.5476190820573">
+              End="0,65.4999999096002">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.5476190820573" />
+                    End="0,65.4999999096002" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -615,30 +1076,40 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="626.833304876256,254.999999222557">
+          TopLeft="609.916639461701,368.533331766394">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="12,60"
+              EndConnector="0,52.20000005424"
               Start="0,0"
-              End="12,52.5">
+              End="0,44.70000005424">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="4,30" />
+                    End="0,44.70000005424" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="617.492828682527,158.352380140499">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.9809517162947"
+              Start="0,0"
+              End="0,46.4809517162947">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="8,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8,30"
-                    Point2="12,30"
-                    Point3="12,34" />
-                  <mssgle:LineSegment
-                    End="12,52.5" />
+                    End="0,46.4809517162947" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -651,10 +1122,74 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Carga empleados staging">
+    design-time-name="Package\Carga empleados intermedia">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="210.4,41.6"
+          Id="Package\Carga empleados intermedia\Source stg_empleados_G01"
+          TopLeft="424.999976779025,43.3333330319987" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Carga empleados intermedia\int_empleados_G01"
+          TopLeft="435.833309520451,168.999998824795" />
+        <EdgeLayout
+          Id="Package\Carga empleados intermedia.Paths[OLE DB Source Output]"
+          TopLeft="527.216643149738,84.9333330319987">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,84.0666657927964"
+              Start="0,0"
+              End="0,76.5666657927964">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.5666657927964" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga empleados intermedia\int_empleados_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga empleados intermedia\Source stg_empleados_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Carga empleados staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\Carga empleados staging\Excel Empleados"
@@ -682,7 +1217,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
