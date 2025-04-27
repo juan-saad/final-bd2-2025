@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{EDC16ABE-4871-4D71-B628-65DAF999A69F}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{53C6859B-47FB-4205-ACA1-646A017ABEC0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -94,7 +94,6 @@
       DTS:refId="Package\Carga regiones intermedia"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{f15cad81-7be7-4d47-a5a6-929131091c37}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -103,7 +102,360 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga regiones intermedia\int_regiones_G01"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="int_regiones_G01"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[int_regiones_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga regiones intermedia\int_regiones_G01.Connections[OleDbConnection]"
+                  connectionManagerID="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost bd_intermedia_2025_G01 sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].Columns[REGION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="REGION"
+                      externalMetadataColumnId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].ExternalColumns[REGION]"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[REGION]" />
+                    <inputColumn
+                      refId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].Columns[STATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="STATE"
+                      externalMetadataColumnId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[STATE]" />
+                    <inputColumn
+                      refId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].Columns[CITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CITY"
+                      externalMetadataColumnId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[CITY]" />
+                    <inputColumn
+                      refId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].Columns[ZIP_CODE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ZIP_CODE"
+                      externalMetadataColumnId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].ExternalColumns[ZIP_CODE]"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[ZIP_CODE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].ExternalColumns[REGION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="REGION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].ExternalColumns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CITY" />
+                    <externalMetadataColumn
+                      refId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input].ExternalColumns[ZIP_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ZIP_CODE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga regiones intermedia\int_regiones_G01.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\int_regiones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga regiones intermedia\int_regiones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\int_regiones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga regiones intermedia\int_regiones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga regiones intermedia\Source stg_regiones"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source stg_regiones"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_regiones_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga regiones intermedia\Source stg_regiones.Connections[OleDbConnection]"
+                  connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[REGION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].ExternalColumns[REGION]"
+                      length="50"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[REGION]"
+                      name="REGION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                      length="50"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[STATE]"
+                      name="STATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].ExternalColumns[CITY]"
+                      length="50"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[CITY]"
+                      name="CITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[ZIP_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].ExternalColumns[ZIP_CODE]"
+                      length="50"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].Columns[ZIP_CODE]"
+                      name="ZIP_CODE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].ExternalColumns[REGION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="REGION" />
+                    <externalMetadataColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].ExternalColumns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CITY" />
+                    <externalMetadataColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output].ExternalColumns[ZIP_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ZIP_CODE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[REGION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[REGION]"
+                      name="REGION" />
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[STATE]"
+                      name="STATE" />
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[CITY]"
+                      name="CITY" />
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[ZIP_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[ZIP_CODE]"
+                      name="ZIP_CODE" />
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga regiones intermedia.Paths[OLE DB Source Output]"
+              endId="Package\Carga regiones intermedia\int_regiones_G01.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Carga regiones intermedia\Source stg_regiones.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -468,6 +820,23 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Truncate int_regiones_G01"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7174290A-0383-4318-93F1-923F793942AE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate int_regiones_G01"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_intermedia_2025_G01].[dbo].[int_regiones_G01];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Truncate stg_regiones"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -489,8 +858,8 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{0fdf398b-f800-4e84-8fed-1138563ffa83}"
-      DTS:From="Package\Carga regiones staging"
+      DTS:DTSID="{F332D069-F74F-4847-B873-0F443EFE072D}"
+      DTS:From="Package\Truncate int_regiones_G01"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Carga regiones intermedia" />
@@ -510,6 +879,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Carga regiones staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{587E320D-F9DE-489A-A899-4C9B21917335}"
+      DTS:From="Package\Carga regiones staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Truncate int_regiones_G01" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -522,59 +899,37 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="224.8,41.6"
           Id="Package\Carga regiones Datawarehouse"
-          TopLeft="60,373.733331151671" />
+          TopLeft="61.666666575604,483.799997052948" />
         <NodeLayout
           Size="200.8,41.6"
           Id="Package\Carga regiones intermedia"
-          TopLeft="69.999999453624,258.466665286554" />
+          TopLeft="75.8333324682381,375.466664472951" />
         <NodeLayout
           Size="185.6,41.6"
           Id="Package\Carga regiones staging"
-          TopLeft="76.66666575604,151.866666027837" />
+          TopLeft="76.66666575604,153.599999349117" />
         <NodeLayout
           Size="181.6,41.6"
           Id="Package\Truncate stg_regiones"
-          TopLeft="92.499998224278,60" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="169.933332604832,193.466666027837">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.999999258717"
-              Start="0,0"
-              End="0,57.499999258717">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.499999258717" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="92.499998224278,61.7333333212799" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="171.399999726812,300.066665286554">
+          TopLeft="175.149999521921,417.066664472951">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,73.666665865117"
+              EndConnector="0,66.7333325799971"
               Start="0,0"
-              End="0,66.166665865117">
+              End="0,59.2333325799971">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.166665865117" />
+                    End="0,59.2333325799971" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -585,7 +940,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="183.299998224278,101.6">
+          TopLeft="183.299998224278,103.33333332128">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -617,9 +972,131 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Truncate int_regiones_G01"
+          TopLeft="97.9999949460231,277.633331440952" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="199.999994946023,319.233331440952">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.766662477785,56.2333330319986"
+              Start="0,0"
+              End="-23.766662477785,48.7333330319986">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.1166665159993" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.1166665159993"
+                    Point2="0,28.1166665159993"
+                    Point3="-4,28.1166665159993" />
+                  <mssgle:LineSegment
+                    End="-19.766662477785,28.1166665159993" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.766662477785,28.1166665159993"
+                    Point2="-23.766662477785,28.1166665159993"
+                    Point3="-23.766662477785,32.1166665159993" />
+                  <mssgle:LineSegment
+                    End="-23.766662477785,48.7333330319986" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="169.46666575604,195.199999349117">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.5333291899831,82.4333320918351"
+              Start="0,0"
+              End="30.5333291899831,74.9333320918351">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.2166660459175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.2166660459175"
+                    Point2="0,41.2166660459175"
+                    Point3="4,41.2166660459175" />
+                  <mssgle:LineSegment
+                    End="26.5333291899831,41.2166660459175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5333291899831,41.2166660459175"
+                    Point2="30.5333291899831,41.2166660459175"
+                    Point3="30.5333291899831,45.2166660459175" />
+                  <mssgle:LineSegment
+                    End="30.5333291899831,74.9333320918351" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Carga regiones intermedia">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Carga regiones intermedia\Source stg_regiones"
+          TopLeft="230.499987706543,123.366665847037" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Carga regiones intermedia\int_regiones_G01"
+          TopLeft="219.666656604244,250.433331838714" />
+        <EdgeLayout
+          Id="Package\Carga regiones intermedia.Paths[OLE DB Source Output]"
+          TopLeft="317.299987706543,164.966665847037">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.2333311022985,85.4666659916771"
+              Start="0,0"
+              End="-17.2333311022985,77.9666659916771">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.7333329958386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.7333329958386"
+                    Point2="0,42.7333329958386"
+                    Point3="-4,42.7333329958386" />
+                  <mssgle:LineSegment
+                    End="-13.2333311022985,42.7333329958386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.2333311022985,42.7333329958386"
+                    Point2="-17.2333311022985,42.7333329958386"
+                    Point3="-17.2333311022985,46.7333329958386" />
+                  <mssgle:LineSegment
+                    End="-17.2333311022985,77.9666659916771" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Carga regiones staging">
     <LayoutInfo>
@@ -660,6 +1137,32 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Carga regiones staging\stg_regiones_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga regiones intermedia\Source stg_regiones">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga regiones intermedia\int_regiones_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
