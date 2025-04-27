@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{A2800521-5779-4A6E-A7BC-D3CF27D27C86}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{1C8FB901-B750-4718-AD3B-4D09AF4EB8F8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -86,7 +86,15 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">CREATE TABLE [int_empleados_G01] (
+    [EMPLOYEE_ID] float,
+    [FULL_NAME] nvarchar(255),
+    [CATEGORY] nvarchar(255),
+    [EMPLOYMENT_DATE] date,
+    [BIRTH_DATE] date,
+    [EDUCATION_LEVEL] nvarchar(255),
+    [GENDER] nvarchar(255)
+)</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -155,13 +163,15 @@
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
                     <inputColumn
                       refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[EMPLOYMENT_DATE]"
-                      cachedDataType="dbDate"
+                      cachedDataType="wstr"
+                      cachedLength="255"
                       cachedName="EMPLOYMENT_DATE"
                       externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYMENT_DATE]"
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]" />
                     <inputColumn
                       refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[BIRTH_DATE]"
-                      cachedDataType="dbDate"
+                      cachedDataType="wstr"
+                      cachedLength="255"
                       cachedName="BIRTH_DATE"
                       externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]" />
@@ -270,8 +280,8 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [EMPLOYEE_ID]
       , [FULL_NAME]
       , [CATEGORY]
-      , [EMPLOYMENT_DATE]
-      , [BIRTH_DATE]
+      , CONVERT(DATE, [EMPLOYMENT_DATE]) AS EMPLOYMENT_DATE
+      , CONVERT(DATE, [BIRTH_DATE]) AS BIRTH_DATE
       , [EDUCATION_LEVEL]
       , [GENDER]
 FROM [bd_staging_2025_G01].[dbo].[stg_empleados_G01] e
@@ -342,19 +352,21 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]"
-                      dataType="dbDate"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_DATE]"
+                      length="255"
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]"
                       name="EMPLOYMENT_DATE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]"
-                      dataType="dbDate"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE]"
+                      length="255"
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]"
                       name="BIRTH_DATE"
                       truncationRowDisposition="FailComponent" />
@@ -864,11 +876,13 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
                       name="CATEGORY" />
                     <externalMetadataColumn
                       refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYMENT_DATE]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="255"
                       name="EMPLOYMENT_DATE" />
                     <externalMetadataColumn
                       refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="255"
                       name="BIRTH_DATE" />
                     <externalMetadataColumn
                       refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EDUCATION_LEVEL]"
@@ -1123,33 +1137,33 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Carga empleados intermedia\int_empleados_G01"
-          TopLeft="435.833309520451,168.999998824795" />
+          TopLeft="433.999993532896,184.999997243285" />
         <EdgeLayout
           Id="Package\Carga empleados intermedia.Paths[OLE DB Source Output]"
           TopLeft="530.199976779025,84.9333330319987">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.76666725857399,84.0666657927963"
+              EndConnector="-10.5999832461289,100.066664211287"
               Start="0,0"
-              End="-8.76666725857399,76.5666657927963">
+              End="-10.5999832461289,92.5666642112865">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.0333328963982" />
+                    End="0,46.0333321056433" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,38.0333328963982"
-                    Point2="0,42.0333328963982"
-                    Point3="-4,42.0333328963982" />
+                    Point1="0,46.0333321056433"
+                    Point2="0,50.0333321056433"
+                    Point3="-4,50.0333321056433" />
                   <mssgle:LineSegment
-                    End="-4.76666725857399,42.0333328963982" />
+                    End="-6.59998324612889,50.0333321056433" />
                   <mssgle:CubicBezierSegment
-                    Point1="-4.76666725857399,42.0333328963982"
-                    Point2="-8.76666725857399,42.0333328963982"
-                    Point3="-8.76666725857399,46.0333328963982" />
+                    Point1="-6.59998324612889,50.0333321056433"
+                    Point2="-10.5999832461289,50.0333321056433"
+                    Point3="-10.5999832461289,54.0333321056433" />
                   <mssgle:LineSegment
-                    End="-8.76666725857399,76.5666657927963" />
+                    End="-10.5999832461289,92.5666642112865" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1161,19 +1175,6 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga empleados intermedia\int_empleados_G01">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga empleados intermedia\Source stg_empleados_G01">
     <Properties>
@@ -1240,6 +1241,19 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga empleados staging\stg_empleados_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga empleados intermedia\int_empleados_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
