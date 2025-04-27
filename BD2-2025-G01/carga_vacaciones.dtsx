@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{C0A0DF45-D773-4AA4-9434-B62EBFF32DBE}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{A883C9D2-70DB-4487-B623-EC9168BEF2D4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -51,7 +51,6 @@
       DTS:refId="Package\Carga vacaciones intermedia"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{079102a1-a984-4ee6-a168-974d9565760c}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -60,7 +59,269 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga vacaciones intermedia\int_vacaciones_G01"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="int_vacaciones_G01"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[int_vacaciones_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Connections[OleDbConnection]"
+                  connectionManagerID="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost bd_intermedia_2025_G01 sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Inputs[OLE DB Destination Input].Columns[DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DATE"
+                      externalMetadataColumnId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Inputs[OLE DB Destination Input].ExternalColumns[DATE]"
+                      lineageId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output].Columns[DATE]" />
+                    <inputColumn
+                      refId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Inputs[OLE DB Destination Input].Columns[HOLIDAY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="HOLIDAY"
+                      externalMetadataColumnId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Inputs[OLE DB Destination Input].ExternalColumns[HOLIDAY]"
+                      lineageId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output].Columns[HOLIDAY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Inputs[OLE DB Destination Input].ExternalColumns[DATE]"
+                      dataType="dbDate"
+                      name="DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Inputs[OLE DB Destination Input].ExternalColumns[HOLIDAY]"
+                      dataType="wstr"
+                      length="255"
+                      name="HOLIDAY" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source stg_vacaciones_G01"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_vacaciones_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Connections[OleDbConnection]"
+                  connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output].Columns[DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output].ExternalColumns[DATE]"
+                      lineageId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output].Columns[DATE]"
+                      name="DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output].Columns[HOLIDAY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output].ExternalColumns[HOLIDAY]"
+                      length="255"
+                      lineageId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output].Columns[HOLIDAY]"
+                      name="HOLIDAY"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output].ExternalColumns[DATE]"
+                      dataType="dbTimeStamp"
+                      name="DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output].ExternalColumns[HOLIDAY]"
+                      dataType="wstr"
+                      length="255"
+                      name="HOLIDAY" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Error Output].Columns[DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Error Output].Columns[DATE]"
+                      name="DATE" />
+                    <outputColumn
+                      refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Error Output].Columns[HOLIDAY]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Error Output].Columns[HOLIDAY]"
+                      name="HOLIDAY" />
+                    <outputColumn
+                      refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga vacaciones intermedia.Paths[OLE DB Source Output]"
+              endId="Package\Carga vacaciones intermedia\int_vacaciones_G01.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -333,6 +594,23 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Trucate int_vacaciones"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D1D27BD5-8C59-4541-8B69-25FE610A8388}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trucate int_vacaciones"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_intermedia_2025_G01].[dbo].[int_vacaciones_G01];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Truncate stg_vacaciones"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -354,11 +632,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{e8a4ddf8-e1e2-4390-9949-3977cb0ee727}"
+      DTS:DTSID="{50A6B4C0-2F2B-44E3-BFF5-E67FAA46ACA9}"
       DTS:From="Package\Carga vacaciones staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Carga vacaciones intermedia" />
+      DTS:To="Package\Trucate int_vacaciones" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -375,6 +653,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Carga vacaciones staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{D61BC28B-AB87-433E-B85C-FB53F460A893}"
+      DTS:From="Package\Trucate int_vacaciones"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Carga vacaciones intermedia" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -387,59 +673,37 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="236.8,41.6"
           Id="Package\Carga vacaciones Datawarehouse"
-          TopLeft="60,373.733331151671" />
+          TopLeft="672.499966534477,534.933330030706" />
         <NodeLayout
           Size="212.8,41.6"
           Id="Package\Carga vacaciones intermedia"
-          TopLeft="69.999999453624,258.466665286554" />
+          TopLeft="682.499965988101,419.666664165589" />
         <NodeLayout
           Size="197.6,41.6"
           Id="Package\Carga vacaciones staging"
-          TopLeft="76.66666575604,151.866666027837" />
+          TopLeft="664.166633656457,173.533332543836" />
         <NodeLayout
           Size="216,41.6"
           Id="Package\Truncate stg_vacaciones"
-          TopLeft="68.3333328780198,61.7333333212799" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="175.933332604832,193.466666027837">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.999999258717"
-              Start="0,0"
-              End="0,57.499999258717">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.499999258717" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="655.833300778437,83.3999998372793" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="177.399999726812,300.066665286554">
+          TopLeft="789.899966261289,461.266664165589">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,73.666665865117"
+              EndConnector="0,73.6666658651171"
               Start="0,0"
-              End="0,66.166665865117">
+              End="0,66.1666658651171">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.166665865117" />
+                    End="0,66.1666658651171" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -450,7 +714,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="175.89999931703,103.33333332128">
+          TopLeft="763.399967217447,124.999999837279">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -470,9 +734,131 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Trucate int_vacaciones"
+          TopLeft="678.333296270836,271.266664780312" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="762.966633656457,215.133332543836">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.16666261437945,56.1333322364759"
+              Start="0,0"
+              End="8.16666261437945,48.6333322364759">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.0666661182379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.0666661182379"
+                    Point2="0,28.0666661182379"
+                    Point3="4,28.0666661182379" />
+                  <mssgle:LineSegment
+                    End="4.16666261437945,28.0666661182379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.16666261437945,28.0666661182379"
+                    Point2="8.16666261437945,28.0666661182379"
+                    Point3="8.16666261437945,32.0666661182379" />
+                  <mssgle:LineSegment
+                    End="8.16666261437945,48.6333322364759" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="771.133296270836,312.866664780312">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.7666697172648,106.799999385277"
+              Start="0,0"
+              End="17.7666697172648,99.2999993852771">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.3999996926386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49.3999996926386"
+                    Point2="0,53.3999996926386"
+                    Point3="4,53.3999996926386" />
+                  <mssgle:LineSegment
+                    End="13.7666697172648,53.3999996926386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.7666697172648,53.3999996926386"
+                    Point2="17.7666697172648,53.3999996926386"
+                    Point3="17.7666697172648,57.3999996926386" />
+                  <mssgle:LineSegment
+                    End="17.7666697172648,99.2999993852771" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Carga vacaciones intermedia">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01"
+          TopLeft="685.181807971814,56.3636355237527" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Carga vacaciones intermedia\int_vacaciones_G01"
+          TopLeft="691.818171509288,183.636360899969" />
+        <EdgeLayout
+          Id="Package\Carga vacaciones intermedia.Paths[OLE DB Source Output]"
+          TopLeft="790.781807971814,97.9636355237527">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.5636364625259,85.6727253762158"
+              Start="0,0"
+              End="-12.5636364625259,78.1727253762158">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.8363626881079" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.8363626881079"
+                    Point2="0,42.8363626881079"
+                    Point3="-4,42.8363626881079" />
+                  <mssgle:LineSegment
+                    End="-8.56363646252589,42.8363626881079" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.56363646252589,42.8363626881079"
+                    Point2="-12.5636364625259,42.8363626881079"
+                    Point3="-12.5636364625259,46.8363626881079" />
+                  <mssgle:LineSegment
+                    End="-12.5636364625259,78.1727253762158" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Carga vacaciones staging">
     <LayoutInfo>
@@ -526,6 +912,32 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga vacaciones staging\stg_vacaciones_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga vacaciones intermedia\int_vacaciones_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
