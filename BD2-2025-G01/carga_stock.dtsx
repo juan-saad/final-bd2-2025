@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{70E5E85B-3B42-45E8-84BD-EEC7EBB43AE7}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{C03A59F8-A989-46D5-A5F6-07BBE2D84EEA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -86,7 +86,6 @@
       DTS:refId="Package\Carga stock intermedia"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{5b552dca-ab4f-43f7-93ae-8a83763c9ffd}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -95,7 +94,321 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga stock intermedia\int_stock_G01"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="int_stock_G01"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[int_stock_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga stock intermedia\int_stock_G01.Connections[OleDbConnection]"
+                  connectionManagerID="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost bd_intermedia_2025_G01 sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input].Columns[PRODUCT_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRODUCT_ID"
+                      externalMetadataColumnId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT_ID]"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]" />
+                    <inputColumn
+                      refId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input].Columns[DATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DATE"
+                      externalMetadataColumnId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input].ExternalColumns[DATE]"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].Columns[DATE]" />
+                    <inputColumn
+                      refId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input].Columns[VARIATION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="VARIATION"
+                      externalMetadataColumnId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input].ExternalColumns[VARIATION]"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].Columns[VARIATION]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRODUCT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input].ExternalColumns[DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input].ExternalColumns[VARIATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="VARIATION" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga stock intermedia\int_stock_G01.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga stock intermedia\int_stock_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga stock intermedia\int_stock_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga stock intermedia\int_stock_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga stock intermedia\int_stock_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga stock intermedia\source stg_stock"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="source stg_stock"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_stock_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT PRODUCT_ID,
+    TRY_CONVERT(DATETIME,UPPER(REPLACE(REPLACE(DATE, ':60', ':59'), '.', ''))) AS 'DATE',
+    VARIATION
+FROM [bd_staging_2025_G01].[dbo].[stg_stock_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga stock intermedia\source stg_stock.Connections[OleDbConnection]"
+                  connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_ID]"
+                      length="50"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].Columns[DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].ExternalColumns[DATE]"
+                      length="50"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].Columns[DATE]"
+                      name="DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].Columns[VARIATION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].ExternalColumns[VARIATION]"
+                      length="50"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].Columns[VARIATION]"
+                      name="VARIATION"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRODUCT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].ExternalColumns[DATE]"
+                      dataType="dbTimeStamp"
+                      name="DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output].ExternalColumns[VARIATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="VARIATION" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output].Columns[PRODUCT_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID" />
+                    <outputColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output].Columns[DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output].Columns[DATE]"
+                      name="DATE" />
+                    <outputColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output].Columns[VARIATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output].Columns[VARIATION]"
+                      name="VARIATION" />
+                    <outputColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga stock intermedia.Paths[OLE DB Source Output]"
+              endId="Package\Carga stock intermedia\int_stock_G01.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Carga stock intermedia\source stg_stock.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -418,6 +731,23 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Truncate int_stock"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0ACC5664-3E25-42CC-98F9-857B8CEB456C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate int_stock"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6007274-3C00-4CA7-9755-908AF3256B73}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_intermedia_2025_G01].[dbo].[int_stock_G01];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Truncate stg_stock"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -439,11 +769,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{d5c71af7-1e5c-425b-a168-e9bccfc9eb1a}"
+      DTS:DTSID="{C181AEA4-7818-482D-8F4B-7854C221A815}"
       DTS:From="Package\Carga stock staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Carga stock intermedia" />
+      DTS:To="Package\Truncate int_stock" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -460,6 +790,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Carga stock staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{14806EB3-5F6F-4F56-B68F-E62714531E99}"
+      DTS:From="Package\Truncate int_stock"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Carga stock intermedia" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -472,15 +810,15 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="209.6,41.6"
           Id="Package\Carga stock Datawarehouse"
-          TopLeft="60.8333332878021,372.866664491031" />
+          TopLeft="47.5000006829699,517.199996926387" />
         <NodeLayout
           Size="184.8,41.6"
           Id="Package\Carga stock intermedia"
-          TopLeft="69.999999453624,258.466665286554" />
+          TopLeft="58.3333334243959,401.93333106127" />
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Carga stock staging"
@@ -490,41 +828,19 @@
           Id="Package\Truncate stg_stock"
           TopLeft="92.499998224278,60" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="162.133332604832,193.466666027837">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.999999258717"
-              Start="0,0"
-              End="0,57.499999258717">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.499999258717" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="164.016666370713,300.066665286554">
+          TopLeft="151.516667053683,443.53333106127">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,72.799999204477"
+              EndConnector="0,73.6666658651171"
               Start="0,0"
-              End="0,65.299999204477">
+              End="0,66.1666658651171">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65.299999204477" />
+                    End="0,66.1666658651171" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -567,9 +883,119 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Truncate int_stock"
+          TopLeft="62.1666635705369,269.833331495192" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="161.86666575604,193.466666027837">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.1000021855031,76.3666654673554"
+              Start="0,0"
+              End="-18.1000021855031,68.8666654673554">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1833327336777" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.1833327336777"
+                    Point2="0,38.1833327336777"
+                    Point3="-4,38.1833327336777" />
+                  <mssgle:LineSegment
+                    End="-14.1000021855031,38.1833327336777" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.1000021855031,38.1833327336777"
+                    Point2="-18.1000021855031,38.1833327336777"
+                    Point3="-18.1000021855031,42.1833327336777" />
+                  <mssgle:LineSegment
+                    End="-18.1000021855031,68.8666654673554" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="147.249998497466,311.433331495192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90.4999995660777"
+              Start="0,0"
+              End="0,82.9999995660777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.9999995660777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Carga stock intermedia">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Carga stock intermedia\source stg_stock"
+          TopLeft="201.333322633472,67.0333329054382" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Carga stock intermedia\int_stock_G01"
+          TopLeft="192.166658106778,216.633332073755" />
+        <EdgeLayout
+          Id="Package\Carga stock intermedia.Paths[OLE DB Source Output]"
+          TopLeft="279.333322633472,108.633332905438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.7666645266945,107.999999168317"
+              Start="0,0"
+              End="-14.7666645266945,100.499999168317">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.9999995841583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49.9999995841583"
+                    Point2="0,53.9999995841583"
+                    Point3="-4,53.9999995841583" />
+                  <mssgle:LineSegment
+                    End="-10.7666645266945,53.9999995841583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.7666645266945,53.9999995841583"
+                    Point2="-14.7666645266945,53.9999995841583"
+                    Point3="-14.7666645266945,57.9999995841583" />
+                  <mssgle:LineSegment
+                    End="-14.7666645266945,100.499999168317" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Carga stock staging">
     <LayoutInfo>
@@ -610,6 +1036,32 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Carga stock staging\stg_stock_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga stock intermedia\source stg_stock">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga stock intermedia\int_stock_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
