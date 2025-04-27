@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{5D50FB51-EF5A-482F-8D44-2BF2E8903462}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{793541F8-AE49-4906-BC20-676E781AB355}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA3iYQrTpJi5Jt3rukmbUtdUcOkFeJWjEwav+pK/m8Z1gAAAAAOgAAAAAIAACAAAAB795pz2bBsf0XwtABLgl9OMeQ13IcOfRz7oEsjkio+MiAAAABbFt+SoYKYm3lLr4kS03kx22eHgB0Aw/a5cR8smNxJ10AAAABZcKUV7I0dWCmwzduDWBpXidPe41nB0h9AE17keOzbfk0nF23rdFiME5fyqN7l1FjVgPVe10e87X7dkFxhDxtt</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC1GsdxWCfEgzSuN9x4Hhmxo02lTf2yedTsdi1Xv3Z3yQAAAAAOgAAAAAIAACAAAAA4XSOVcPz0YLR3YMLeF+Q8xnOqQ+nW9vaBN3rQcvLhJSAAAACKIUhqaRVKKdQylZQBc7+JE7252tzCWjVEqrQAD1aG/UAAAADbnUvP6/qxj2Gd3+stA86shLlLfr6oWx5eSXBsI0vYFuckTfExVJjhMoUZ1mLICztQxksgY4D3zfA7q7+kjard</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1889,9 +1889,9 @@ FROM sales.prices;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="190.4,41.6"
-          Id="Package\Carga ventas mysql\stg_detalle_ventas_G01"
-          TopLeft="358.999994650483,177.599998867512" />
+          Size="176.8,41.6"
+          Id="Package\Carga ventas mysql\stg_descuentos_G01"
+          TopLeft="605.66665764153,175.866667073965" />
         <NodeLayout
           Size="172,41.6"
           Id="Package\Carga ventas mysql\Source billing_detail"
@@ -1901,6 +1901,10 @@ FROM sales.prices;</property>
           Id="Package\Carga ventas mysql\Source prices"
           TopLeft="842.833320774138,46.6000008195638" />
         <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Carga ventas mysql\stg_detalle_ventas_G01"
+          TopLeft="358.999994650483,177.599998867512" />
+        <NodeLayout
           Size="156.8,41.6"
           Id="Package\Carga ventas mysql\stg_precios_G01"
           TopLeft="830.999988146954,171.93333377858" />
@@ -1909,17 +1913,13 @@ FROM sales.prices;</property>
           Id="Package\Carga ventas mysql\Source discounts"
           TopLeft="612.499990873039,49.1666659340263" />
         <NodeLayout
-          Size="140.8,41.6"
-          Id="Package\Carga ventas mysql\Source billing"
-          TopLeft="136.999997958541,46.9999992996455" />
-        <NodeLayout
           Size="154.4,41.6"
           Id="Package\Carga ventas mysql\stg_ventas_G01"
           TopLeft="129.4999980703,171.333330780268" />
         <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Carga ventas mysql\stg_descuentos_G01"
-          TopLeft="605.66665764153,175.866667073965" />
+          Size="140.8,41.6"
+          Id="Package\Carga ventas mysql\Source billing"
+          TopLeft="136.999997958541,46.9999992996455" />
         <EdgeLayout
           Id="Package\Carga ventas mysql.Paths[ADO NET Source Output3]"
           TopLeft="911.516654460546,88.2000008195638">
@@ -2012,7 +2012,7 @@ FROM sales.prices;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga ventas mysql\stg_detalle_ventas_G01">
+    design-time-name="Package\Carga ventas mysql\stg_descuentos_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2041,6 +2041,19 @@ FROM sales.prices;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Carga ventas mysql\stg_detalle_ventas_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Carga ventas mysql\stg_precios_G01">
     <Properties>
       <Property>
@@ -2062,14 +2075,6 @@ FROM sales.prices;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga ventas mysql\Source billing">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Carga ventas mysql\stg_ventas_G01">
     <Properties>
       <Property>
@@ -2083,15 +2088,10 @@ FROM sales.prices;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga ventas mysql\stg_descuentos_G01">
+    design-time-name="Package\Carga ventas mysql\Source billing">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -2099,7 +2099,7 @@ FROM sales.prices;</property>
     design-time-name="Package\Carga ventas sql server">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="176,41.6"
           Id="Package\Carga ventas sql server\stg_ventas_hist_G01"
@@ -2127,9 +2127,7 @@ FROM sales.prices;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
