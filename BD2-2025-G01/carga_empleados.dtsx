@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{F070A1AC-D5E9-4BBA-9E7E-5ED74B068DC7}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{A2800521-5779-4A6E-A7BC-D3CF27D27C86}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -155,15 +155,13 @@
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
                     <inputColumn
                       refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[EMPLOYMENT_DATE]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedDataType="dbDate"
                       cachedName="EMPLOYMENT_DATE"
                       externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYMENT_DATE]"
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]" />
                     <inputColumn
                       refId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].Columns[BIRTH_DATE]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedDataType="dbDate"
                       cachedName="BIRTH_DATE"
                       externalMetadataColumnId="Package\Carga empleados intermedia\int_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]" />
@@ -344,21 +342,19 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]"
-                      dataType="wstr"
+                      dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_DATE]"
-                      length="255"
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]"
                       name="EMPLOYMENT_DATE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]"
-                      dataType="wstr"
+                      dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE]"
-                      length="255"
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]"
                       name="BIRTH_DATE"
                       truncationRowDisposition="FailComponent" />
@@ -401,13 +397,11 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
                       name="CATEGORY" />
                     <externalMetadataColumn
                       refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_DATE]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="dbDate"
                       name="EMPLOYMENT_DATE" />
                     <externalMetadataColumn
                       refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="dbDate"
                       name="BIRTH_DATE" />
                     <externalMetadataColumn
                       refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Output].ExternalColumns[EDUCATION_LEVEL]"
@@ -445,14 +439,12 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
                       name="CATEGORY" />
                     <outputColumn
                       refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_DATE]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="dbDate"
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_DATE]"
                       name="EMPLOYMENT_DATE" />
                     <outputColumn
                       refId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="dbDate"
                       lineageId="Package\Carga empleados intermedia\Source stg_empleados_G01.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE]"
                       name="BIRTH_DATE" />
                     <outputColumn
@@ -872,13 +864,11 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
                       name="CATEGORY" />
                     <externalMetadataColumn
                       refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLOYMENT_DATE]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="dbDate"
                       name="EMPLOYMENT_DATE" />
                     <externalMetadataColumn
                       refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[BIRTH_DATE]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="dbDate"
                       name="BIRTH_DATE" />
                     <externalMetadataColumn
                       refId="Package\Carga empleados staging\stg_empleados_G01.Inputs[OLE DB Destination Input].ExternalColumns[EDUCATION_LEVEL]"
@@ -1058,14 +1048,14 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,72.9999999096002"
+              EndConnector="0,72.9999999096"
               Start="0,0"
-              End="0,65.4999999096002">
+              End="0,65.4999999096">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65.4999999096002" />
+                    End="0,65.4999999096" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1102,14 +1092,14 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53.9809517162947"
+              EndConnector="0,53.980951716295"
               Start="0,0"
-              End="0,46.4809517162947">
+              End="0,46.480951716295">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.4809517162947" />
+                    End="0,46.480951716295" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1131,23 +1121,35 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
           Id="Package\Carga empleados intermedia\Source stg_empleados_G01"
           TopLeft="424.999976779025,43.3333330319987" />
         <NodeLayout
-          Size="176.8,41.6"
+          Size="171.2,41.6"
           Id="Package\Carga empleados intermedia\int_empleados_G01"
           TopLeft="435.833309520451,168.999998824795" />
         <EdgeLayout
           Id="Package\Carga empleados intermedia.Paths[OLE DB Source Output]"
-          TopLeft="527.216643149738,84.9333330319987">
+          TopLeft="530.199976779025,84.9333330319987">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,84.0666657927964"
+              EndConnector="-8.76666725857399,84.0666657927963"
               Start="0,0"
-              End="0,76.5666657927964">
+              End="-8.76666725857399,76.5666657927963">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,76.5666657927964" />
+                    End="0,38.0333328963982" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.0333328963982"
+                    Point2="0,42.0333328963982"
+                    Point3="-4,42.0333328963982" />
+                  <mssgle:LineSegment
+                    End="-4.76666725857399,42.0333328963982" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.76666725857399,42.0333328963982"
+                    Point2="-8.76666725857399,42.0333328963982"
+                    Point3="-8.76666725857399,46.0333328963982" />
+                  <mssgle:LineSegment
+                    End="-8.76666725857399,76.5666657927963" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1189,7 +1191,7 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
     design-time-name="Package\Carga empleados staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\Carga empleados staging\Excel Empleados"
@@ -1217,9 +1219,7 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

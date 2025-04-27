@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{D69DCA26-C2E6-4DFD-9DB6-D2C8D325AA2D}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{33F2D159-7B33-41DA-B5A2-BCC71898B50D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -476,7 +476,7 @@
         <NodeLayout
           Size="209.6,41.6"
           Id="Package\Carga stock Datawarehouse"
-          TopLeft="60,373.733331151671" />
+          TopLeft="60.8333332878021,372.866664491031" />
         <NodeLayout
           Size="184.8,41.6"
           Id="Package\Carga stock intermedia"
@@ -513,18 +513,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="163.599999726812,300.066665286554">
+          TopLeft="164.016666370713,300.066665286554">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,73.666665865117"
+              EndConnector="0,72.799999204477"
               Start="0,0"
-              End="0,66.166665865117">
+              End="0,65.299999204477">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.166665865117" />
+                    End="0,65.299999204477" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

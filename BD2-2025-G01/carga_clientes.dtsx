@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_clientes"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{603D5C07-FBC7-49DA-8C23-F1D7361263F1}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{F2080EB2-486B-4F80-8D39-623450A98454}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -159,10 +159,10 @@
                       externalMetadataColumnId="Package\Carga clientes intermedia\int_clientes_G01.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCODE]"
                       lineageId="Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[ZIPCODE]" />
                     <inputColumn
-                      refId="Package\Carga clientes intermedia\int_clientes_G01.Inputs[OLE DB Destination Input].Columns[CLIENT_TYPE]"
+                      refId="Package\Carga clientes intermedia\int_clientes_G01.Inputs[OLE DB Destination Input].Columns[TIPO_CLIENTE]"
                       cachedDataType="wstr"
                       cachedLength="9"
-                      cachedName="CLIENT_TYPE"
+                      cachedName="TIPO_CLIENTE"
                       externalMetadataColumnId="Package\Carga clientes intermedia\int_clientes_G01.Inputs[OLE DB Destination Input].ExternalColumns[CLIENT_TYPE]"
                       lineageId="Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[CLIENT_TYPE]" />
                   </inputColumns>
@@ -474,8 +474,8 @@ ORDER BY cr.CUSTOMER_ID;</property>
     cw.CUSTOMER_ID,
     cw.FULL_NAME,
     CASE 
-        WHEN TRY_CONVERT(DATE, REPLACE(REPLACE(cw.BIRTH_DATE, 'j', '/'), '//', '/')) IS NOT NULL 
-        THEN TRY_CONVERT(DATE, REPLACE(REPLACE(cw.BIRTH_DATE, 'j', '/'), '//', '/'))
+        WHEN TRY_CONVERT(DATE, cw.BIRTH_DATE) IS NOT NULL THEN TRY_CONVERT(DATE, cw.BIRTH_DATE)
+        WHEN TRY_CONVERT(DATE, REPLACE(cw.BIRTH_DATE, 'j', '')) IS NOT NULL THEN TRY_CONVERT(DATE, REPLACE(cw.BIRTH_DATE, 'j', ''))
         ELSE NULL
     END AS BIRTH_DATE,
     cw.CITY,
@@ -2105,9 +2105,17 @@ ORDER BY cw.CUSTOMER_ID;</property>
           Id="Package\Carga clientes Datawarehouse"
           TopLeft="388.333312115737,376.133330717749" />
         <NodeLayout
+          Size="196,41.6"
+          Id="Package\Carga clientes intermedia"
+          TopLeft="532.499970905484,307.666664527191" />
+        <NodeLayout
           Size="181.6,41.6"
           Id="Package\Carga clientes staging"
           TopLeft="405.833311159578,147.333332308796" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Truncate int_clientes"
+          TopLeft="674.166629831826,216.866665865117" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Truncate stg_clientes"
@@ -2134,48 +2142,6 @@ ORDER BY cw.CUSTOMER_ID;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Truncate int_clientes"
-          TopLeft="674.166629831826,216.866665865117" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="525.566644492911,188.933332308796">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="235.799985338914,27.9333335563209"
-              Start="0,0"
-              End="235.799985338914,20.4333335563209">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,7.3197089695484" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,7.3197089695484"
-                    Point2="0,11.3197089695484"
-                    Point3="4,11.3197089695484" />
-                  <mssgle:LineSegment
-                    End="231.799985338914,11.3197089695484" />
-                  <mssgle:CubicBezierSegment
-                    Point1="231.799985338914,11.3197089695484"
-                    Point2="235.799985338914,11.3197089695484"
-                    Point3="235.799985338914,15.3197089695484" />
-                  <mssgle:LineSegment
-                    End="235.799985338914,20.4333335563209" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="196,41.6"
-          Id="Package\Carga clientes intermedia"
-          TopLeft="532.499970905484,307.666664527191" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="761.366629831826,258.466665865117">
@@ -2244,138 +2210,32 @@ ORDER BY cw.CUSTOMER_ID;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </Package>
-  <TaskHost
-    design-time-name="Package\Carga clientes staging">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="168,41.6"
-          Id="Package\Carga clientes staging\stg_clientes_r_G01"
-          TopLeft="519.166638300652,171.599998806715" />
-        <NodeLayout
-          Size="132,41.6"
-          Id="Package\Carga clientes staging\Clientes_W"
-          TopLeft="278.333318125871,61.5333329054382" />
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Carga clientes staging\Clientes_R"
-          TopLeft="532.499970905484,56.3333329415983" />
-        <NodeLayout
-          Size="172,41.6"
-          Id="Package\Carga clientes staging\stg_clientes_w_G01"
-          TopLeft="259.166652506425,174.199998788635" />
         <EdgeLayout
-          Id="Package\Carga clientes staging.Paths[cliente1]"
-          TopLeft="600.233304603068,97.9333329415983">
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="525.566644492911,188.933332308796">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,73.666665865117"
+              EndConnector="235.799985338914,27.9333335563209"
               Start="0,0"
-              End="0,66.166665865117">
+              End="235.799985338914,20.4333335563209">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.166665865117" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga clientes staging.Paths[cliente]"
-          TopLeft="344.749985316148,103.133332905438">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,71.0666658831968"
-              Start="0,0"
-              End="0,63.5666658831968">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
+                    End="0,7.3197089695484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.3197089695484"
+                    Point2="0,11.3197089695484"
+                    Point3="4,11.3197089695484" />
                   <mssgle:LineSegment
-                    End="0,63.5666658831968" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga clientes staging\stg_clientes_r_G01">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga clientes staging\stg_clientes_w_G01">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Carga clientes intermedia">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="178.4,41.6"
-          Id="Package\Carga clientes intermedia\Source stg_clientes_r"
-          TopLeft="400.833311432767,58.9333329235183" />
-        <NodeLayout
-          Size="182.4,41.6"
-          Id="Package\Carga clientes intermedia\Source stg_clientes_w"
-          TopLeft="707.499961343906,63.4666669318411" />
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Carga clientes intermedia\TipoCliente Minorista"
-          TopLeft="401.666644720568,168.999998824795" />
-        <EdgeLayout
-          Id="Package\Carga clientes intermedia.Paths[OLE DB Source Output]"
-          TopLeft="489.849978076668,100.533332923518">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,68.4666659012768"
-              Start="0,0"
-              End="0,60.9666659012768">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
+                    End="231.799985338914,11.3197089695484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="231.799985338914,11.3197089695484"
+                    Point2="235.799985338914,11.3197089695484"
+                    Point3="235.799985338914,15.3197089695484" />
                   <mssgle:LineSegment
-                    End="0,60.9666659012768" />
+                    End="235.799985338914,20.4333335563209" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2384,10 +2244,60 @@ ORDER BY cw.CUSTOMER_ID;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Carga clientes intermedia">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Carga clientes intermedia\Source stg_clientes_r"
+          TopLeft="401.833311417866,58.9333329235183" />
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\Carga clientes intermedia\Source stg_clientes_w"
+          TopLeft="707.499961343906,63.4666669318411" />
         <NodeLayout
           Size="179.2,41.6"
           Id="Package\Carga clientes intermedia\TipoCliente Mayorista"
           TopLeft="715.833294221926,171.799999511838" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Carga clientes intermedia\Union All"
+          TopLeft="589.999967763823,316.333331133591" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga clientes intermedia\TipoCliente Minorista"
+          TopLeft="401.666644720568,168.999998824795" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Carga clientes intermedia\int_clientes_G01"
+          TopLeft="568.33330228097,414.266663785908" />
+        <EdgeLayout
+          Id="Package\Carga clientes intermedia.Paths[Union All Output 1]"
+          TopLeft="648.166635022397,357.933331133591">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.3333326523172"
+              Start="0,0"
+              End="0,48.8333326523172">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.8333326523172" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga clientes intermedia.Paths[OLE DB Source Output1]"
           TopLeft="802.066627782916,105.066666931841">
@@ -2410,36 +2320,20 @@ ORDER BY cw.CUSTOMER_ID;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\Carga clientes intermedia\Union All"
-          TopLeft="589.999967763823,316.333331133591" />
         <EdgeLayout
-          Id="Package\Carga clientes intermedia.Paths[Derived Column Output]"
-          TopLeft="489.666644720568,210.599998824795">
+          Id="Package\Carga clientes intermedia.Paths[OLE DB Source Output]"
+          TopLeft="490.349978069217,100.533332923518">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="141.666656376588,105.733332308796"
+              EndConnector="0,68.4666659012767"
               Start="0,0"
-              End="141.666656376588,98.2333323087956">
+              End="0,60.9666659012767">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.6052625512605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,58.6052625512605"
-                    Point2="0,62.6052625512605"
-                    Point3="4,62.6052625512605" />
-                  <mssgle:LineSegment
-                    End="137.666656376588,62.6052625512605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="137.666656376588,62.6052625512605"
-                    Point2="141.666656376588,62.6052625512605"
-                    Point3="141.666656376588,66.6052625512605" />
-                  <mssgle:LineSegment
-                    End="141.666656376588,98.2333323087956" />
+                    End="0,60.9666659012767" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2482,24 +2376,32 @@ ORDER BY cw.CUSTOMER_ID;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Carga clientes intermedia\int_clientes_G01"
-          TopLeft="568.33330228097,414.266663785908" />
         <EdgeLayout
-          Id="Package\Carga clientes intermedia.Paths[Union All Output 1]"
-          TopLeft="648.166635022397,357.933331133591">
+          Id="Package\Carga clientes intermedia.Paths[Derived Column Output]"
+          TopLeft="489.666644720568,210.599998824795">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56.3333326523172"
+              EndConnector="141.666656376588,105.733332308796"
               Start="0,0"
-              End="0,48.8333326523172">
+              End="141.666656376588,98.2333323087956">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.8333326523172" />
+                    End="0,58.6052625512605" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,58.6052625512605"
+                    Point2="0,62.6052625512605"
+                    Point3="4,62.6052625512605" />
+                  <mssgle:LineSegment
+                    End="137.666656376588,62.6052625512605" />
+                  <mssgle:CubicBezierSegment
+                    Point1="137.666656376588,62.6052625512605"
+                    Point2="141.666656376588,62.6052625512605"
+                    Point3="141.666656376588,66.6052625512605" />
+                  <mssgle:LineSegment
+                    End="141.666656376588,98.2333323087956" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2529,6 +2431,100 @@ ORDER BY cw.CUSTOMER_ID;</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga clientes intermedia\int_clientes_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Carga clientes staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Carga clientes staging\stg_clientes_r_G01"
+          TopLeft="519.166638300652,171.599998806715" />
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\Carga clientes staging\Clientes_W"
+          TopLeft="278.333318125871,61.5333329054382" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Carga clientes staging\Clientes_R"
+          TopLeft="532.499970905484,56.3333329415983" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Carga clientes staging\stg_clientes_w_G01"
+          TopLeft="259.166652506425,174.199998788635" />
+        <EdgeLayout
+          Id="Package\Carga clientes staging.Paths[cliente1]"
+          TopLeft="600.233304603068,97.9333329415983">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.666665865117"
+              Start="0,0"
+              End="0,66.166665865117">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.166665865117" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga clientes staging.Paths[cliente]"
+          TopLeft="344.749985316148,103.133332905438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.0666658831968"
+              Start="0,0"
+              End="0,63.5666658831968">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5666658831968" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga clientes staging\stg_clientes_r_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga clientes staging\stg_clientes_w_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
