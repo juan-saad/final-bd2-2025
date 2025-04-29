@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_productos"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{30CC1E18-2F07-4BF2-8A26-60867B0B1746}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{F5585F99-C44E-4CBF-BE83-2C90F8B3EC47}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -85,7 +85,6 @@
       DTS:refId="Package\Carga productos intermedia"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{572B35E1-BE5F-4D86-97EF-286DD53BA4AE}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -94,7 +93,517 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga productos intermedia\int_productos_G01"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="int_productos_G01"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[int_productos_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga productos intermedia\int_productos_G01.Connections[OleDbConnection]"
+                  connectionManagerID="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost bd_intermedia_2025_G01 sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].Columns[PRODUCT_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRODUCT_ID"
+                      externalMetadataColumnId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT_ID]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]" />
+                    <inputColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].Columns[DETAIL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DETAIL"
+                      externalMetadataColumnId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[DETAIL]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[DETAIL]" />
+                    <inputColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].Columns[PACKAGE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PACKAGE"
+                      externalMetadataColumnId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[PACKAGE]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[PACKAGE]" />
+                    <inputColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].Columns[PRODUCT_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRODUCT_TYPE"
+                      externalMetadataColumnId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT_TYPE]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_TYPE]" />
+                    <inputColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].Columns[VOLUME]"
+                      cachedDataType="numeric"
+                      cachedName="VOLUME"
+                      cachedPrecision="10"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[VOLUME]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[VOLUME]" />
+                    <inputColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].Columns[UNIT_OF_MEASURE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="UNIT_OF_MEASURE"
+                      externalMetadataColumnId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[UNIT_OF_MEASURE]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[UNIT_OF_MEASURE]" />
+                    <inputColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].Columns[AMOUNT_LITER]"
+                      cachedDataType="numeric"
+                      cachedName="AMOUNT_LITER"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[AMOUNT_LITER]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[AMOUNT_LITER]" />
+                    <inputColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].Columns[IS_CAN]"
+                      cachedDataType="i4"
+                      cachedName="IS_CAN"
+                      externalMetadataColumnId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[IS_CAN]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[IS_CAN]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT_ID]"
+                      dataType="i4"
+                      name="PRODUCT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[DETAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DETAIL" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[PACKAGE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PACKAGE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCT_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRODUCT_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[VOLUME]"
+                      dataType="numeric"
+                      name="VOLUME"
+                      precision="10"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[UNIT_OF_MEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="UNIT_OF_MEASURE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[AMOUNT_LITER]"
+                      dataType="numeric"
+                      name="AMOUNT_LITER"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input].ExternalColumns[IS_CAN]"
+                      dataType="i4"
+                      name="IS_CAN" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga productos intermedia\int_productos_G01.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos intermedia\int_productos_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\int_productos_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos intermedia\int_productos_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga productos intermedia\Source stg_productos"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source stg_productos"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_productos_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    CAST(PRODUCT_ID AS INT) AS PRODUCT_ID,
+    DETAIL,
+    PACKAGE,
+    UPPER(REVERSE(SUBSTRING(REVERSE(TRIM(DETAIL)), 1, CHARINDEX(' ', REVERSE(TRIM(DETAIL))) - 1))) AS PRODUCT_TYPE,
+    CAST(SUBSTRING(PACKAGE,1, CHARINDEX(' ', PACKAGE) - 1) AS DECIMAL(10,3)) AS VOLUME,
+    CASE
+        WHEN PACKAGE LIKE '%cm3%' THEN 'CM3'
+        WHEN PACKAGE LIKE '%Liter%' THEN 'LITER'
+        ELSE 'Unknown'
+    END AS UNIT_OF_MEASURE,
+    CAST(SUBSTRING(PACKAGE, 1, CHARINDEX(' ', PACKAGE) - 1) AS DECIMAL(10,3))
+    * CASE 
+        WHEN PACKAGE LIKE '%cm3%' THEN 0.001 
+        ELSE 1 
+    END AS AMOUNT_LITER,
+    CASE 
+        WHEN LOWER(PACKAGE) LIKE '%can%' THEN 1 
+        ELSE 0 
+    END AS IS_CAN
+FROM [bd_staging_2025_G01].[dbo].[stg_productos_G01]
+ORDER BY PRODUCT_ID;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga productos intermedia\Source stg_productos.Connections[OleDbConnection]"
+                  connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_ID]"
+                      length="50"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[DETAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[DETAIL]"
+                      length="50"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[DETAIL]"
+                      name="DETAIL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[PACKAGE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[PACKAGE]"
+                      length="50"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[PACKAGE]"
+                      name="PACKAGE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_TYPE]"
+                      length="50"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_TYPE]"
+                      name="PRODUCT_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[VOLUME]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[VOLUME]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[VOLUME]"
+                      name="VOLUME"
+                      precision="10"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[UNIT_OF_MEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[UNIT_OF_MEASURE]"
+                      length="7"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[UNIT_OF_MEASURE]"
+                      name="UNIT_OF_MEASURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[AMOUNT_LITER]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[AMOUNT_LITER]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[AMOUNT_LITER]"
+                      name="AMOUNT_LITER"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[IS_CAN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[IS_CAN]"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].Columns[IS_CAN]"
+                      name="IS_CAN"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_ID]"
+                      dataType="i4"
+                      name="PRODUCT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[DETAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DETAIL" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[PACKAGE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PACKAGE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRODUCT_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[VOLUME]"
+                      dataType="numeric"
+                      name="VOLUME"
+                      precision="10"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[UNIT_OF_MEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="UNIT_OF_MEASURE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[AMOUNT_LITER]"
+                      dataType="numeric"
+                      name="AMOUNT_LITER"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[IS_CAN]"
+                      dataType="i4"
+                      name="IS_CAN" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[PRODUCT_ID]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[DETAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[DETAIL]"
+                      name="DETAIL" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[PACKAGE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[PACKAGE]"
+                      name="PACKAGE" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[PRODUCT_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[PRODUCT_TYPE]"
+                      name="PRODUCT_TYPE" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[VOLUME]"
+                      dataType="numeric"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[VOLUME]"
+                      name="VOLUME"
+                      precision="10"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[UNIT_OF_MEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[UNIT_OF_MEASURE]"
+                      name="UNIT_OF_MEASURE" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[AMOUNT_LITER]"
+                      dataType="numeric"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[AMOUNT_LITER]"
+                      name="AMOUNT_LITER"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[IS_CAN]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[IS_CAN]"
+                      name="IS_CAN" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga productos intermedia.Paths[OLE DB Source Output]"
+              endId="Package\Carga productos intermedia\int_productos_G01.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -417,6 +926,24 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Truncate int_productos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{768EFA34-1D5D-44FB-92F4-61257881FA34}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate int_productos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_intermedia_2025_G01].dbo.[int_productos_G01]"
+          SQLTask:TypeConversionMode="None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Truncate stg_productos"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -438,11 +965,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{53960211-4634-4C57-B2F5-DA5E045D2AEC}"
+      DTS:DTSID="{DA234684-3E2B-49F3-83BF-9E53451B5506}"
       DTS:From="Package\Carga productos staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Carga productos intermedia" />
+      DTS:To="Package\Truncate int_productos" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -459,6 +986,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Carga productos staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{95E7EEC6-7BA7-4580-B347-06F0BC10FA89}"
+      DTS:From="Package\Truncate int_productos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Carga productos intermedia" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -471,7 +1006,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="230.4,41.6"
           Id="Package\Carga productos Datawarehouse"
@@ -488,28 +1023,6 @@
           Size="187.2,41.6"
           Id="Package\Truncate stg_productos"
           TopLeft="186.66665646765,36.399999746879" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="266.899990848204,169.866665774716">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.9999992587169"
-              Start="0,0"
-              End="0,57.4999992587169">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.4999992587169" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="268.366657970184,276.466665033433">
@@ -566,14 +1079,136 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Truncate int_productos"
+          TopLeft="676.666629695232,197.599998625914" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="266.433323999412,169.866665774716">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="502.63330569582,27.7333328511983"
+              Start="0,0"
+              End="502.63330569582,20.2333328511983">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.86666642559913" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.86666642559913"
+                    Point2="0,13.8666664255991"
+                    Point3="4,13.8666664255991" />
+                  <mssgle:LineSegment
+                    End="498.63330569582,13.8666664255991" />
+                  <mssgle:CubicBezierSegment
+                    Point1="498.63330569582,13.8666664255991"
+                    Point2="502.63330569582,13.8666664255991"
+                    Point3="502.63330569582,17.8666664255991" />
+                  <mssgle:LineSegment
+                    End="502.63330569582,20.2333328511983" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="676.666629695232,218.399998625914">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-306.099971998236,37.2666664075188"
+              Start="0,0"
+              End="-298.599971998236,37.2666664075188">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-149.049985999118,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-149.049985999118,0"
+                    Point2="-153.049985999118,0"
+                    Point3="-153.049985999118,4" />
+                  <mssgle:LineSegment
+                    End="-153.049985999118,33.2666664075188" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-153.049985999118,33.2666664075188"
+                    Point2="-153.049985999118,37.2666664075188"
+                    Point3="-157.049985999118,37.2666664075188" />
+                  <mssgle:LineSegment
+                    End="-298.599971998236,37.2666664075188" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Carga productos staging">
+    design-time-name="Package\Carga productos intermedia">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Carga productos intermedia\Source stg_productos"
+          TopLeft="582.499968173605,114.399999204477" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Carga productos intermedia\int_productos_G01"
+          TopLeft="643.333298183151,271.266664780312" />
+        <EdgeLayout
+          Id="Package\Carga productos intermedia.Paths[OLE DB Source Output]"
+          TopLeft="672.099968173605,155.999999204477">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.4333300095466,115.266665575835"
+              Start="0,0"
+              End="54.4333300095466,107.766665575835">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.6333327879177" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.6333327879177"
+                    Point2="0,57.6333327879177"
+                    Point3="4,57.6333327879177" />
+                  <mssgle:LineSegment
+                    End="50.4333300095466,57.6333327879177" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.4333300095466,57.6333327879177"
+                    Point2="54.4333300095466,57.6333327879177"
+                    Point3="54.4333300095466,61.6333327879177" />
+                  <mssgle:LineSegment
+                    End="54.4333300095466,107.766665575835" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Carga productos staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="168.8,41.6"
           Id="Package\Carga productos staging\stg_productos_G01"
@@ -601,7 +1236,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -609,6 +1246,32 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Carga productos staging\stg_productos_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga productos intermedia\Source stg_productos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga productos intermedia\int_productos_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
