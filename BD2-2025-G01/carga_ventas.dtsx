@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{793541F8-AE49-4906-BC20-676E781AB355}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{12456AFA-FA38-4B36-B180-FF6B271F9591}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC1GsdxWCfEgzSuN9x4Hhmxo02lTf2yedTsdi1Xv3Z3yQAAAAAOgAAAAAIAACAAAAA4XSOVcPz0YLR3YMLeF+Q8xnOqQ+nW9vaBN3rQcvLhJSAAAACKIUhqaRVKKdQylZQBc7+JE7252tzCWjVEqrQAD1aG/UAAAADbnUvP6/qxj2Gd3+stA86shLlLfr6oWx5eSXBsI0vYFuckTfExVJjhMoUZ1mLICztQxksgY4D3zfA7q7+kjard</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABxCdj19EIpRWg4gl+Udtda8U65faAfdAAq2rzh1iA6MQAAAAAOgAAAAAIAACAAAADQK+6ml6NT5lgHRmweJlLqtOR8ZE41Fi1yaCCBRP4a7SAAAAB4rZeknJaQ6l1HmABHPv5a5khubtIodadduddFmr0LgkAAAABKwbSzo7PinoKjRXoiI4OKSCEWwPwnP1WA1XoO97PYKHQtTRdvGZqbXu7x0qMRIum0ZCTNU48a/T4bnExUYyjb</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1753,6 +1753,622 @@ FROM sales.prices;</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{53684C6E-5FC9-40C0-9DD6-B5A0A8E4E865}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\int_ventas_G01"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="int_ventas_G01"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[int_ventas_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\int_ventas_G01.Connections[OleDbConnection]"
+                  connectionManagerID="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost bd_intermedia_2025_G01 sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[REGION]"
+                      cachedDataType="wstr"
+                      cachedLength="90"
+                      cachedName="REGION"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[REGION]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[REGION]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[VENTA_ID]"
+                      cachedDataType="i4"
+                      cachedName="VENTA_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[VENTA_ID]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[VENTA_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[FECHA_VENTA]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_VENTA"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_VENTA]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[FECHA_VENTA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[CLIENTE_ID]"
+                      cachedDataType="i4"
+                      cachedName="CLIENTE_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[CLIENTE_ID]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[CLIENTE_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[EMPLEADO_ID]"
+                      cachedDataType="i4"
+                      cachedName="EMPLEADO_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLEADO_ID]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[EMPLEADO_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[PRODUCTO_ID]"
+                      cachedDataType="i4"
+                      cachedName="PRODUCTO_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCTO_ID]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[PRODUCTO_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[CANTIDAD]"
+                      cachedDataType="i4"
+                      cachedName="CANTIDAD"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[CANTIDAD]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[CANTIDAD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[TOTAL_FACTURADO]"
+                      cachedDataType="r8"
+                      cachedName="TOTAL_FACTURADO"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL_FACTURADO]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[TOTAL_FACTURADO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      cachedDataType="r8"
+                      cachedName="TOTAL_FACTURADO_CON_DESCUENTO"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[TOTAL_FACTURADO_CON_DESCUENTO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[PRECIO]"
+                      cachedDataType="r8"
+                      cachedName="PRECIO"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRECIO]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[PRECIO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[DESCUENTO]"
+                      cachedDataType="numeric"
+                      cachedName="DESCUENTO"
+                      cachedPrecision="13"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[DESCUENTO]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[DESCUENTO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[REGION]"
+                      dataType="wstr"
+                      length="90"
+                      name="REGION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[VENTA_ID]"
+                      dataType="i4"
+                      name="VENTA_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_VENTA]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_VENTA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[CLIENTE_ID]"
+                      dataType="i4"
+                      name="CLIENTE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[EMPLEADO_ID]"
+                      dataType="i4"
+                      name="EMPLEADO_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCTO_ID]"
+                      dataType="i4"
+                      name="PRODUCTO_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[CANTIDAD]"
+                      dataType="i4"
+                      name="CANTIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL_FACTURADO]"
+                      dataType="r8"
+                      name="TOTAL_FACTURADO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      dataType="r8"
+                      name="TOTAL_FACTURADO_CON_DESCUENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[PRECIO]"
+                      dataType="r8"
+                      name="PRECIO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[DESCUENTO]"
+                      dataType="numeric"
+                      name="DESCUENTO"
+                      precision="13"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\int_ventas_G01.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\int_ventas_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\int_ventas_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Source ventas_descuentos_precio_total"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source ventas_descuentos_precio_total"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[stg_detalle_ventas_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">with
+  TMP_Fact
+  as
+  (
+          SELECT
+        t1.BILLING_ID,
+        t1.DATE,
+        t1.CUSTOMER_ID,
+        t1.EMPLOYEE_ID,
+        t2.PRODUCT_ID,
+        t2.QUANTITY,
+        t1.REGION
+      FROM [bd_staging_2025_G01].[dbo].[stg_ventas_G01] as t1
+        INNER JOIN [bd_staging_2025_G01].dbo.[stg_detalle_ventas_G01] as t2 on t1.BILLING_ID = t2.BILLING_ID
+
+    UNION ALL
+
+      SELECT
+        t1.BILLING_ID,
+        t1.DATE,
+        t1.CUSTOMER_ID,
+        t1.EMPLOYEE_ID,
+        t1.PRODUCT_ID,
+        t1.QUANTITY,
+        t1.REGION
+      FROM [bd_staging_2025_G01].[dbo].[stg_ventas_hist_G01] t1
+  ),
+  TMP_Precios
+  as
+  (
+    SELECT t1.PRODUCT_ID
+      , t1.DATE
+      , LEAD(DATE, 1) OVER (PARTITION BY PRODUCT_ID ORDER BY DATE) AS [UNTIL]
+      , t1.PRICE
+    FROM [bd_staging_2025_G01].[dbo].[stg_precios_G01] t1
+  ),
+  CTE_Total_Facturado
+  AS
+  (
+    select v.billing_id, v.date, SUM(v.quantity) * SUM(p.PRICE) AS total_facturado
+    from TMP_Fact v
+      left join TMP_Precios p
+      on v.product_id = p.PRODUCT_ID
+        and v.date &gt;= p.[DATE]
+        and (v.date &lt; p.UNTIL or p.UNTIL is null)
+    group by v.billing_id, v.date
+  ),
+  CTE_Descuentos
+  AS
+  (
+    select v.billing_id, v.date, v.total_facturado, isnull(MAX(d.PERCENTAGE/100.00),0.00) AS descuento
+    from CTE_Total_Facturado v --1656457
+      left join [bd_staging_2025_G01].[dbo].[stg_descuentos_G01] d
+      on v.date &gt;= d.[FROM]
+        and (v.date &lt; d.UNTIL or d.UNTIL is null)
+        and v.total_facturado &gt; d.TOTAL_BILLING
+    group by v.billing_id, v.date, v.total_facturado
+  )
+select 
+  v.BILLING_ID AS [VENTA_ID]
+  , v.DATE AS [FECHA_VENTA]
+  , v.CUSTOMER_ID AS [CLIENTE_ID]
+  , v.EMPLOYEE_ID AS [EMPLEADO_ID]
+  , v.PRODUCT_ID AS [PRODUCTO_ID]
+  , v.QUANTITY AS [CANTIDAD]
+  , v.REGION AS [REGION]
+  , v.quantity * p.PRICE AS [TOTAL_FACTURADO]
+  , v.quantity * p.PRICE * (1-d.descuento)  AS [TOTAL_FACTURADO_CON_DESCUENTO]
+  , p.PRICE AS [PRECIO]
+  , d.descuento AS [DESCUENTO]
+from TMP_Fact v
+  left join TMP_Precios p
+  on v.product_id = p.PRODUCT_ID
+    and v.date &gt;= p.[DATE]
+    and (v.date &lt; p.UNTIL or p.UNTIL is null)
+  left join CTE_Descuentos d
+  on v.billing_id = d.billing_id
+ORDER BY v.BILLING_ID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Connections[OleDbConnection]"
+                  connectionManagerID="{D6007274-3C00-4CA7-9755-908AF3256B73}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.staging_2025_g01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[REGION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[REGION]"
+                      length="90"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[REGION]"
+                      name="REGION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[VENTA_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[VENTA_ID]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[VENTA_ID]"
+                      name="VENTA_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[FECHA_VENTA]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[FECHA_VENTA]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[FECHA_VENTA]"
+                      name="FECHA_VENTA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[CLIENTE_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[CLIENTE_ID]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[CLIENTE_ID]"
+                      name="CLIENTE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[EMPLEADO_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[EMPLEADO_ID]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[EMPLEADO_ID]"
+                      name="EMPLEADO_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[PRODUCTO_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[PRODUCTO_ID]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[PRODUCTO_ID]"
+                      name="PRODUCTO_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[CANTIDAD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[CANTIDAD]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[CANTIDAD]"
+                      name="CANTIDAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[TOTAL_FACTURADO]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_FACTURADO]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[TOTAL_FACTURADO]"
+                      name="TOTAL_FACTURADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      name="TOTAL_FACTURADO_CON_DESCUENTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[PRECIO]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[PRECIO]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[PRECIO]"
+                      name="PRECIO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[DESCUENTO]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[DESCUENTO]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[DESCUENTO]"
+                      name="DESCUENTO"
+                      precision="13"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[REGION]"
+                      dataType="wstr"
+                      length="90"
+                      name="REGION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[VENTA_ID]"
+                      dataType="i4"
+                      name="VENTA_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[FECHA_VENTA]"
+                      dataType="dbTimeStamp"
+                      name="FECHA_VENTA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[CLIENTE_ID]"
+                      dataType="i4"
+                      name="CLIENTE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[EMPLEADO_ID]"
+                      dataType="i4"
+                      name="EMPLEADO_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[PRODUCTO_ID]"
+                      dataType="i4"
+                      name="PRODUCTO_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[CANTIDAD]"
+                      dataType="i4"
+                      name="CANTIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_FACTURADO]"
+                      dataType="r8"
+                      name="TOTAL_FACTURADO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      dataType="r8"
+                      name="TOTAL_FACTURADO_CON_DESCUENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[PRECIO]"
+                      dataType="r8"
+                      name="PRECIO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[DESCUENTO]"
+                      dataType="numeric"
+                      name="DESCUENTO"
+                      precision="13"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[VENTA_ID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[VENTA_ID]"
+                      name="VENTA_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[FECHA_VENTA]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[FECHA_VENTA]"
+                      name="FECHA_VENTA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[CLIENTE_ID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[CLIENTE_ID]"
+                      name="CLIENTE_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[EMPLEADO_ID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[EMPLEADO_ID]"
+                      name="EMPLEADO_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[PRODUCTO_ID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[PRODUCTO_ID]"
+                      name="PRODUCTO_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[CANTIDAD]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[CANTIDAD]"
+                      name="CANTIDAD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[REGION]"
+                      dataType="wstr"
+                      length="90"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[REGION]"
+                      name="REGION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[TOTAL_FACTURADO]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[TOTAL_FACTURADO]"
+                      name="TOTAL_FACTURADO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      name="TOTAL_FACTURADO_CON_DESCUENTO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[PRECIO]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[PRECIO]"
+                      name="PRECIO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[DESCUENTO]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[DESCUENTO]"
+                      name="DESCUENTO"
+                      precision="13"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Truncate ventas historicas"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -1787,6 +2403,22 @@ FROM sales.prices;</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Carga ventas mysql" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{51030D82-1CF2-4871-BD01-07048B6CA63B}"
+      DTS:From="Package\Carga ventas sql server"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{332E369D-4EDB-4AB7-AFE8-65FE70433A73}"
+      DTS:From="Package\Carga ventas mysql"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Data Flow Task" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1872,6 +2504,78 @@ FROM sales.prices;</property>
                     Point3="91.5333257751333,23.2936505423952" />
                   <mssgle:LineSegment
                     End="91.5333257751333,40.1666660459175" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="429.166643218035,302.466664563351" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="397.333316759931,223.599998734395">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.2999931247709,78.8666658289562"
+              Start="0,0"
+              End="83.2999931247709,71.3666658289562">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.8218942395066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.8218942395066"
+                    Point2="0,46.8218942395066"
+                    Point3="4,46.8218942395066" />
+                  <mssgle:LineSegment
+                    End="79.2999931247709,46.8218942395066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.2999931247709,46.8218942395066"
+                    Point2="83.2999931247709,46.8218942395066"
+                    Point3="83.2999931247709,50.8218942395066" />
+                  <mssgle:LineSegment
+                    End="83.2999931247709,71.3666658289562" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="658.533302007783,224.466665395035">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-130.433325456414,77.9999991683162"
+              Start="0,0"
+              End="-130.433325456414,70.4999991683162">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.3073679272951" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.3073679272951"
+                    Point2="0,46.3073679272951"
+                    Point3="-4,46.3073679272951" />
+                  <mssgle:LineSegment
+                    End="-126.433325456414,46.3073679272951" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-126.433325456414,46.3073679272951"
+                    Point2="-130.433325456414,46.3073679272951"
+                    Point3="-130.433325456414,50.3073679272951" />
+                  <mssgle:LineSegment
+                    End="-130.433325456414,70.4999991683162" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2148,6 +2852,70 @@ FROM sales.prices;</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga ventas sql server\Ventas historicas SQL Server">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="263.2,41.6"
+          Id="Package\Data Flow Task\Source ventas_descuentos_precio_total"
+          TopLeft="100.714284213526,58.5714276986463" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Data Flow Task\int_ventas_G01"
+          TopLeft="149.999997764826,210.714282574398" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="228.957140989176,100.171427698646">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,110.542854875752"
+              Start="0,0"
+              End="0,103.042854875752">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,103.042854875752" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Source ventas_descuentos_precio_total">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\int_ventas_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_clientes"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{B8EB268D-3FAF-4343-808C-41043DB2FE38}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{B8775EC7-719D-43E3-AA72-E83D188C204B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
