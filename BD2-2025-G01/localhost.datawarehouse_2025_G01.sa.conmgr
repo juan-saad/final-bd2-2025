@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost.datawarehouse_2025_G01.sa"
+  DTS:DTSID="{CDD9B5C9-3876-442B-880A-133750C219D7}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=datawarehouse_2025_G01;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAACAAAAAAAQZgAAAAEAACAAAACv2Az3MSHAPAzyiDG6JwCWgnGD8BQ5j901wG9Ldlc25wAAAAAOgAAAAAIAACAAAAClmp69a03iXs7e+faK6eB20zWsmWU7TPwaeX3TUcLfKIAAAADpPS3oKmOtVDogFot4FGBJ+mTGOBvYpZmI+1gaMALrfg+PMDzmYzAVNI8xxNYbcJUrkptVn7kTUqzH178HBmj583sViV6fpWrXFcVk15Vus7cQXUVT6rdYCKJz8sBS/2efJzGuanKtV6bk/dqWgHEyhIjzvLX1n3PWRqYq7M9yBUAAAAA26/tnNG82ZQDMgS8eZldBWmQHxCbBy29vZzIEy8WCXdlfrFhQj9uCrQcj5HmLyp1YH5YmAe99dczbIr1p9nhb</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
