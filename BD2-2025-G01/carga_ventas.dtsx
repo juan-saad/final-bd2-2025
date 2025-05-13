@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{12456AFA-FA38-4B36-B180-FF6B271F9591}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{5E60D703-DAE0-48CD-918C-BD12A55901CC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABxCdj19EIpRWg4gl+Udtda8U65faAfdAAq2rzh1iA6MQAAAAAOgAAAAAIAACAAAADQK+6ml6NT5lgHRmweJlLqtOR8ZE41Fi1yaCCBRP4a7SAAAAB4rZeknJaQ6l1HmABHPv5a5khubtIodadduddFmr0LgkAAAABKwbSzo7PinoKjRXoiI4OKSCEWwPwnP1WA1XoO97PYKHQtTRdvGZqbXu7x0qMRIum0ZCTNU48a/T4bnExUYyjb</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADpSd0H4JJzWaehzUzDGaTES0SEWPnSmIqV8fiTBWIUcAAAAAAOgAAAAAIAACAAAAC2TDWcbC3eloyd/WLTduaswpCdEknaWx7Tes1eORN3uCAAAACXT38VFXMU0eIj6k4ycjvyL5qkiltt/6d6ZvDREl8TY0AAAACAVNEt0XmD+Y1ezN0GOlpm7QW53h+51ua3ZiewvkmwYkSNEJMutqxbfbM30L1AfcbE6igjA2TpO0MuzybokP8v</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1907,6 +1907,22 @@ FROM sales.prices;</property>
                       cachedScale="6"
                       externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[DESCUENTO]"
                       lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[DESCUENTO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[LITROS_POR_UNIDAD]"
+                      cachedDataType="numeric"
+                      cachedName="LITROS_POR_UNIDAD"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[LITROS_POR_UNIDAD]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[LITROS_POR_UNIDAD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].Columns[TOTAL_LITROS]"
+                      cachedDataType="numeric"
+                      cachedName="TOTAL_LITROS"
+                      cachedPrecision="26"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL_LITROS]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[TOTAL_LITROS]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1956,6 +1972,18 @@ FROM sales.prices;</property>
                       dataType="numeric"
                       name="DESCUENTO"
                       precision="13"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[LITROS_POR_UNIDAD]"
+                      dataType="numeric"
+                      name="LITROS_POR_UNIDAD"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\int_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL_LITROS]"
+                      dataType="numeric"
+                      name="TOTAL_LITROS"
+                      precision="26"
                       scale="6" />
                   </externalMetadataColumns>
                 </input>
@@ -2011,82 +2039,99 @@ FROM sales.prices;</property>
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">with
-  TMP_Fact
-  as
-  (
-          SELECT
-        t1.BILLING_ID,
-        t1.DATE,
-        t1.CUSTOMER_ID,
-        t1.EMPLOYEE_ID,
-        t2.PRODUCT_ID,
-        t2.QUANTITY,
-        t1.REGION
-      FROM [bd_staging_2025_G01].[dbo].[stg_ventas_G01] as t1
-        INNER JOIN [bd_staging_2025_G01].dbo.[stg_detalle_ventas_G01] as t2 on t1.BILLING_ID = t2.BILLING_ID
+    TMP_Fact
+    as
+    (
+                    SELECT
+                t1.BILLING_ID,
+                t1.DATE,
+                t1.CUSTOMER_ID,
+                t1.EMPLOYEE_ID,
+                t2.PRODUCT_ID,
+                t2.QUANTITY,
+                t1.REGION
+            FROM [bd_staging_2025_G01].[dbo].[stg_ventas_G01] as t1
+                INNER JOIN [bd_staging_2025_G01].dbo.[stg_detalle_ventas_G01] as t2 on t1.BILLING_ID = t2.BILLING_ID
 
-    UNION ALL
+        UNION ALL
 
-      SELECT
-        t1.BILLING_ID,
-        t1.DATE,
-        t1.CUSTOMER_ID,
-        t1.EMPLOYEE_ID,
-        t1.PRODUCT_ID,
-        t1.QUANTITY,
-        t1.REGION
-      FROM [bd_staging_2025_G01].[dbo].[stg_ventas_hist_G01] t1
-  ),
-  TMP_Precios
-  as
-  (
-    SELECT t1.PRODUCT_ID
-      , t1.DATE
-      , LEAD(DATE, 1) OVER (PARTITION BY PRODUCT_ID ORDER BY DATE) AS [UNTIL]
-      , t1.PRICE
-    FROM [bd_staging_2025_G01].[dbo].[stg_precios_G01] t1
-  ),
-  CTE_Total_Facturado
-  AS
-  (
-    select v.billing_id, v.date, SUM(v.quantity) * SUM(p.PRICE) AS total_facturado
-    from TMP_Fact v
-      left join TMP_Precios p
-      on v.product_id = p.PRODUCT_ID
-        and v.date &gt;= p.[DATE]
-        and (v.date &lt; p.UNTIL or p.UNTIL is null)
-    group by v.billing_id, v.date
-  ),
-  CTE_Descuentos
-  AS
-  (
-    select v.billing_id, v.date, v.total_facturado, isnull(MAX(d.PERCENTAGE/100.00),0.00) AS descuento
-    from CTE_Total_Facturado v --1656457
-      left join [bd_staging_2025_G01].[dbo].[stg_descuentos_G01] d
-      on v.date &gt;= d.[FROM]
-        and (v.date &lt; d.UNTIL or d.UNTIL is null)
-        and v.total_facturado &gt; d.TOTAL_BILLING
-    group by v.billing_id, v.date, v.total_facturado
-  )
-select 
-  v.BILLING_ID AS [VENTA_ID]
-  , v.DATE AS [FECHA_VENTA]
-  , v.CUSTOMER_ID AS [CLIENTE_ID]
+            SELECT
+                t1.BILLING_ID,
+                t1.DATE,
+                t1.CUSTOMER_ID,
+                t1.EMPLOYEE_ID,
+                t1.PRODUCT_ID,
+                t1.QUANTITY,
+                t1.REGION
+            FROM [bd_staging_2025_G01].[dbo].[stg_ventas_hist_G01] t1
+    ),
+    TMP_Precios
+    as
+    (
+        SELECT t1.PRODUCT_ID
+        , t1.DATE
+        , LEAD(DATE, 1) OVER (PARTITION BY PRODUCT_ID ORDER BY DATE) AS [UNTIL]
+        , t1.PRICE
+        FROM [bd_staging_2025_G01].[dbo].[stg_precios_G01] t1
+    ),
+    CTE_Total_Facturado
+    AS
+    (
+        select v.billing_id, v.date, SUM(v.quantity) * SUM(p.PRICE) AS total_facturado
+        from TMP_Fact v
+            left join TMP_Precios p
+            on v.product_id = p.PRODUCT_ID
+                and v.date &gt;= p.[DATE]
+                and (v.date &lt; p.UNTIL or p.UNTIL is null)
+        group by v.billing_id, v.date
+    ),
+    CTE_Descuentos
+    AS
+    (
+        select v.billing_id, v.date, v.total_facturado, isnull(MAX(d.PERCENTAGE/100.00),0.00) AS descuento
+        from CTE_Total_Facturado v --1656457
+            left join [bd_staging_2025_G01].[dbo].[stg_descuentos_G01] d
+            on v.date &gt;= d.[FROM]
+                and (v.date &lt; d.UNTIL or d.UNTIL is null)
+                and v.total_facturado &gt; d.TOTAL_BILLING
+        group by v.billing_id, v.date, v.total_facturado
+    )
+select
+    v.BILLING_ID AS [VENTA_ID]
+    , v.DATE AS [FECHA_VENTA]
+    , v.CUSTOMER_ID AS [CLIENTE_ID]
+    , DATEDIFF(YEAR, cli.BIRTH_DATE, v.DATE) - 
+    CASE 
+        WHEN DATEADD(YEAR, DATEDIFF(YEAR, cli.BIRTH_DATE, v.DATE), cli.BIRTH_DATE) &gt; v.DATE 
+        THEN 1 
+        ELSE 0 
+    END AS [EDAD_CLIENTE]
   , v.EMPLOYEE_ID AS [EMPLEADO_ID]
+  , DATEDIFF(YEAR, emp.BIRTH_DATE, v.DATE) - 
+    CASE 
+        WHEN DATEADD(YEAR, DATEDIFF(YEAR, emp.BIRTH_DATE, v.DATE), emp.BIRTH_DATE) &gt; v.DATE 
+        THEN 1 
+        ELSE 0 
+    END AS [EDAD_EMPLEADO]
   , v.PRODUCT_ID AS [PRODUCTO_ID]
   , v.QUANTITY AS [CANTIDAD]
   , v.REGION AS [REGION]
-  , v.quantity * p.PRICE AS [TOTAL_FACTURADO]
-  , v.quantity * p.PRICE * (1-d.descuento)  AS [TOTAL_FACTURADO_CON_DESCUENTO]
-  , p.PRICE AS [PRECIO]
+  , v.quantity * prec.PRICE AS [TOTAL_FACTURADO]
+  , v.quantity * prec.PRICE * (1-d.descuento)  AS [TOTAL_FACTURADO_CON_DESCUENTO]
+  , prec.PRICE AS [PRECIO]
   , d.descuento AS [DESCUENTO]
+  , prod.AMOUNT_LITER AS [LITROS_POR_UNIDAD]
+  , v.quantity * prod.AMOUNT_LITER AS [TOTAL_LITROS]
 from TMP_Fact v
-  left join TMP_Precios p
-  on v.product_id = p.PRODUCT_ID
-    and v.date &gt;= p.[DATE]
-    and (v.date &lt; p.UNTIL or p.UNTIL is null)
-  left join CTE_Descuentos d
-  on v.billing_id = d.billing_id
+    INNER JOIN [bd_intermedia_2025_G01].[dbo].[int_productos_G01] prod ON prod.PRODUCT_ID = v.PRODUCT_ID
+    INNER JOIN [bd_intermedia_2025_G01].[dbo].[int_clientes_G01] cli ON cli.CUSTOMER_ID = v.CUSTOMER_ID
+    INNER JOIN [bd_intermedia_2025_G01].[dbo].[int_empleados_G01] emp ON emp.EMPLOYEE_ID = v.EMPLOYEE_ID
+    left join TMP_Precios prec
+    on v.product_id = prec.PRODUCT_ID
+        and v.date &gt;= prec.[DATE]
+        and (v.date &lt; prec.UNTIL or prec.UNTIL is null)
+    left join CTE_Descuentos d
+    on v.billing_id = d.billing_id
 ORDER BY v.BILLING_ID</property>
                 <property
                   dataType="System.String"
@@ -2225,6 +2270,46 @@ ORDER BY v.BILLING_ID</property>
                       precision="13"
                       scale="6"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[LITROS_POR_UNIDAD]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[LITROS_POR_UNIDAD]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[LITROS_POR_UNIDAD]"
+                      name="LITROS_POR_UNIDAD"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[TOTAL_LITROS]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_LITROS]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[TOTAL_LITROS]"
+                      name="TOTAL_LITROS"
+                      precision="26"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[EDAD_CLIENTE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[EDAD_CLIENTE]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[EDAD_CLIENTE]"
+                      name="EDAD_CLIENTE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[EDAD_EMPLEADO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[EDAD_EMPLEADO]"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].Columns[EDAD_EMPLEADO]"
+                      name="EDAD_EMPLEADO"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2275,6 +2360,26 @@ ORDER BY v.BILLING_ID</property>
                       name="DESCUENTO"
                       precision="13"
                       scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[LITROS_POR_UNIDAD]"
+                      dataType="numeric"
+                      name="LITROS_POR_UNIDAD"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_LITROS]"
+                      dataType="numeric"
+                      name="TOTAL_LITROS"
+                      precision="26"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[EDAD_CLIENTE]"
+                      dataType="i4"
+                      name="EDAD_CLIENTE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Output].ExternalColumns[EDAD_EMPLEADO]"
+                      dataType="i4"
+                      name="EDAD_EMPLEADO" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2298,10 +2403,20 @@ ORDER BY v.BILLING_ID</property>
                       lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[CLIENTE_ID]"
                       name="CLIENTE_ID" />
                     <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[EDAD_CLIENTE]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[EDAD_CLIENTE]"
+                      name="EDAD_CLIENTE" />
+                    <outputColumn
                       refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[EMPLEADO_ID]"
                       dataType="i4"
                       lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[EMPLEADO_ID]"
                       name="EMPLEADO_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[EDAD_EMPLEADO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[EDAD_EMPLEADO]"
+                      name="EDAD_EMPLEADO" />
                     <outputColumn
                       refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[PRODUCTO_ID]"
                       dataType="i4"
@@ -2339,6 +2454,20 @@ ORDER BY v.BILLING_ID</property>
                       lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[DESCUENTO]"
                       name="DESCUENTO"
                       precision="13"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[LITROS_POR_UNIDAD]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[LITROS_POR_UNIDAD]"
+                      name="LITROS_POR_UNIDAD"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[TOTAL_LITROS]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[TOTAL_LITROS]"
+                      name="TOTAL_LITROS"
+                      precision="26"
                       scale="6" />
                     <outputColumn
                       refId="Package\Data Flow Task\Source ventas_descuentos_precio_total.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -2441,6 +2570,10 @@ ORDER BY v.BILLING_ID</property>
           Id="Package\Carga ventas sql server"
           TopLeft="303.333316759931,181.999998734395" />
         <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="429.166643218035,302.466664563351" />
+        <NodeLayout
           Size="200,41.6"
           Id="Package\Truncate ventas historicas"
           TopLeft="434.999976232649,93.5999993491172" />
@@ -2512,10 +2645,6 @@ ORDER BY v.BILLING_ID</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Data Flow Task"
-          TopLeft="429.166643218035,302.466664563351" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="397.333316759931,223.599998734395">
@@ -2591,7 +2720,7 @@ ORDER BY v.BILLING_ID</property>
     design-time-name="Package\Carga ventas mysql">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Carga ventas mysql\stg_descuentos_G01"
@@ -2643,7 +2772,9 @@ ORDER BY v.BILLING_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2665,7 +2796,9 @@ ORDER BY v.BILLING_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2687,7 +2820,9 @@ ORDER BY v.BILLING_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2709,7 +2844,9 @@ ORDER BY v.BILLING_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2803,7 +2940,7 @@ ORDER BY v.BILLING_ID</property>
     design-time-name="Package\Carga ventas sql server">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="176,41.6"
           Id="Package\Carga ventas sql server\stg_ventas_hist_G01"
@@ -2831,7 +2968,9 @@ ORDER BY v.BILLING_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2902,7 +3041,7 @@ ORDER BY v.BILLING_ID</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Source ventas_descuentos_precio_total">
+    design-time-name="Package\Data Flow Task\int_ventas_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2915,7 +3054,7 @@ ORDER BY v.BILLING_ID</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\int_ventas_G01">
+    design-time-name="Package\Data Flow Task\Source ventas_descuentos_precio_total">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
