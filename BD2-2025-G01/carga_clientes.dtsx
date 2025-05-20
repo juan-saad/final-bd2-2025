@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_clientes"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{CCA89D28-BB87-4010-9CC2-5E3E0681C565}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{C60B1688-CE56-4602-B09D-A4FBA52B57CC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1763,6 +1763,80 @@ ORDER BY cw.CUSTOMER_ID;</property>
                   refId="Package\Carga clientes intermedia\TipoCliente Mayorista.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\TipoCliente Mayorista.Inputs[Derived Column Input].Columns[FULL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FULL_NAME"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[FULL_NAME]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([UPPER](#{Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[FULL_NAME]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(UPPER(FULL_NAME))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\TipoCliente Mayorista.Inputs[Derived Column Input].Columns[CITY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CITY"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[CITY]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([UPPER](#{Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[CITY]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(UPPER(CITY))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\TipoCliente Mayorista.Inputs[Derived Column Input].Columns[STATE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="STATE"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[STATE]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([UPPER](#{Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[STATE]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(UPPER(STATE))</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -1788,13 +1862,13 @@ ORDER BY cw.CUSTOMER_ID;</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">"Mayorista"</property>
+                          name="Expression">[UPPER]("Mayorista")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">"Mayorista"</property>
+                          name="FriendlyExpression">UPPER("Mayorista")</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1837,6 +1911,80 @@ ORDER BY cw.CUSTOMER_ID;</property>
                   refId="Package\Carga clientes intermedia\TipoCliente Minorista.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\TipoCliente Minorista.Inputs[Derived Column Input].Columns[FULL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FULL_NAME"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[FULL_NAME]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([UPPER](#{Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[FULL_NAME]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(UPPER(FULL_NAME))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\TipoCliente Minorista.Inputs[Derived Column Input].Columns[CITY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CITY"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[CITY]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([UPPER](#{Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[CITY]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(UPPER(CITY))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\TipoCliente Minorista.Inputs[Derived Column Input].Columns[STATE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="STATE"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[STATE]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM]([UPPER](#{Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[STATE]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(UPPER(STATE))</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -1862,13 +2010,13 @@ ORDER BY cw.CUSTOMER_ID;</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">"Minorista"</property>
+                          name="Expression">[UPPER]("Minorista")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">"Minorista"</property>
+                          name="FriendlyExpression">UPPER("Minorista")</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3190,9 +3338,13 @@ ORDER BY cw.CUSTOMER_ID;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\Carga clientes Datawarehouse"
+          TopLeft="523.333304739662,435.933330301907" />
+        <NodeLayout
           Size="196,41.6"
           Id="Package\Carga clientes intermedia"
-          TopLeft="532.499970905484,307.666664527191" />
+          TopLeft="389.166645403538,298.133331260151" />
         <NodeLayout
           Size="181.6,41.6"
           Id="Package\Carga clientes staging"
@@ -3200,7 +3352,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\Truncate int_clientes"
-          TopLeft="674.166629831826,216.866665865117" />
+          TopLeft="397.499978281559,217.733332525757" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Truncate stg_clientes"
@@ -3229,30 +3381,52 @@ ORDER BY cw.CUSTOMER_ID;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="761.366629831826,258.466665865117">
+          TopLeft="485.933311842549,259.333332525757">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-130.866658926342,49.1999986620742"
+              EndConnector="0,38.7999987343942"
               Start="0,0"
-              End="-130.866658926342,41.6999986620742">
+              End="0,31.2999987343942">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.5999993310371" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.5999993310371"
-                    Point2="0,24.5999993310371"
-                    Point3="-4,24.5999993310371" />
+                    End="0,31.2999987343942" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="487.166645403538,339.733331260151">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="146.566659336124,96.1999990417558"
+              Start="0,0"
+              End="146.566659336124,88.6999990417558">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-126.866658926342,24.5999993310371" />
+                    End="0,44.0999995208779" />
                   <mssgle:CubicBezierSegment
-                    Point1="-126.866658926342,24.5999993310371"
-                    Point2="-130.866658926342,24.5999993310371"
-                    Point3="-130.866658926342,28.5999993310371" />
+                    Point1="0,44.0999995208779"
+                    Point2="0,48.0999995208779"
+                    Point3="4,48.0999995208779" />
                   <mssgle:LineSegment
-                    End="-130.866658926342,41.6999986620742" />
+                    End="142.566659336124,48.0999995208779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="142.566659336124,48.0999995208779"
+                    Point2="146.566659336124,48.0999995208779"
+                    Point3="146.566659336124,52.0999995208779" />
+                  <mssgle:LineSegment
+                    End="146.566659336124,88.6999990417558" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3263,56 +3437,30 @@ ORDER BY cw.CUSTOMER_ID;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="525.566644492911,188.933332308796">
+          TopLeft="496.633311159578,188.933332308796">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="235.799985338914,27.9333335563209"
+              EndConnector="-11.9333328780191,28.800000216961"
               Start="0,0"
-              End="235.799985338914,20.4333335563209">
+              End="-11.9333328780191,21.300000216961">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.3197089695484" />
+                    End="0,10.4000001084805" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.3197089695484"
-                    Point2="0,11.3197089695484"
-                    Point3="4,11.3197089695484" />
+                    Point1="0,10.4000001084805"
+                    Point2="0,14.4000001084805"
+                    Point3="-4,14.4000001084805" />
                   <mssgle:LineSegment
-                    End="231.799985338914,11.3197089695484" />
+                    End="-7.93333287801914,14.4000001084805" />
                   <mssgle:CubicBezierSegment
-                    Point1="231.799985338914,11.3197089695484"
-                    Point2="235.799985338914,11.3197089695484"
-                    Point3="235.799985338914,15.3197089695484" />
+                    Point1="-7.93333287801914,14.4000001084805"
+                    Point2="-11.9333328780191,14.4000001084805"
+                    Point3="-11.9333328780191,18.4000001084805" />
                   <mssgle:LineSegment
-                    End="235.799985338914,20.4333335563209" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="220.8,41.6"
-          Id="Package\Carga clientes Datawarehouse"
-          TopLeft="523.333304739662,435.933330301907" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="632.116637822573,349.266664527191">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,86.6666657747163"
-              Start="0,0"
-              End="0,79.1666657747163">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,79.1666657747163" />
+                    End="-11.9333328780191,21.300000216961" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3325,10 +3473,245 @@ ORDER BY cw.CUSTOMER_ID;</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Carga clientes intermedia">
+    design-time-name="Package\Carga clientes Datawarehouse">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Carga clientes Datawarehouse\Source int_clientes"
+          TopLeft="225.9,5.49999999999984" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga clientes Datawarehouse\OLE DB Command 1"
+          TopLeft="453.1,208.7" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Carga clientes Datawarehouse\Slowly Changing Dimension"
+          TopLeft="205.1,107.1" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Carga clientes Datawarehouse\Insert Destination"
+          TopLeft="5.50000000000009,208.7" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Carga clientes Datawarehouse\OLE DB Command"
+          TopLeft="225.5,208.7" />
+        <EdgeLayout
+          Id="Package\Carga clientes Datawarehouse.Paths[OLE DB Source Output]"
+          TopLeft="309.1,47.0999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga clientes Datawarehouse.Paths[New Output]"
+          TopLeft="259.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-174,60"
+              Start="0,0"
+              End="-174,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.506329113924"
+                    Point2="0,20.506329113924"
+                    Point3="-4,20.506329113924" />
+                  <mssgle:LineSegment
+                    End="-170,20.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-170,20.506329113924"
+                    Point2="-174,20.506329113924"
+                    Point3="-174,24.506329113924" />
+                  <mssgle:LineSegment
+                    End="-174,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-114.09138671875,25.506329113924,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga clientes Datawarehouse.Paths[Inferred Member Updates Output]"
+          TopLeft="309.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-74.40298828125,20.4208984375,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga clientes Datawarehouse.Paths[Changing Attribute Updates Output]"
+          TopLeft="359.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="182,60"
+              Start="0,0"
+              End="182,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.506329113924"
+                    Point2="0,20.506329113924"
+                    Point3="4,20.506329113924" />
+                  <mssgle:LineSegment
+                    End="178,20.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="178,20.506329113924"
+                    Point2="182,20.506329113924"
+                    Point3="182,24.506329113924" />
+                  <mssgle:LineSegment
+                    End="182,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.46609375,25.506329113924,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga clientes Datawarehouse\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{CDD9B5C9-3876-442B-880A-133750C219D7}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[dim_clientes_G01]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;birth_date&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[CITY]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;city&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[CLIENT_TYPE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;client_type&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;customer_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[FULL_NAME]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;full_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[STATE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;state&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[ZIPCODE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;zip_code&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga clientes Datawarehouse\Source int_clientes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Carga clientes intermedia">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="178.4,41.6"
           Id="Package\Carga clientes intermedia\Source stg_clientes_r"
@@ -3372,9 +3755,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3396,9 +3777,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3420,9 +3799,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3456,9 +3833,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3469,32 +3844,30 @@ ORDER BY cw.CUSTOMER_ID;</property>
               StartConnector="{assembly:Null}"
               EndConnector="141.666656376588,105.733332308796"
               Start="0,0"
-              End="141.666656376588,98.2333323087956">
+              End="141.666656376588,98.233332308796">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.6052625512605" />
+                    End="0,58.6052625512608" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,58.6052625512605"
-                    Point2="0,62.6052625512605"
-                    Point3="4,62.6052625512605" />
+                    Point1="0,58.6052625512608"
+                    Point2="0,62.6052625512608"
+                    Point3="4,62.6052625512608" />
                   <mssgle:LineSegment
-                    End="137.666656376588,62.6052625512605" />
+                    End="137.666656376588,62.6052625512608" />
                   <mssgle:CubicBezierSegment
-                    Point1="137.666656376588,62.6052625512605"
-                    Point2="141.666656376588,62.6052625512605"
-                    Point3="141.666656376588,66.6052625512605" />
+                    Point1="137.666656376588,62.6052625512608"
+                    Point2="141.666656376588,62.6052625512608"
+                    Point3="141.666656376588,66.6052625512608" />
                   <mssgle:LineSegment
-                    End="141.666656376588,98.2333323087956" />
+                    End="141.666656376588,98.233332308796" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3624,239 +3997,6 @@ ORDER BY cw.CUSTOMER_ID;</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Carga clientes Datawarehouse">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\Carga clientes Datawarehouse\Source int_clientes"
-          TopLeft="225.9,5.49999999999984" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Carga clientes Datawarehouse\Slowly Changing Dimension"
-          TopLeft="205.1,107.1" />
-        <EdgeLayout
-          Id="Package\Carga clientes Datawarehouse.Paths[OLE DB Source Output]"
-          TopLeft="309.1,47.0999999999998">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Carga clientes Datawarehouse\Insert Destination"
-          TopLeft="5.50000000000009,208.7" />
-        <EdgeLayout
-          Id="Package\Carga clientes Datawarehouse.Paths[New Output]"
-          TopLeft="259.1,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-174,60"
-              Start="0,0"
-              End="-174,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.506329113924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.506329113924"
-                    Point2="0,20.506329113924"
-                    Point3="-4,20.506329113924" />
-                  <mssgle:LineSegment
-                    End="-170,20.506329113924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-170,20.506329113924"
-                    Point2="-174,20.506329113924"
-                    Point3="-174,24.506329113924" />
-                  <mssgle:LineSegment
-                    End="-174,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-114.09138671875,25.506329113924,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Carga clientes Datawarehouse\OLE DB Command"
-          TopLeft="225.5,208.7" />
-        <EdgeLayout
-          Id="Package\Carga clientes Datawarehouse.Paths[Inferred Member Updates Output]"
-          TopLeft="309.1,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-74.40298828125,20.4208984375,148.8059765625,11.658203125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Carga clientes Datawarehouse\OLE DB Command 1"
-          TopLeft="453.1,208.7" />
-        <EdgeLayout
-          Id="Package\Carga clientes Datawarehouse.Paths[Changing Attribute Updates Output]"
-          TopLeft="359.1,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="182,60"
-              Start="0,0"
-              End="182,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.506329113924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.506329113924"
-                    Point2="0,20.506329113924"
-                    Point3="4,20.506329113924" />
-                  <mssgle:LineSegment
-                    End="178,20.506329113924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="178,20.506329113924"
-                    Point2="182,20.506329113924"
-                    Point3="182,24.506329113924" />
-                  <mssgle:LineSegment
-                    End="182,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="12.46609375,25.506329113924,157.0678125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga clientes Datawarehouse\Source int_clientes">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga clientes Datawarehouse\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{CDD9B5C9-3876-442B-880A-133750C219D7}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[dim_clientes_G01]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;birth_date&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[CITY]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;city&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[CLIENT_TYPE]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;client_type&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;customer_id&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[FULL_NAME]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;full_name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[STATE]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;state&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_clientes.Outputs[OLE DB Source Output].Columns[ZIPCODE]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;zip_code&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
