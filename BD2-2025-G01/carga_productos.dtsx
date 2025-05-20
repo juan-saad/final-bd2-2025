@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_productos"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{94345102-5E90-43A5-9147-945D62209C44}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{A38BC7CC-25E4-4D08-8F3B-93ACB10E2013}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1587,16 +1587,16 @@
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
     CAST(PRODUCT_ID AS INT) AS PRODUCT_ID,
-    DETAIL,
-    PACKAGE,
+    UPPER(TRIM(DETAIL)) AS DETAIL,
+    UPPER(TRIM(PACKAGE)) AS PACKAGE,
     UPPER(REVERSE(SUBSTRING(REVERSE(TRIM(DETAIL)), 1, CHARINDEX(' ', REVERSE(TRIM(DETAIL))) - 1))) AS PRODUCT_TYPE,
-    CAST(SUBSTRING(PACKAGE,1, CHARINDEX(' ', PACKAGE) - 1) AS DECIMAL(10,3)) AS VOLUME,
+    CAST(SUBSTRING(PACKAGE,1, CHARINDEX(' ', PACKAGE) - 1) AS DECIMAL(8,3)) AS VOLUME,
     CASE
         WHEN PACKAGE LIKE '%cm3%' THEN 'CM3'
         WHEN PACKAGE LIKE '%Liter%' THEN 'LITER'
         ELSE 'Unknown'
     END AS UNIT_OF_MEASURE,
-    CAST(SUBSTRING(PACKAGE, 1, CHARINDEX(' ', PACKAGE) - 1) AS DECIMAL(10,3))
+    CAST(SUBSTRING(PACKAGE, 1, CHARINDEX(' ', PACKAGE) - 1) AS DECIMAL(8,3))
     * CASE 
         WHEN PACKAGE LIKE '%cm3%' THEN 0.001 
         ELSE 1 
@@ -1757,7 +1757,7 @@ ORDER BY PRODUCT_ID;</property>
                       refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[VOLUME]"
                       dataType="numeric"
                       name="VOLUME"
-                      precision="10"
+                      precision="8"
                       scale="3" />
                     <externalMetadataColumn
                       refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[UNIT_OF_MEASURE]"
@@ -1769,7 +1769,7 @@ ORDER BY PRODUCT_ID;</property>
                       refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[AMOUNT_LITER]"
                       dataType="numeric"
                       name="AMOUNT_LITER"
-                      precision="15"
+                      precision="13"
                       scale="6" />
                     <externalMetadataColumn
                       refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Output].ExternalColumns[IS_CAN]"
@@ -1813,7 +1813,7 @@ ORDER BY PRODUCT_ID;</property>
                       dataType="numeric"
                       lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[VOLUME]"
                       name="VOLUME"
-                      precision="10"
+                      precision="8"
                       scale="3" />
                     <outputColumn
                       refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[UNIT_OF_MEASURE]"
@@ -1827,7 +1827,7 @@ ORDER BY PRODUCT_ID;</property>
                       dataType="numeric"
                       lineageId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[AMOUNT_LITER]"
                       name="AMOUNT_LITER"
-                      precision="15"
+                      precision="13"
                       scale="6" />
                     <outputColumn
                       refId="Package\Carga productos intermedia\Source stg_productos.Outputs[OLE DB Source Error Output].Columns[IS_CAN]"
@@ -2526,39 +2526,27 @@ ORDER BY PRODUCT_ID;</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Carga productos intermedia\int_productos_G01"
+          TopLeft="593.333298928209,241.266665227347" />
+        <NodeLayout
           Size="179.2,41.6"
           Id="Package\Carga productos intermedia\Source stg_productos"
           TopLeft="582.499968173605,114.399999204477" />
-        <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\Carga productos intermedia\int_productos_G01"
-          TopLeft="643.333298183151,271.266664780312" />
         <EdgeLayout
           Id="Package\Carga productos intermedia.Paths[OLE DB Source Output]"
-          TopLeft="672.099968173605,155.999999204477">
+          TopLeft="674.316633550907,155.999999204477">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54.4333300095466,115.266665575835"
+              EndConnector="0,85.2666660228698"
               Start="0,0"
-              End="54.4333300095466,107.766665575835">
+              End="0,77.7666660228698">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.6333327879177" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,53.6333327879177"
-                    Point2="0,57.6333327879177"
-                    Point3="4,57.6333327879177" />
-                  <mssgle:LineSegment
-                    End="50.4333300095466,57.6333327879177" />
-                  <mssgle:CubicBezierSegment
-                    Point1="50.4333300095466,57.6333327879177"
-                    Point2="54.4333300095466,57.6333327879177"
-                    Point3="54.4333300095466,61.6333327879177" />
-                  <mssgle:LineSegment
-                    End="54.4333300095466,107.766665575835" />
+                    End="0,77.7666660228698" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
