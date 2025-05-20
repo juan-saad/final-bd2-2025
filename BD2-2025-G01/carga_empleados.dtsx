@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{1C8FB901-B750-4718-AD3B-4D09AF4EB8F8}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{3049DDF1-1E5E-4BEF-A161-D8AF669BA700}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35,7 +35,6 @@
       DTS:refId="Package\Carga empleados Datawarehouse"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{9d0826c0-8ac0-4c22-bda2-b987f3bed0a1}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -44,7 +43,1097 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga empleados Datawarehouse\dim_empleados_G01"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="dim_empleados_G01"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [birth_date], [category], [education_level], [employee_id], [employment_date], [full_name], [gender] FROM [dbo].[dim_empleados_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Connections[LookupConnection]"
+                  connectionManagerID="{CDD9B5C9-3876-442B-880A-133750C219D7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.datawarehouse_2025_G01.sa]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].Columns[BIRTH_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="BIRTH_DATE"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[birth_date]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].Columns[CATEGORY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CATEGORY"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[category]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].Columns[EDUCATION_LEVEL]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EDUCATION_LEVEL"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[education_level]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].Columns[EMPLOYEE_ID]"
+                      cachedDataType="r8"
+                      cachedName="EMPLOYEE_ID"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[employee_id]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].Columns[EMPLOYMENT_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="EMPLOYMENT_DATE"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[employment_date]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].Columns[FULL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FULL_NAME"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[full_name]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[FULL_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].Columns[GENDER]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GENDER"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[gender]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[birth_date]"
+                      dataType="dbDate"
+                      name="birth_date" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[education_level]"
+                      dataType="wstr"
+                      length="255"
+                      name="education_level" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[employee_id]"
+                      dataType="r8"
+                      name="employee_id" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[employment_date]"
+                      dataType="dbDate"
+                      name="employment_date" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[full_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="full_name" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga empleados Datawarehouse\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_empleados_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga empleados Datawarehouse\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{CDD9B5C9-3876-442B-880A-133750C219D7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.datawarehouse_2025_G01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[EMPLOYEE_ID]"
+                      cachedDataType="r8"
+                      cachedName="EMPLOYEE_ID"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[employee_id]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[FULL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FULL_NAME"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[full_name]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[FULL_NAME]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[CATEGORY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CATEGORY"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[EMPLOYMENT_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="EMPLOYMENT_DATE"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[employment_date]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[BIRTH_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="BIRTH_DATE"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[birth_date]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[EDUCATION_LEVEL]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EDUCATION_LEVEL"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[education_level]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[GENDER]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GENDER"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[employee_key]"
+                      dataType="i4"
+                      name="employee_key" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[employee_id]"
+                      dataType="r8"
+                      name="employee_id" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[full_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="full_name" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[category]"
+                      dataType="wstr"
+                      length="255"
+                      name="category" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[employment_date]"
+                      dataType="dbDate"
+                      name="employment_date" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[birth_date]"
+                      dataType="dbDate"
+                      name="birth_date" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[education_level]"
+                      dataType="wstr"
+                      length="255"
+                      name="education_level" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="gender" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados Datawarehouse\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados Datawarehouse\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga empleados Datawarehouse\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_empleados_G01] SET [category] = ?,[education_level] = ?,[employment_date] = ?,[gender] = ? WHERE [birth_date] = ? AND [employee_id] = ? AND [full_name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga empleados Datawarehouse\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{CDD9B5C9-3876-442B-880A-133750C219D7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.datawarehouse_2025_G01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[BIRTH_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="BIRTH_DATE"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[CATEGORY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CATEGORY"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[EDUCATION_LEVEL]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EDUCATION_LEVEL"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[EMPLOYEE_ID]"
+                      cachedDataType="r8"
+                      cachedName="EMPLOYEE_ID"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[EMPLOYMENT_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="EMPLOYMENT_DATE"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[FULL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FULL_NAME"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[FULL_NAME]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[GENDER]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GENDER"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="dbDate"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="dbDate"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="r8"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados Datawarehouse\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados Datawarehouse\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga empleados Datawarehouse\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_empleados_G01] SET [category] = ?,[education_level] = ?,[employment_date] = ?,[gender] = ? WHERE [birth_date] = ? AND [employee_id] = ? AND [full_name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{CDD9B5C9-3876-442B-880A-133750C219D7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.datawarehouse_2025_G01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[BIRTH_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="BIRTH_DATE"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[CATEGORY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CATEGORY"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[EDUCATION_LEVEL]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EDUCATION_LEVEL"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[EMPLOYEE_ID]"
+                      cachedDataType="r8"
+                      cachedName="EMPLOYEE_ID"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[EMPLOYMENT_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="EMPLOYMENT_DATE"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[FULL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FULL_NAME"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[FULL_NAME]" />
+                    <inputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[GENDER]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GENDER"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="dbDate"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="dbDate"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="r8"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga empleados Datawarehouse\Source int_empleados"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source int_empleados"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[int_empleados_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga empleados Datawarehouse\Source int_empleados.Connections[OleDbConnection]"
+                  connectionManagerID="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost bd_intermedia_2025_G01 sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYEE_ID]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]"
+                      name="EMPLOYEE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[FULL_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[FULL_NAME]"
+                      length="255"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[FULL_NAME]"
+                      name="FULL_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY]"
+                      length="255"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]"
+                      name="CATEGORY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_DATE]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]"
+                      name="EMPLOYMENT_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE]"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]"
+                      name="BIRTH_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[EDUCATION_LEVEL]"
+                      length="255"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]"
+                      name="EDUCATION_LEVEL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[GENDER]"
+                      length="255"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]"
+                      name="GENDER"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYEE_ID]"
+                      dataType="r8"
+                      name="EMPLOYEE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[FULL_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="FULL_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY]"
+                      dataType="wstr"
+                      length="255"
+                      name="CATEGORY" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_DATE]"
+                      dataType="dbDate"
+                      name="EMPLOYMENT_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE]"
+                      dataType="dbDate"
+                      name="BIRTH_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      length="255"
+                      name="EDUCATION_LEVEL" />
+                    <externalMetadataColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].ExternalColumns[GENDER]"
+                      dataType="wstr"
+                      length="255"
+                      name="GENDER" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[EMPLOYEE_ID]"
+                      dataType="r8"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[EMPLOYEE_ID]"
+                      name="EMPLOYEE_ID" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[FULL_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[FULL_NAME]"
+                      name="FULL_NAME" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[CATEGORY]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[CATEGORY]"
+                      name="CATEGORY" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_DATE]"
+                      dataType="dbDate"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_DATE]"
+                      name="EMPLOYMENT_DATE" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE]"
+                      dataType="dbDate"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE]"
+                      name="BIRTH_DATE" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[EDUCATION_LEVEL]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[EDUCATION_LEVEL]"
+                      name="EDUCATION_LEVEL" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[GENDER]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[GENDER]"
+                      name="GENDER" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga empleados Datawarehouse.Paths[Changing Attribute Updates Output]"
+              endId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Carga empleados Datawarehouse.Paths[Inferred Member Updates Output]"
+              endId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Outputs[Inferred Member Updates Output]" />
+            <path
+              refId="Package\Carga empleados Datawarehouse.Paths[New Output]"
+              endId="Package\Carga empleados Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Outputs[New Output]" />
+            <path
+              refId="Package\Carga empleados Datawarehouse.Paths[OLE DB Source Output]"
+              endId="Package\Carga empleados Datawarehouse\dim_empleados_G01.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1126,10 +2215,156 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\Carga empleados Datawarehouse">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Carga empleados Datawarehouse\Source int_empleados"
+          TopLeft="218.3,5.49999999999984" />
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\Carga empleados Datawarehouse\dim_empleados_G01"
+          TopLeft="220.3,107.1" />
+        <EdgeLayout
+          Id="Package\Carga empleados Datawarehouse.Paths[OLE DB Source Output]"
+          TopLeft="309.1,47.0999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Carga empleados Datawarehouse\Insert Destination"
+          TopLeft="5.50000000000009,208.7" />
+        <EdgeLayout
+          Id="Package\Carga empleados Datawarehouse.Paths[New Output]"
+          TopLeft="266.7,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-181.6,59.9999999999999"
+              Start="0,0"
+              End="-181.6,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5917159763313" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5917159763313"
+                    Point2="0,20.5917159763313"
+                    Point3="-4,20.5917159763313" />
+                  <mssgle:LineSegment
+                    End="-177.6,20.5917159763313" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-177.6,20.5917159763313"
+                    Point2="-181.6,20.5917159763313"
+                    Point3="-181.6,24.5917159763313" />
+                  <mssgle:LineSegment
+                    End="-181.6,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-117.89138671875,25.5917159763313,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Carga empleados Datawarehouse\OLE DB Command"
+          TopLeft="225.5,208.7" />
+        <EdgeLayout
+          Id="Package\Carga empleados Datawarehouse.Paths[Inferred Member Updates Output]"
+          TopLeft="309.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-74.40298828125,20.4208984374999,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga empleados Datawarehouse\OLE DB Command 1"
+          TopLeft="453.1,208.7" />
+        <EdgeLayout
+          Id="Package\Carga empleados Datawarehouse.Paths[Changing Attribute Updates Output]"
+          TopLeft="351.5,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.6,59.9999999999999"
+              Start="0,0"
+              End="189.6,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5917159763313" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5917159763313"
+                    Point2="0,20.5917159763313"
+                    Point3="4,20.5917159763313" />
+                  <mssgle:LineSegment
+                    End="185.6,20.5917159763313" />
+                  <mssgle:CubicBezierSegment
+                    Point1="185.6,20.5917159763313"
+                    Point2="189.6,20.5917159763313"
+                    Point3="189.6,24.5917159763313" />
+                  <mssgle:LineSegment
+                    End="189.6,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="16.26609375,25.5917159763313,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\Carga empleados intermedia">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="210.4,41.6"
           Id="Package\Carga empleados intermedia\Source stg_empleados_G01"
@@ -1169,12 +2404,27 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga empleados intermedia\int_empleados_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga empleados intermedia\Source stg_empleados_G01">
     <Properties>
@@ -1192,7 +2442,7 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
     design-time-name="Package\Carga empleados staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\Carga empleados staging\Excel Empleados"
@@ -1220,7 +2470,9 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1253,7 +2505,7 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga empleados intermedia\int_empleados_G01">
+    design-time-name="Package\Carga empleados Datawarehouse\Source int_empleados">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1262,6 +2514,80 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga empleados Datawarehouse\dim_empleados_G01">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{CDD9B5C9-3876-442B-880A-133750C219D7}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[dim_empleados_G01]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;birth_date&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;category&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;education_level&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;employee_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;employment_date&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[FULL_NAME]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;full_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;gender&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
