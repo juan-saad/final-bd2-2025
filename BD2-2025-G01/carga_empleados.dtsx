@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{3049DDF1-1E5E-4BEF-A161-D8AF669BA700}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{7F5EEBE4-427E-4129-BAB6-4D94FBACE933}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1366,13 +1366,13 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [EMPLOYEE_ID]
-      , [FULL_NAME]
-      , [CATEGORY]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 	[EMPLOYEE_ID]
+      , UPPER(TRIM([FULL_NAME])) AS FULL_NAME
+      , UPPER(TRIM([CATEGORY])) AS CATEGORY
       , CONVERT(DATE, [EMPLOYMENT_DATE]) AS EMPLOYMENT_DATE
       , CONVERT(DATE, [BIRTH_DATE]) AS BIRTH_DATE
-      , [EDUCATION_LEVEL]
-      , [GENDER]
+      , UPPER(TRIM([EDUCATION_LEVEL])) AS EDUCATION_LEVEL
+      , UPPER(TRIM([GENDER])) AS GENDER
 FROM [bd_staging_2025_G01].[dbo].[stg_empleados_G01] e
 WHERE e.EMPLOYEE_ID IS NOT NULL</property>
                 <property
@@ -2224,6 +2224,18 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
           Id="Package\Carga empleados Datawarehouse\Source int_empleados"
           TopLeft="218.3,5.49999999999984" />
         <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga empleados Datawarehouse\OLE DB Command 1"
+          TopLeft="453.1,208.7" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Carga empleados Datawarehouse\Insert Destination"
+          TopLeft="5.50000000000009,208.7" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Carga empleados Datawarehouse\OLE DB Command"
+          TopLeft="225.5,208.7" />
+        <NodeLayout
           Size="177.6,41.6"
           Id="Package\Carga empleados Datawarehouse\dim_empleados_G01"
           TopLeft="220.3,107.1" />
@@ -2249,10 +2261,6 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Carga empleados Datawarehouse\Insert Destination"
-          TopLeft="5.50000000000009,208.7" />
         <EdgeLayout
           Id="Package\Carga empleados Datawarehouse.Paths[New Output]"
           TopLeft="266.7,148.7">
@@ -2289,10 +2297,6 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Carga empleados Datawarehouse\OLE DB Command"
-          TopLeft="225.5,208.7" />
         <EdgeLayout
           Id="Package\Carga empleados Datawarehouse.Paths[Inferred Member Updates Output]"
           TopLeft="309.1,148.7">
@@ -2313,14 +2317,10 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-74.40298828125,20.4208984374999,148.8059765625,11.658203125"
+              BoundingBox="-74.40298828125,20.4208984375,148.8059765625,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Carga empleados Datawarehouse\OLE DB Command 1"
-          TopLeft="453.1,208.7" />
         <EdgeLayout
           Id="Package\Carga empleados Datawarehouse.Paths[Changing Attribute Updates Output]"
           TopLeft="351.5,148.7">
@@ -2360,53 +2360,126 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga empleados Datawarehouse\dim_empleados_G01">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{CDD9B5C9-3876-442B-880A-133750C219D7}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[dim_empleados_G01]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;birth_date&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;category&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;education_level&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;employee_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;employment_date&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[FULL_NAME]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;full_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;gender&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga empleados Datawarehouse\Source int_empleados">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Carga empleados intermedia">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="210.4,41.6"
           Id="Package\Carga empleados intermedia\Source stg_empleados_G01"
-          TopLeft="424.999976779025,43.3333330319987" />
+          TopLeft="410.833310886391,44.1999996926387" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Carga empleados intermedia\int_empleados_G01"
           TopLeft="433.999993532896,184.999997243285" />
         <EdgeLayout
           Id="Package\Carga empleados intermedia.Paths[OLE DB Source Output]"
-          TopLeft="530.199976779025,84.9333330319987">
+          TopLeft="517.816652209644,85.7999996926387">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10.5999832461289,100.066664211287"
+              EndConnector="0,99.1999975506463"
               Start="0,0"
-              End="-10.5999832461289,92.5666642112865">
+              End="0,91.6999975506463">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.0333321056433" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46.0333321056433"
-                    Point2="0,50.0333321056433"
-                    Point3="-4,50.0333321056433" />
-                  <mssgle:LineSegment
-                    End="-6.59998324612889,50.0333321056433" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-6.59998324612889,50.0333321056433"
-                    Point2="-10.5999832461289,50.0333321056433"
-                    Point3="-10.5999832461289,54.0333321056433" />
-                  <mssgle:LineSegment
-                    End="-10.5999832461289,92.5666642112865" />
+                    End="0,91.6999975506463" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2501,93 +2574,6 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga empleados Datawarehouse\Source int_empleados">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga empleados Datawarehouse\dim_empleados_G01">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{CDD9B5C9-3876-442B-880A-133750C219D7}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[dim_empleados_G01]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;birth_date&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;category&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;education_level&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYEE_ID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;employee_id&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;employment_date&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[FULL_NAME]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;full_name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;gender&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
