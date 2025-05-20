@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_productos"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{F5585F99-C44E-4CBF-BE83-2C90F8B3EC47}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{94345102-5E90-43A5-9147-945D62209C44}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -69,7 +69,6 @@
       DTS:refId="Package\Carga productos Datawarehouse"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{DD62C9CD-824D-40DF-BDAB-7B91E7D0419D}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -78,7 +77,1264 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga productos Datawarehouse\dim_productos_G01"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="dim_productos_G01"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [amount_liter], [detail], [is_can], [package], [product_id], [product_type], [unit_of_measure], [volume] FROM [dbo].[dim_productos_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga productos Datawarehouse\dim_productos_G01.Connections[LookupConnection]"
+                  connectionManagerID="{CDD9B5C9-3876-442B-880A-133750C219D7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.datawarehouse_2025_G01.sa]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].Columns[AMOUNT_LITER]"
+                      cachedDataType="numeric"
+                      cachedName="AMOUNT_LITER"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[amount_liter]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[AMOUNT_LITER]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].Columns[DETAIL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DETAIL"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[detail]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[DETAIL]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].Columns[IS_CAN]"
+                      cachedDataType="i4"
+                      cachedName="IS_CAN"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[is_can]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[IS_CAN]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].Columns[PACKAGE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PACKAGE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[package]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PACKAGE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].Columns[PRODUCT_ID]"
+                      cachedDataType="i4"
+                      cachedName="PRODUCT_ID"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[product_id]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].Columns[PRODUCT_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRODUCT_TYPE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[product_type]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_TYPE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].Columns[UNIT_OF_MEASURE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="UNIT_OF_MEASURE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[unit_of_measure]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[UNIT_OF_MEASURE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].Columns[VOLUME]"
+                      cachedDataType="numeric"
+                      cachedName="VOLUME"
+                      cachedPrecision="10"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[volume]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[VOLUME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[amount_liter]"
+                      dataType="numeric"
+                      name="amount_liter"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="detail" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[is_can]"
+                      dataType="i4"
+                      name="is_can" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[package]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="package" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[product_id]"
+                      dataType="i4"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[product_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_type" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[unit_of_measure]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="unit_of_measure" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input].ExternalColumns[volume]"
+                      dataType="numeric"
+                      name="volume"
+                      precision="10"
+                      scale="3" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga productos Datawarehouse\dim_productos_G01.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga productos Datawarehouse\dim_productos_G01.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga productos Datawarehouse\dim_productos_G01.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga productos Datawarehouse\dim_productos_G01.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga productos Datawarehouse\dim_productos_G01.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga productos Datawarehouse\dim_productos_G01.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga productos Datawarehouse\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_productos_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga productos Datawarehouse\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{CDD9B5C9-3876-442B-880A-133750C219D7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.datawarehouse_2025_G01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[PRODUCT_ID]"
+                      cachedDataType="i4"
+                      cachedName="PRODUCT_ID"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[DETAIL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DETAIL"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[detail]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[DETAIL]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[PACKAGE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PACKAGE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[package]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PACKAGE]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[PRODUCT_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRODUCT_TYPE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_type]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_TYPE]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[VOLUME]"
+                      cachedDataType="numeric"
+                      cachedName="VOLUME"
+                      cachedPrecision="10"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[volume]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[VOLUME]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[UNIT_OF_MEASURE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="UNIT_OF_MEASURE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[unit_of_measure]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[UNIT_OF_MEASURE]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[AMOUNT_LITER]"
+                      cachedDataType="numeric"
+                      cachedName="AMOUNT_LITER"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[amount_liter]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[AMOUNT_LITER]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].Columns[IS_CAN]"
+                      cachedDataType="i4"
+                      cachedName="IS_CAN"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_can]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[IS_CAN]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_key]"
+                      dataType="i4"
+                      name="product_key" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      dataType="i4"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[detail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="detail" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[package]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="package" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_type" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[volume]"
+                      dataType="numeric"
+                      name="volume"
+                      precision="10"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[unit_of_measure]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="unit_of_measure" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[amount_liter]"
+                      dataType="numeric"
+                      name="amount_liter"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_can]"
+                      dataType="i4"
+                      name="is_can" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga productos Datawarehouse\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos Datawarehouse\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos Datawarehouse\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga productos Datawarehouse\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_productos_G01] SET [amount_liter] = ?,[is_can] = ?,[product_id] = ?,[product_type] = ? WHERE [detail] = ? AND [package] = ? AND [unit_of_measure] = ? AND [volume] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga productos Datawarehouse\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{CDD9B5C9-3876-442B-880A-133750C219D7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.datawarehouse_2025_G01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[AMOUNT_LITER]"
+                      cachedDataType="numeric"
+                      cachedName="AMOUNT_LITER"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[AMOUNT_LITER]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[DETAIL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DETAIL"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[DETAIL]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[IS_CAN]"
+                      cachedDataType="i4"
+                      cachedName="IS_CAN"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[IS_CAN]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[PACKAGE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PACKAGE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PACKAGE]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[PRODUCT_ID]"
+                      cachedDataType="i4"
+                      cachedName="PRODUCT_ID"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[PRODUCT_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRODUCT_TYPE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_TYPE]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[UNIT_OF_MEASURE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="UNIT_OF_MEASURE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[UNIT_OF_MEASURE]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[VOLUME]"
+                      cachedDataType="numeric"
+                      cachedName="VOLUME"
+                      cachedPrecision="10"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[VOLUME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="15"
+                      scale="6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="numeric"
+                      name="Param_7"
+                      precision="10"
+                      scale="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga productos Datawarehouse\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga productos Datawarehouse\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos Datawarehouse\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos Datawarehouse\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga productos Datawarehouse\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_productos_G01] SET [amount_liter] = ?,[is_can] = ?,[product_id] = ?,[product_type] = ? WHERE [detail] = ? AND [package] = ? AND [unit_of_measure] = ? AND [volume] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{CDD9B5C9-3876-442B-880A-133750C219D7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.datawarehouse_2025_G01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[AMOUNT_LITER]"
+                      cachedDataType="numeric"
+                      cachedName="AMOUNT_LITER"
+                      cachedPrecision="15"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[AMOUNT_LITER]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[DETAIL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DETAIL"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[DETAIL]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[IS_CAN]"
+                      cachedDataType="i4"
+                      cachedName="IS_CAN"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[IS_CAN]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[PACKAGE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PACKAGE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PACKAGE]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[PRODUCT_ID]"
+                      cachedDataType="i4"
+                      cachedName="PRODUCT_ID"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[PRODUCT_TYPE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PRODUCT_TYPE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_TYPE]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[UNIT_OF_MEASURE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="UNIT_OF_MEASURE"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[UNIT_OF_MEASURE]" />
+                    <inputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[VOLUME]"
+                      cachedDataType="numeric"
+                      cachedName="VOLUME"
+                      cachedPrecision="10"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[VOLUME]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="15"
+                      scale="6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="numeric"
+                      name="Param_7"
+                      precision="10"
+                      scale="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga productos Datawarehouse\Source int_productos"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source int_productos"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[int_productos_G01]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga productos Datawarehouse\Source int_productos.Connections[OleDbConnection]"
+                  connectionManagerID="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost bd_intermedia_2025_G01 sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_ID]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[DETAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[DETAIL]"
+                      length="50"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[DETAIL]"
+                      name="DETAIL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PACKAGE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[PACKAGE]"
+                      length="50"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PACKAGE]"
+                      name="PACKAGE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_TYPE]"
+                      length="50"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_TYPE]"
+                      name="PRODUCT_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[VOLUME]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[VOLUME]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[VOLUME]"
+                      name="VOLUME"
+                      precision="10"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[UNIT_OF_MEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[UNIT_OF_MEASURE]"
+                      length="7"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[UNIT_OF_MEASURE]"
+                      name="UNIT_OF_MEASURE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[AMOUNT_LITER]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[AMOUNT_LITER]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[AMOUNT_LITER]"
+                      name="AMOUNT_LITER"
+                      precision="15"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[IS_CAN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[IS_CAN]"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].Columns[IS_CAN]"
+                      name="IS_CAN"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_ID]"
+                      dataType="i4"
+                      name="PRODUCT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[DETAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DETAIL" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[PACKAGE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PACKAGE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[PRODUCT_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PRODUCT_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[VOLUME]"
+                      dataType="numeric"
+                      name="VOLUME"
+                      precision="10"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[UNIT_OF_MEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="UNIT_OF_MEASURE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[AMOUNT_LITER]"
+                      dataType="numeric"
+                      name="AMOUNT_LITER"
+                      precision="15"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output].ExternalColumns[IS_CAN]"
+                      dataType="i4"
+                      name="IS_CAN" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[PRODUCT_ID]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[PRODUCT_ID]"
+                      name="PRODUCT_ID" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[DETAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[DETAIL]"
+                      name="DETAIL" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[PACKAGE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[PACKAGE]"
+                      name="PACKAGE" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[PRODUCT_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[PRODUCT_TYPE]"
+                      name="PRODUCT_TYPE" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[VOLUME]"
+                      dataType="numeric"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[VOLUME]"
+                      name="VOLUME"
+                      precision="10"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[UNIT_OF_MEASURE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[UNIT_OF_MEASURE]"
+                      name="UNIT_OF_MEASURE" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[AMOUNT_LITER]"
+                      dataType="numeric"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[AMOUNT_LITER]"
+                      name="AMOUNT_LITER"
+                      precision="15"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[IS_CAN]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[IS_CAN]"
+                      name="IS_CAN" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga productos Datawarehouse.Paths[Changing Attribute Updates Output]"
+              endId="Package\Carga productos Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Carga productos Datawarehouse\dim_productos_G01.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Carga productos Datawarehouse.Paths[Inferred Member Updates Output]"
+              endId="Package\Carga productos Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Inferred Member Updates Output"
+              startId="Package\Carga productos Datawarehouse\dim_productos_G01.Outputs[Inferred Member Updates Output]" />
+            <path
+              refId="Package\Carga productos Datawarehouse.Paths[New Output]"
+              endId="Package\Carga productos Datawarehouse\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Carga productos Datawarehouse\dim_productos_G01.Outputs[New Output]" />
+            <path
+              refId="Package\Carga productos Datawarehouse.Paths[OLE DB Source Output]"
+              endId="Package\Carga productos Datawarehouse\dim_productos_G01.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\Carga productos Datawarehouse\Source int_productos.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1010,33 +2266,59 @@ ORDER BY PRODUCT_ID;</property>
         <NodeLayout
           Size="230.4,41.6"
           Id="Package\Carga productos Datawarehouse"
-          TopLeft="154.166658243372,350.13333089855" />
+          TopLeft="160.833324545788,400.399997215669" />
         <NodeLayout
           Size="206.4,41.6"
           Id="Package\Carga productos intermedia"
-          TopLeft="164.166657696996,234.866665033433" />
+          TopLeft="173.333323862818,291.199997975031" />
         <NodeLayout
           Size="191.2,41.6"
           Id="Package\Carga productos staging"
-          TopLeft="170.833323999412,128.266665774716" />
+          TopLeft="189.166656331056,129.133332435356" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Truncate int_productos"
+          TopLeft="189.166656331057,204.533331911034" />
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\Truncate stg_productos"
           TopLeft="186.66665646765,36.399999746879" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="268.366657970184,276.466665033433">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="283.166656331056,170.733332435356">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,73.6666658651167"
+              EndConnector="0,33.7999994756778"
               Start="0,0"
-              End="0,66.1666658651167">
+              End="0,26.2999994756778">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.1666658651167" />
+                    End="0,26.2999994756778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="276.283324204303,332.799997975031">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67.5999992406371"
+              Start="0,0"
+              End="0,60.0999992406371">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.0999992406371" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1047,68 +2329,18 @@ ORDER BY PRODUCT_ID;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="280.26665646765,77.999999746879">
+          TopLeft="282.516656399353,77.999999746879">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13.833332468238,50.266666027837"
+              EndConnector="0,51.133332688477"
               Start="0,0"
-              End="-13.833332468238,42.766666027837">
+              End="0,43.633332688477">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.1333330139185" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.1333330139185"
-                    Point2="0,25.1333330139185"
-                    Point3="-4,25.1333330139185" />
-                  <mssgle:LineSegment
-                    End="-9.83333246823804,25.1333330139185" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.83333246823804,25.1333330139185"
-                    Point2="-13.833332468238,25.1333330139185"
-                    Point3="-13.833332468238,29.1333330139185" />
-                  <mssgle:LineSegment
-                    End="-13.833332468238,42.766666027837" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\Truncate int_productos"
-          TopLeft="676.666629695232,197.599998625914" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="266.433323999412,169.866665774716">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="502.63330569582,27.7333328511983"
-              Start="0,0"
-              End="502.63330569582,20.2333328511983">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9.86666642559913" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.86666642559913"
-                    Point2="0,13.8666664255991"
-                    Point3="4,13.8666664255991" />
-                  <mssgle:LineSegment
-                    End="498.63330569582,13.8666664255991" />
-                  <mssgle:CubicBezierSegment
-                    Point1="498.63330569582,13.8666664255991"
-                    Point2="502.63330569582,13.8666664255991"
-                    Point3="502.63330569582,17.8666664255991" />
-                  <mssgle:LineSegment
-                    End="502.63330569582,20.2333328511983" />
+                    End="0,43.633332688477" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1119,30 +2351,18 @@ ORDER BY PRODUCT_ID;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="676.666629695232,218.399998625914">
+          TopLeft="279.049990096937,246.133331911034">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-306.099971998236,37.2666664075188"
+              EndConnector="0,45.0666660639977"
               Start="0,0"
-              End="-298.599971998236,37.2666664075188">
+              End="0,37.5666660639977">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-149.049985999118,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-149.049985999118,0"
-                    Point2="-153.049985999118,0"
-                    Point3="-153.049985999118,4" />
-                  <mssgle:LineSegment
-                    End="-153.049985999118,33.2666664075188" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-153.049985999118,33.2666664075188"
-                    Point2="-153.049985999118,37.2666664075188"
-                    Point3="-157.049985999118,37.2666664075188" />
-                  <mssgle:LineSegment
-                    End="-298.599971998236,37.2666664075188" />
+                    End="0,37.5666660639977" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1154,6 +2374,152 @@ ORDER BY PRODUCT_ID;</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Carga productos Datawarehouse">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Carga productos Datawarehouse\Source int_productos"
+          TopLeft="220.7,5.49999999999984" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Carga productos Datawarehouse\dim_productos_G01"
+          TopLeft="223.1,107.1" />
+        <EdgeLayout
+          Id="Package\Carga productos Datawarehouse.Paths[OLE DB Source Output]"
+          TopLeft="309.1,47.0999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Carga productos Datawarehouse\Insert Destination"
+          TopLeft="5.50000000000009,208.7" />
+        <EdgeLayout
+          Id="Package\Carga productos Datawarehouse.Paths[New Output]"
+          TopLeft="268.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-183,59.9999999999999"
+              Start="0,0"
+              End="-183,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.6106870229007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.6106870229007"
+                    Point2="0,20.6106870229007"
+                    Point3="-4,20.6106870229007" />
+                  <mssgle:LineSegment
+                    End="-179,20.6106870229007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-179,20.6106870229007"
+                    Point2="-183,20.6106870229007"
+                    Point3="-183,24.6106870229007" />
+                  <mssgle:LineSegment
+                    End="-183,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.59138671875,25.6106870229007,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Carga productos Datawarehouse\OLE DB Command"
+          TopLeft="225.5,208.7" />
+        <EdgeLayout
+          Id="Package\Carga productos Datawarehouse.Paths[Inferred Member Updates Output]"
+          TopLeft="309.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-74.40298828125,20.4208984374999,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga productos Datawarehouse\OLE DB Command 1"
+          TopLeft="453.1,208.7" />
+        <EdgeLayout
+          Id="Package\Carga productos Datawarehouse.Paths[Changing Attribute Updates Output]"
+          TopLeft="350.1,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="191,59.9999999999999"
+              Start="0,0"
+              End="191,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.6106870229007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.6106870229007"
+                    Point2="0,20.6106870229007"
+                    Point3="4,20.6106870229007" />
+                  <mssgle:LineSegment
+                    End="187,20.6106870229007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="187,20.6106870229007"
+                    Point2="191,20.6106870229007"
+                    Point3="191,24.6106870229007" />
+                  <mssgle:LineSegment
+                    End="191,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="16.96609375,25.6106870229007,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Carga productos intermedia">
     <LayoutInfo>
@@ -1204,6 +2570,32 @@ ORDER BY PRODUCT_ID;</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga productos intermedia\int_productos_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga productos intermedia\Source stg_productos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Carga productos staging">
     <LayoutInfo>
@@ -1258,7 +2650,7 @@ ORDER BY PRODUCT_ID;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga productos intermedia\Source stg_productos">
+    design-time-name="Package\Carga productos Datawarehouse\Source int_productos">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1271,15 +2663,82 @@ ORDER BY PRODUCT_ID;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Carga productos intermedia\int_productos_G01">
+    design-time-name="Package\Carga productos Datawarehouse\dim_productos_G01">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
+        <Name>SCDMetadata</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{CDD9B5C9-3876-442B-880A-133750C219D7}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[dim_productos_G01]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_productos.Outputs[OLE DB Source Output].Columns[AMOUNT_LITER]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;amount_liter&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_productos.Outputs[OLE DB Source Output].Columns[DETAIL]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;detail&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_productos.Outputs[OLE DB Source Output].Columns[IS_CAN]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;is_can&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_productos.Outputs[OLE DB Source Output].Columns[PACKAGE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;package&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_ID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;product_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_productos.Outputs[OLE DB Source Output].Columns[PRODUCT_TYPE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;product_type&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_productos.Outputs[OLE DB Source Output].Columns[UNIT_OF_MEASURE]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;unit_of_measure&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Source int_productos.Outputs[OLE DB Source Output].Columns[VOLUME]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;volume&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
