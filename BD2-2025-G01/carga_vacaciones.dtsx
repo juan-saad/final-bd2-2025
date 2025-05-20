@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{E8C235C7-AAE4-41C5-A91F-ADD453D506B4}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{B836ABCB-DE22-45E2-9940-CC69032846DD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -69,7 +69,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                  name="FailOnFixedAttributeChange">true</property>
+                  name="FailOnFixedAttributeChange">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies the column name for the inferred member."
@@ -129,7 +129,7 @@
                         <property
                           dataType="System.Int32"
                           name="ColumnType"
-                          typeConverter="ColumnType">4</property>
+                          typeConverter="ColumnType">2</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -442,6 +442,120 @@
               </outputs>
             </component>
             <component
+              refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_vacaciones_G01] SET [holiday] = ? WHERE [date] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{CDD9B5C9-3876-442B-880A-133750C219D7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.datawarehouse_2025_G01.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="DATE"
+                      externalMetadataColumnId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Carga vacaciones Datawarehouse\Source int_vacaciones.Outputs[OLE DB Source Output].Columns[DATE]" />
+                    <inputColumn
+                      refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[HOLIDAY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="HOLIDAY"
+                      externalMetadataColumnId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Carga vacaciones Datawarehouse\Source int_vacaciones.Outputs[OLE DB Source Output].Columns[HOLIDAY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="dbDate"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Carga vacaciones Datawarehouse\Source int_vacaciones"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -570,6 +684,11 @@
             </component>
           </components>
           <paths>
+            <path
+              refId="Package\Carga vacaciones Datawarehouse.Paths[Changing Attribute Updates Output]"
+              endId="Package\Carga vacaciones Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Carga vacaciones Datawarehouse\dim_vacaciones_G01.Outputs[Changing Attribute Updates Output]" />
             <path
               refId="Package\Carga vacaciones Datawarehouse.Paths[Inferred Member Updates Output]"
               endId="Package\Carga vacaciones Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input]"
@@ -1219,7 +1338,7 @@
         <NodeLayout
           Size="236.8,41.6"
           Id="Package\Carga vacaciones Datawarehouse"
-          TopLeft="655.833300778437,509.799996872147" />
+          TopLeft="654.999967490635,508.933330211507" />
         <NodeLayout
           Size="212.8,41.6"
           Id="Package\Carga vacaciones intermedia"
@@ -1260,18 +1379,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="770.733300641843,436.99999766767">
+          TopLeft="770.316633997942,436.99999766767">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,72.799999204477"
+              EndConnector="0,71.933332543837"
               Start="0,0"
-              End="0,65.299999204477">
+              End="0,64.433332543837">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65.299999204477" />
+                    End="0,64.433332543837" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1331,18 +1450,18 @@
     design-time-name="Package\Carga vacaciones Datawarehouse">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="183.2,41.6"
           Id="Package\Carga vacaciones Datawarehouse\Source int_vacaciones"
-          TopLeft="217.5,5.49999999999995" />
+          TopLeft="217.5,5.49999999999984" />
         <NodeLayout
           Size="178.4,41.6"
           Id="Package\Carga vacaciones Datawarehouse\dim_vacaciones_G01"
           TopLeft="219.9,107.1" />
         <EdgeLayout
           Id="Package\Carga vacaciones Datawarehouse.Paths[OLE DB Source Output]"
-          TopLeft="309.1,47.1">
+          TopLeft="309.1,47.0999999999998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1368,37 +1487,37 @@
           TopLeft="5.50000000000009,208.7" />
         <EdgeLayout
           Id="Package\Carga vacaciones Datawarehouse.Paths[New Output]"
-          TopLeft="280.7,148.7">
+          TopLeft="266.5,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-195.6,59.9999999999999"
+              EndConnector="-181.4,59.9999999999999"
               Start="0,0"
-              End="-195.6,52.4999999999999">
+              End="-181.4,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.32" />
+                    End="0,16.5891016200294" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.32"
-                    Point2="0,24.32"
-                    Point3="-4,24.32" />
+                    Point1="0,16.5891016200294"
+                    Point2="0,20.5891016200294"
+                    Point3="-4,20.5891016200294" />
                   <mssgle:LineSegment
-                    End="-191.6,24.32" />
+                    End="-177.4,20.5891016200294" />
                   <mssgle:CubicBezierSegment
-                    Point1="-191.6,24.32"
-                    Point2="-195.6,24.32"
-                    Point3="-195.6,28.32" />
+                    Point1="-177.4,20.5891016200294"
+                    Point2="-181.4,20.5891016200294"
+                    Point3="-181.4,24.5891016200294" />
                   <mssgle:LineSegment
-                    End="-195.6,52.4999999999999" />
+                    End="-181.4,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-124.89138671875,29.32,54.1827734375,11.43359375"
+              BoundingBox="-117.79138671875,25.5891016200294,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1408,37 +1527,65 @@
           TopLeft="225.5,208.7" />
         <EdgeLayout
           Id="Package\Carga vacaciones Datawarehouse.Paths[Inferred Member Updates Output]"
-          TopLeft="337.5,148.7">
+          TopLeft="309.1,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-28.4,59.9999999999999"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="-28.4,52.4999999999999">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.3199999999999" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.3199999999999"
-                    Point2="0,24.3199999999999"
-                    Point3="-4,24.3199999999999" />
-                  <mssgle:LineSegment
-                    End="-24.4,24.3199999999999" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-24.4,24.3199999999999"
-                    Point2="-28.4,24.3199999999999"
-                    Point3="-28.4,28.3199999999999" />
-                  <mssgle:LineSegment
-                    End="-28.4,52.4999999999999" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-88.60298828125,29.3199999999999,148.8059765625,11.658203125"
+              BoundingBox="-74.40298828125,20.4208984374999,148.8059765625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga vacaciones Datawarehouse\OLE DB Command 1"
+          TopLeft="453.1,208.7" />
+        <EdgeLayout
+          Id="Package\Carga vacaciones Datawarehouse.Paths[Changing Attribute Updates Output]"
+          TopLeft="351.7,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.4,59.9999999999999"
+              Start="0,0"
+              End="189.4,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5891016200294" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5891016200294"
+                    Point2="0,20.5891016200294"
+                    Point3="4,20.5891016200294" />
+                  <mssgle:LineSegment
+                    End="185.4,20.5891016200294" />
+                  <mssgle:CubicBezierSegment
+                    Point1="185.4,20.5891016200294"
+                    Point2="189.4,20.5891016200294"
+                    Point3="189.4,24.5891016200294" />
+                  <mssgle:LineSegment
+                    End="189.4,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="16.16609375,25.5891016200294,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1449,7 +1596,7 @@
     design-time-name="Package\Carga vacaciones intermedia">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="211.2,41.6"
           Id="Package\Carga vacaciones intermedia\Source stg_vacaciones_G01"
@@ -1489,7 +1636,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1525,7 +1674,7 @@
     design-time-name="Package\Carga vacaciones staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="160.8,41.6"
           Id="Package\Carga vacaciones staging\Excel Vacaciones"
@@ -1553,7 +1702,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1619,14 +1770,15 @@
       &lt;IdentificationString&gt;Source int_vacaciones.Outputs[OLE DB Source Output].Columns[HOLIDAY]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;holiday&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
     &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
     &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
   &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
   &lt;CurrentIndicatorColumn /&gt;
