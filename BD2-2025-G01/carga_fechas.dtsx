@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_fechas"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{74CE0E7D-0596-4376-871E-0301F372C1D2}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{60880F98-B6A0-4443-8BC3-36C460A863A7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -51,15 +51,40 @@
           SQLTask:SqlStatementSource="-- Población de la tabla de fechas&#xA;WITH CTE_Fechas AS (&#xA;    SELECT CAST('2000-01-01' AS DATE) AS fecha&#xA;    UNION ALL&#xA;    SELECT DATEADD(DAY, 1, fecha)&#xA;    FROM CTE_Fechas&#xA;    WHERE fecha &lt; '2030-12-31'&#xA;)&#xA;INSERT INTO dbo.dim_fecha_G01&#xA;SELECT&#xA;    YEAR(fecha) * 10000 + MONTH(fecha) * 100 + DAY(fecha) AS fecha_key,&#xA;    fecha,&#xA;    YEAR(fecha) AS año,&#xA;    MONTH(fecha) AS mes,&#xA;    DAY(fecha) AS dia,&#xA;    CEILING(MONTH(fecha) / 3.0) AS trimestre,&#xA;    CEILING(MONTH(fecha) / 6.0) AS semestre,&#xA;    DATENAME(MONTH, fecha) AS nombre_mes,&#xA;    DATENAME(WEEKDAY, fecha) AS nombre_dia,&#xA;    DATEPART(WEEK, fecha) AS semana_anio&#xA;FROM CTE_Fechas OPTION (MAXRECURSION 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate dim_fecha"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C6AC0031-719B-4EC2-84BC-66CC4BE1EDA2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate dim_fecha"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CDD9B5C9-3876-442B-880A-133750C219D7}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [datawarehouse_2025_G01].[dbo].[dim_fecha_G01]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{B3334E0F-63D7-4872-828F-C0B3CD84CB6B}"
+      DTS:DTSID="{BA852A4D-86A6-4D2C-8D0D-CC0D0A166880}"
       DTS:From="Package\Crear tabla dim_fecha"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
+      DTS:To="Package\Truncate dim_fecha" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6868E041-EFF1-438D-881A-87D0D93BD174}"
+      DTS:From="Package\Truncate dim_fecha"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
       DTS:To="Package\Popular datos de dim_fecha" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
@@ -73,29 +98,55 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\Crear tabla dim_fecha"
-          TopLeft="550.384585312927,38.9999997287989" />
+          TopLeft="554.230738948937,3.6666666411691" />
         <NodeLayout
           Size="207.2,41.6"
           Id="Package\Popular datos de dim_fecha"
-          TopLeft="541.666637071306,138.666665702396" />
+          TopLeft="541.666637071306,154.666665591134" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Truncate dim_fecha"
+          TopLeft="563.461507675358,75.3333328094747" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="643.025611192117,80.5999997287989">
+          TopLeft="646.646123312147,45.2666666411691">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.0666659735971"
+              EndConnector="0,30.0666661683056"
               Start="0,0"
-              End="0,50.5666659735971">
+              End="0,22.5666661683056">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.5666659735971" />
+                    End="0,22.5666661683056" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="646.964072373332,116.933332809475">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7333327816593"
+              Start="0,0"
+              End="0,30.2333327816593">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2333327816593" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
