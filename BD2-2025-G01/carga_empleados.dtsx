@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{7F5EEBE4-427E-4129-BAB6-4D94FBACE933}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{32B07FAB-775A-4225-BDAD-29A26C51BABE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -115,7 +115,7 @@
                         <property
                           dataType="System.Int32"
                           name="ColumnType"
-                          typeConverter="ColumnType">1</property>
+                          typeConverter="ColumnType">2</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -492,7 +492,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_empleados_G01] SET [category] = ?,[education_level] = ?,[employment_date] = ?,[gender] = ? WHERE [birth_date] = ? AND [employee_id] = ? AND [full_name] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_empleados_G01] SET [birth_date] = ?,[category] = ?,[education_level] = ?,[employment_date] = ?,[gender] = ? WHERE [employee_id] = ? AND [full_name] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -518,21 +518,21 @@
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[BIRTH_DATE]"
                       cachedDataType="dbDate"
                       cachedName="BIRTH_DATE"
-                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]" />
                     <inputColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[CATEGORY]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="CATEGORY"
-                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
                     <inputColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[EDUCATION_LEVEL]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="EDUCATION_LEVEL"
-                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]" />
                     <inputColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[EMPLOYEE_ID]"
@@ -544,7 +544,7 @@
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[EMPLOYMENT_DATE]"
                       cachedDataType="dbDate"
                       cachedName="EMPLOYMENT_DATE"
-                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]" />
                     <inputColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].Columns[FULL_NAME]"
@@ -558,15 +558,14 @@
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="GENDER"
-                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="dbDate"
                       name="Param_0">
                       <properties>
                         <property
@@ -589,7 +588,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="255"
                       name="Param_2">
                       <properties>
                         <property
@@ -600,8 +600,7 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="dbDate"
                       name="Param_3">
                       <properties>
                         <property
@@ -612,7 +611,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="255"
                       name="Param_4">
                       <properties>
                         <property
@@ -697,7 +697,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_empleados_G01] SET [category] = ?,[education_level] = ?,[employment_date] = ?,[gender] = ? WHERE [birth_date] = ? AND [employee_id] = ? AND [full_name] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_empleados_G01] SET [birth_date] = ?,[category] = ?,[education_level] = ?,[employment_date] = ?,[gender] = ? WHERE [employee_id] = ? AND [full_name] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -723,21 +723,21 @@
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[BIRTH_DATE]"
                       cachedDataType="dbDate"
                       cachedName="BIRTH_DATE"
-                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]" />
                     <inputColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[CATEGORY]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="CATEGORY"
-                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
                     <inputColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[EDUCATION_LEVEL]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="EDUCATION_LEVEL"
-                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EDUCATION_LEVEL]" />
                     <inputColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[EMPLOYEE_ID]"
@@ -749,7 +749,7 @@
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[EMPLOYMENT_DATE]"
                       cachedDataType="dbDate"
                       cachedName="EMPLOYMENT_DATE"
-                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_DATE]" />
                     <inputColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[FULL_NAME]"
@@ -763,15 +763,14 @@
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="GENDER"
-                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Carga empleados Datawarehouse\Source int_empleados.Outputs[OLE DB Source Output].Columns[GENDER]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="dbDate"
                       name="Param_0">
                       <properties>
                         <property
@@ -794,7 +793,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="255"
                       name="Param_2">
                       <properties>
                         <property
@@ -805,8 +805,7 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="dbDate"
                       name="Param_3">
                       <properties>
                         <property
@@ -817,7 +816,8 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Carga empleados Datawarehouse\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="255"
                       name="Param_4">
                       <properties>
                         <property
@@ -2224,18 +2224,6 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
           Id="Package\Carga empleados Datawarehouse\Source int_empleados"
           TopLeft="218.3,5.49999999999984" />
         <NodeLayout
-          Size="176,41.6"
-          Id="Package\Carga empleados Datawarehouse\OLE DB Command 1"
-          TopLeft="453.1,208.7" />
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Carga empleados Datawarehouse\Insert Destination"
-          TopLeft="5.50000000000009,208.7" />
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Carga empleados Datawarehouse\OLE DB Command"
-          TopLeft="225.5,208.7" />
-        <NodeLayout
           Size="177.6,41.6"
           Id="Package\Carga empleados Datawarehouse\dim_empleados_G01"
           TopLeft="220.3,107.1" />
@@ -2261,6 +2249,10 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Carga empleados Datawarehouse\Insert Destination"
+          TopLeft="5.50000000000009,208.7" />
         <EdgeLayout
           Id="Package\Carga empleados Datawarehouse.Paths[New Output]"
           TopLeft="266.7,148.7">
@@ -2297,6 +2289,10 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Carga empleados Datawarehouse\OLE DB Command"
+          TopLeft="225.5,208.7" />
         <EdgeLayout
           Id="Package\Carga empleados Datawarehouse.Paths[Inferred Member Updates Output]"
           TopLeft="309.1,148.7">
@@ -2317,10 +2313,14 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-74.40298828125,20.4208984375,148.8059765625,11.658203125"
+              BoundingBox="-74.40298828125,20.4208984374999,148.8059765625,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga empleados Datawarehouse\OLE DB Command 1"
+          TopLeft="453.1,208.7" />
         <EdgeLayout
           Id="Package\Carga empleados Datawarehouse.Paths[Changing Attribute Updates Output]"
           TopLeft="351.5,148.7">
@@ -2374,8 +2374,8 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;birth_date&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Source int_empleados.Outputs[OLE DB Source Output].Columns[CATEGORY]&lt;/IdentificationString&gt;
@@ -2451,7 +2451,7 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
     design-time-name="Package\Carga empleados intermedia">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="210.4,41.6"
           Id="Package\Carga empleados intermedia\Source stg_empleados_G01"
@@ -2479,7 +2479,9 @@ WHERE e.EMPLOYEE_ID IS NOT NULL</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

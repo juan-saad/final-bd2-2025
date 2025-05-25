@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_clientes"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{C60B1688-CE56-4602-B09D-A4FBA52B57CC}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{C7E35546-1C51-493B-AC31-52258B2AD024}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3340,7 +3340,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
         <NodeLayout
           Size="220.8,41.6"
           Id="Package\Carga clientes Datawarehouse"
-          TopLeft="523.333304739662,435.933330301907" />
+          TopLeft="382.499979101122,398.666663894388" />
         <NodeLayout
           Size="196,41.6"
           Id="Package\Carga clientes intermedia"
@@ -3403,30 +3403,18 @@ ORDER BY cw.CUSTOMER_ID;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="487.166645403538,339.733331260151">
+          TopLeft="490.03331225233,339.733331260151">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="146.566659336124,96.1999990417558"
+              EndConnector="0,58.933332634237"
               Start="0,0"
-              End="146.566659336124,88.6999990417558">
+              End="0,51.433332634237">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.0999995208779" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.0999995208779"
-                    Point2="0,48.0999995208779"
-                    Point3="4,48.0999995208779" />
-                  <mssgle:LineSegment
-                    End="142.566659336124,48.0999995208779" />
-                  <mssgle:CubicBezierSegment
-                    Point1="142.566659336124,48.0999995208779"
-                    Point2="146.566659336124,48.0999995208779"
-                    Point3="146.566659336124,52.0999995208779" />
-                  <mssgle:LineSegment
-                    End="146.566659336124,88.6999990417558" />
+                    End="0,51.433332634237" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3469,6 +3457,13 @@ ORDER BY cw.CUSTOMER_ID;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text=""
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="28.8,60"
+          Id="10d79bfd-13b1-484a-a978-0cf226112b66"
+          TopLeft="5.5,5.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3480,26 +3475,14 @@ ORDER BY cw.CUSTOMER_ID;</property>
         <NodeLayout
           Size="166.4,41.6"
           Id="Package\Carga clientes Datawarehouse\Source int_clientes"
-          TopLeft="225.9,5.49999999999984" />
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Carga clientes Datawarehouse\OLE DB Command 1"
-          TopLeft="453.1,208.7" />
+          TopLeft="225.9,5.49999999999995" />
         <NodeLayout
           Size="208,41.6"
           Id="Package\Carga clientes Datawarehouse\Slowly Changing Dimension"
           TopLeft="205.1,107.1" />
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Carga clientes Datawarehouse\Insert Destination"
-          TopLeft="5.50000000000009,208.7" />
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Carga clientes Datawarehouse\OLE DB Command"
-          TopLeft="225.5,208.7" />
         <EdgeLayout
           Id="Package\Carga clientes Datawarehouse.Paths[OLE DB Source Output]"
-          TopLeft="309.1,47.0999999999998">
+          TopLeft="309.1,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3516,104 +3499,114 @@ ORDER BY cw.CUSTOMER_ID;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Carga clientes Datawarehouse\Insert Destination"
+          TopLeft="5.50000000000003,208.7" />
         <EdgeLayout
           Id="Package\Carga clientes Datawarehouse.Paths[New Output]"
           TopLeft="259.1,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-174,60"
+              EndConnector="-174,60.0000000000001"
               Start="0,0"
-              End="-174,52.5">
+              End="-174,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.506329113924" />
+                    End="0,16.5063291139241" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.506329113924"
-                    Point2="0,20.506329113924"
-                    Point3="-4,20.506329113924" />
+                    Point1="0,16.5063291139241"
+                    Point2="0,20.5063291139241"
+                    Point3="-4,20.5063291139241" />
                   <mssgle:LineSegment
-                    End="-170,20.506329113924" />
+                    End="-170,20.5063291139241" />
                   <mssgle:CubicBezierSegment
-                    Point1="-170,20.506329113924"
-                    Point2="-174,20.506329113924"
-                    Point3="-174,24.506329113924" />
+                    Point1="-170,20.5063291139241"
+                    Point2="-174,20.5063291139241"
+                    Point3="-174,24.5063291139241" />
                   <mssgle:LineSegment
-                    End="-174,52.5" />
+                    End="-174,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-114.09138671875,25.506329113924,54.1827734375,11.43359375"
+              BoundingBox="-114.09138671875,25.5063291139241,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Carga clientes Datawarehouse\OLE DB Command"
+          TopLeft="225.5,208.7" />
         <EdgeLayout
           Id="Package\Carga clientes Datawarehouse.Paths[Inferred Member Updates Output]"
           TopLeft="309.1,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-74.40298828125,20.4208984375,148.8059765625,11.658203125"
+              BoundingBox="-74.40298828125,20.4208984375001,148.8059765625,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga clientes Datawarehouse\OLE DB Command 1"
+          TopLeft="453.1,208.7" />
         <EdgeLayout
           Id="Package\Carga clientes Datawarehouse.Paths[Changing Attribute Updates Output]"
           TopLeft="359.1,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="182,60"
+              EndConnector="182,60.0000000000001"
               Start="0,0"
-              End="182,52.5">
+              End="182,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.506329113924" />
+                    End="0,16.5063291139241" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.506329113924"
-                    Point2="0,20.506329113924"
-                    Point3="4,20.506329113924" />
+                    Point1="0,16.5063291139241"
+                    Point2="0,20.5063291139241"
+                    Point3="4,20.5063291139241" />
                   <mssgle:LineSegment
-                    End="178,20.506329113924" />
+                    End="178,20.5063291139241" />
                   <mssgle:CubicBezierSegment
-                    Point1="178,20.506329113924"
-                    Point2="182,20.506329113924"
-                    Point3="182,24.506329113924" />
+                    Point1="178,20.5063291139241"
+                    Point2="182,20.5063291139241"
+                    Point3="182,24.5063291139241" />
                   <mssgle:LineSegment
-                    End="182,52.5" />
+                    End="182,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="12.46609375,25.506329113924,157.0678125,11.6630859375"
+              BoundingBox="12.46609375,25.5063291139241,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
