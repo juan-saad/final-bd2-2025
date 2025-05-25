@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{2B62ECFA-FCA4-4077-9F83-5589CEC4BE44}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{4026DCFA-72AD-4FBC-A8FF-FAC7E589D858}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB4X4DD7GHELEP/0DGUdjaUAN4p2CUWdQ3bx8KtTAIOxwAAAAAOgAAAAAIAACAAAAD0M0g5zpnnl2PZmLpOXzZ3/uf6u5Q/W+E8G2jq2PKynSAAAACZdYaaaaqWGolfaW/AdrLIhLa9jBCT9LDgbTRDrrrOE0AAAADBlPtR69vh4wnXwZx3lklp1704BmZN0Yj74yAlFAtGb8hcuJcJS3z72hFixDS+vQCIuh3siUQtygBKOIJt1E5I</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACdc0gYqV8jlgH3pF5ES7/J/lss1czh0xe55kI/QbxQpwAAAAAOgAAAAAIAACAAAADeMhgaQbIj5ED0kFSI8AqrqY3IDI24BcKgej1rbnE3BSAAAAA2NP348LWC4XtY6SlP12weEiCa7YWVmlYxr0VLBDiC/kAAAABS3e2RoAETKEooq1y667/D56orWrMtAgD/IUev5gFJELsTs7UIXTkEQEHR3IKo9+dJ0rkzsVsrCrFojZ4TTdy4</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2996,7 +2996,7 @@ FROM sales.prices;</property>
     design-time-name="Package\Carga ventas sql server">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="176,41.6"
           Id="Package\Carga ventas sql server\stg_ventas_hist_G01"
@@ -3024,9 +3024,7 @@ FROM sales.prices;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
