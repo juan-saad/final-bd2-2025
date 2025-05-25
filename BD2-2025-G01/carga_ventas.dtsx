@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="64"
-  DTS:VersionGUID="{1EC4B88F-4C9F-48A0-8154-DEC9D7EE335C}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{3C77AA9C-9B32-4DEB-92A1-8D47FE33F116}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABiHbJoi+aOnbhsKTZYTY3UBKhoi1pjL1JlMWG1MmNnnAAAAAAOgAAAAAIAACAAAAAmhfH5dOS2oCkrF72gHjvXyQ40uYe/01bT0aaZREGrJyAAAACBgDfOxQsJKGvPjXn6pvT+RBxhoeUSEp7FGzIB5r/I7EAAAADKfWIcCJGDN2bVr0yBZzfRw5BF7peq2X/MUSv/XYG3UnO3xuqvb/qIs49wvZQFWvFLm4HBbHpXBo/SZbKUaKMA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAWyCtGBtTKQ8GYfh9NM3J2K+k8pDOvFyr7ZqXDSCwwCwAAAAAOgAAAAAIAACAAAABweSdFbW7XDnA8hMWePu2JddsgBQh46QMjBJ0bebCASCAAAAAMKpZGaSXEpkIsJj3Xk2wTkckkrNf+GfcWqqH1mooMqEAAAADm88A14W4W4YiL0Z82kePHHAFs8DezJdOnWQNyAgE7tttKlA5FthqiJoIcO6DhJCZSGpIbeI0PaH5VU130SdB9</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -3018,7 +3018,7 @@ FROM sales.prices;</property>
                       cachedDataType="i4"
                       cachedName="EMPLEADO_ID"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[EMPLEADO_ID]" />
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[EMPLEADO_ID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3654,6 +3654,106 @@ FROM sales.prices;</property>
                           name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Inputs[Sort Input].Columns[full_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="full_name"
+                      lineageId="Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[full_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Inputs[Sort Input].Columns[category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="category"
+                      lineageId="Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[category]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Inputs[Sort Input].Columns[employment_date]"
+                      cachedDataType="dbDate"
+                      cachedName="employment_date"
+                      lineageId="Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[employment_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Inputs[Sort Input].Columns[birth_date]"
+                      cachedDataType="dbDate"
+                      cachedName="birth_date"
+                      lineageId="Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[birth_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Inputs[Sort Input].Columns[education_level]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="education_level"
+                      lineageId="Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[education_level]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Inputs[Sort Input].Columns[gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="gender"
+                      lineageId="Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[gender]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3691,17 +3791,99 @@ FROM sales.prices;</property>
                           name="SortColumnId">#{Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[employee_id]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[full_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[full_name]"
+                      name="full_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[full_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[category]"
+                      name="category">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[category]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[employment_date]"
+                      dataType="dbDate"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[employment_date]"
+                      name="employment_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[employment_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[birth_date]"
+                      dataType="dbDate"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[birth_date]"
+                      name="birth_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[birth_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[education_level]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[education_level]"
+                      name="education_level">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[education_level]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id.Outputs[Sort Output].Columns[gender]"
+                      name="gender">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\fact_ventas_G01\Source dim_empleados.Outputs[OLE DB Source Output].Columns[gender]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
             </component>
             <component
-              refId="Package\fact_ventas_G01\Order by empleado_id (join)"
+              refId="Package\fact_ventas_G01\order by empleado_id (join)"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Order by empleado_id (join)"
+              name="order by empleado_id (join)"
               version="1">
               <properties>
                 <property
@@ -3716,11 +3898,11 @@ FROM sales.prices;</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input]"
+                  refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[CLIENTES_KEY]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[CLIENTES_KEY]"
                       cachedDataType="i4"
                       cachedName="CLIENTES_KEY"
                       lineageId="Package\fact_ventas_G01\Join dim_clientes.Outputs[Merge Join Output].Columns[CLIENTES_KEY]">
@@ -3736,7 +3918,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[REGION]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[REGION]"
                       cachedDataType="wstr"
                       cachedLength="90"
                       cachedName="REGION"
@@ -3753,7 +3935,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[VENTA_ID]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[VENTA_ID]"
                       cachedDataType="i4"
                       cachedName="VENTA_ID"
                       lineageId="Package\fact_ventas_G01\Join dim_clientes.Outputs[Merge Join Output].Columns[VENTA_ID]">
@@ -3769,7 +3951,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[FECHA_VENTA]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[FECHA_VENTA]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FECHA_VENTA"
                       lineageId="Package\fact_ventas_G01\Join dim_clientes.Outputs[Merge Join Output].Columns[FECHA_VENTA]">
@@ -3785,7 +3967,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[CLIENTE_ID]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[CLIENTE_ID]"
                       cachedDataType="i4"
                       cachedName="CLIENTE_ID"
                       cachedSortKeyPosition="1"
@@ -3802,7 +3984,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[EMPLEADO_ID]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[EMPLEADO_ID]"
                       cachedDataType="i4"
                       cachedName="EMPLEADO_ID"
                       lineageId="Package\fact_ventas_G01\Join dim_clientes.Outputs[Merge Join Output].Columns[EMPLEADO_ID]">
@@ -3818,7 +4000,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[PRODUCTO_ID]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[PRODUCTO_ID]"
                       cachedDataType="i4"
                       cachedName="PRODUCTO_ID"
                       lineageId="Package\fact_ventas_G01\Join dim_clientes.Outputs[Merge Join Output].Columns[PRODUCTO_ID]">
@@ -3834,7 +4016,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[CANTIDAD]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[CANTIDAD]"
                       cachedDataType="i4"
                       cachedName="CANTIDAD"
                       lineageId="Package\fact_ventas_G01\Join dim_clientes.Outputs[Merge Join Output].Columns[CANTIDAD]">
@@ -3850,7 +4032,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[TOTAL_FACTURADO]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[TOTAL_FACTURADO]"
                       cachedDataType="numeric"
                       cachedName="TOTAL_FACTURADO"
                       cachedPrecision="10"
@@ -3868,7 +4050,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
                       cachedDataType="numeric"
                       cachedName="TOTAL_FACTURADO_CON_DESCUENTO"
                       cachedPrecision="10"
@@ -3886,7 +4068,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[PRECIO]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[PRECIO]"
                       cachedDataType="numeric"
                       cachedName="PRECIO"
                       cachedPrecision="10"
@@ -3904,7 +4086,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[DESCUENTO]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[DESCUENTO]"
                       cachedDataType="numeric"
                       cachedName="DESCUENTO"
                       cachedPrecision="5"
@@ -3922,7 +4104,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[LITROS_POR_UNIDAD]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[LITROS_POR_UNIDAD]"
                       cachedDataType="numeric"
                       cachedName="LITROS_POR_UNIDAD"
                       cachedPrecision="10"
@@ -3940,7 +4122,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[TOTAL_LITROS]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[TOTAL_LITROS]"
                       cachedDataType="numeric"
                       cachedName="TOTAL_LITROS"
                       cachedPrecision="10"
@@ -3958,7 +4140,7 @@ FROM sales.prices;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input].Columns[FECHA_KEY]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input].Columns[FECHA_KEY]"
                       cachedDataType="i4"
                       cachedName="FECHA_KEY"
                       lineageId="Package\fact_ventas_G01\Join dim_clientes.Outputs[Merge Join Output].Columns[FECHA_KEY]">
@@ -3979,14 +4161,14 @@ FROM sales.prices;</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output]"
+                  refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[CLIENTES_KEY]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[CLIENTES_KEY]"
                       dataType="i4"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[CLIENTES_KEY]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[CLIENTES_KEY]"
                       name="CLIENTES_KEY">
                       <properties>
                         <property
@@ -3997,10 +4179,10 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[REGION]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[REGION]"
                       dataType="wstr"
                       length="90"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[REGION]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[REGION]"
                       name="REGION">
                       <properties>
                         <property
@@ -4011,9 +4193,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[VENTA_ID]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[VENTA_ID]"
                       dataType="i4"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[VENTA_ID]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[VENTA_ID]"
                       name="VENTA_ID">
                       <properties>
                         <property
@@ -4024,9 +4206,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[FECHA_VENTA]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[FECHA_VENTA]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[FECHA_VENTA]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[FECHA_VENTA]"
                       name="FECHA_VENTA">
                       <properties>
                         <property
@@ -4037,9 +4219,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[CLIENTE_ID]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[CLIENTE_ID]"
                       dataType="i4"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[CLIENTE_ID]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[CLIENTE_ID]"
                       name="CLIENTE_ID">
                       <properties>
                         <property
@@ -4050,9 +4232,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[EMPLEADO_ID]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[EMPLEADO_ID]"
                       dataType="i4"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[EMPLEADO_ID]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[EMPLEADO_ID]"
                       name="EMPLEADO_ID"
                       sortKeyPosition="1">
                       <properties>
@@ -4064,9 +4246,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[PRODUCTO_ID]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[PRODUCTO_ID]"
                       dataType="i4"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[PRODUCTO_ID]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[PRODUCTO_ID]"
                       name="PRODUCTO_ID">
                       <properties>
                         <property
@@ -4077,9 +4259,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[CANTIDAD]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[CANTIDAD]"
                       dataType="i4"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[CANTIDAD]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[CANTIDAD]"
                       name="CANTIDAD">
                       <properties>
                         <property
@@ -4090,9 +4272,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_FACTURADO]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_FACTURADO]"
                       dataType="numeric"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_FACTURADO]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_FACTURADO]"
                       name="TOTAL_FACTURADO"
                       precision="10"
                       scale="2">
@@ -4105,9 +4287,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
                       dataType="numeric"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_FACTURADO_CON_DESCUENTO]"
                       name="TOTAL_FACTURADO_CON_DESCUENTO"
                       precision="10"
                       scale="2">
@@ -4120,9 +4302,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[PRECIO]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[PRECIO]"
                       dataType="numeric"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[PRECIO]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[PRECIO]"
                       name="PRECIO"
                       precision="10"
                       scale="2">
@@ -4135,9 +4317,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[DESCUENTO]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[DESCUENTO]"
                       dataType="numeric"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[DESCUENTO]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[DESCUENTO]"
                       name="DESCUENTO"
                       precision="5"
                       scale="2">
@@ -4150,9 +4332,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[LITROS_POR_UNIDAD]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[LITROS_POR_UNIDAD]"
                       dataType="numeric"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[LITROS_POR_UNIDAD]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[LITROS_POR_UNIDAD]"
                       name="LITROS_POR_UNIDAD"
                       precision="10"
                       scale="2">
@@ -4165,9 +4347,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_LITROS]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_LITROS]"
                       dataType="numeric"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_LITROS]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[TOTAL_LITROS]"
                       name="TOTAL_LITROS"
                       precision="10"
                       scale="2">
@@ -4180,9 +4362,9 @@ FROM sales.prices;</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[FECHA_KEY]"
+                      refId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[FECHA_KEY]"
                       dataType="i4"
-                      lineageId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output].Columns[FECHA_KEY]"
+                      lineageId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output].Columns[FECHA_KEY]"
                       name="FECHA_KEY">
                       <properties>
                         <property
@@ -5055,7 +5237,7 @@ FROM sales.prices;</property>
               startId="Package\fact_ventas_G01\Agregar fecha_key.Outputs[Derived Column Output]" />
             <path
               refId="Package\fact_ventas_G01.Paths[Merge Join Output]"
-              endId="Package\fact_ventas_G01\Order by empleado_id (join).Inputs[Sort Input]"
+              endId="Package\fact_ventas_G01\order by empleado_id (join).Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\fact_ventas_G01\Join dim_clientes.Outputs[Merge Join Output]" />
             <path
@@ -5092,7 +5274,7 @@ FROM sales.prices;</property>
               refId="Package\fact_ventas_G01.Paths[Sort Output3]"
               endId="Package\fact_ventas_G01\Join dim_empleados.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\fact_ventas_G01\Order by empleado_id (join).Outputs[Sort Output]" />
+              startId="Package\fact_ventas_G01\order by empleado_id (join).Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -5189,6 +5371,14 @@ FROM sales.prices;</property>
           Size="188,41.6"
           Id="Package\Carga ventas sql server"
           TopLeft="303.333316759931,181.999998734395" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Crear tabla fact_ventas"
+          TopLeft="442.261880597781,379.47618783736" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\fact_ventas_G01"
+          TopLeft="460.714260541968,462.428568212901" />
         <NodeLayout
           Size="200,41.6"
           Id="Package\Truncate ventas historicas"
@@ -5329,14 +5519,6 @@ FROM sales.prices;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156.8,41.6"
-          Id="Package\fact_ventas_G01"
-          TopLeft="460.714260541968,462.428568212901" />
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Crear tabla fact_ventas"
-          TopLeft="442.261880597781,379.47618783736" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="524.171405155319,344.685712178094">
@@ -5750,27 +5932,67 @@ FROM sales.prices;</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="172,41.6"
+          Id="Package\fact_ventas_G01\Source dim_clientes"
+          TopLeft="412.285708133664,82.9999987546887" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\fact_ventas_G01\Join dim_empleados"
+          TopLeft="302.358969870431,538.952372409522" />
+        <NodeLayout
           Size="161.6,41.6"
           Id="Package\fact_ventas_G01\Source int_ventas"
           TopLeft="603.999990999699,84.9999987334013" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\fact_ventas_G01\order by empleado_id"
+          TopLeft="140.142855046051,205.857139781117" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\fact_ventas_G01\Join dim_clientes"
+          TopLeft="468.714278721384,323.714280882052" />
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\fact_ventas_G01\Order by cliente_id"
+          TopLeft="407.999993911811,183.714282968215" />
+        <NodeLayout
+          Size="188,43.2"
+          Id="Package\fact_ventas_G01\Source dim_empleados"
+          TopLeft="163.714283266238,95.1428557166032" />
+        <NodeLayout
+          Size="224,41.6"
+          Id="Package\fact_ventas_G01\Order by cliente_id (intermedia)"
+          TopLeft="639.428561891828,243.714282074145" />
         <NodeLayout
           Size="165.6,41.6"
           Id="Package\fact_ventas_G01\Agregar fecha_key"
           TopLeft="602.285705302443,169.428568895374" />
         <EdgeLayout
-          Id="Package\fact_ventas_G01.Paths[OLE DB Source Output]"
-          TopLeft="684.942848151071,126.599998733401">
+          Id="Package\fact_ventas_G01.Paths[Sort Output1]"
+          TopLeft="751.428561891828,285.314282074145">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.8285701619727"
+              EndConnector="-178.447616503777,38.399998807907"
               Start="0,0"
-              End="0,35.3285701619727">
+              End="-178.447616503777,30.899998807907">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.3285701619727" />
+                    End="0,18.8095992918967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.8095992918967"
+                    Point2="0,22.8095992918967"
+                    Point3="-4,22.8095992918967" />
+                  <mssgle:LineSegment
+                    End="-174.447616503777,22.8095992918967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-174.447616503777,22.8095992918967"
+                    Point2="-178.447616503777,22.8095992918967"
+                    Point3="-178.447616503777,26.8095992918967" />
+                  <mssgle:LineSegment
+                    End="-178.447616503777,30.899998807907" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5779,18 +6001,74 @@ FROM sales.prices;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="172,41.6"
-          Id="Package\fact_ventas_G01\Source dim_clientes"
-          TopLeft="412.285708133664,82.9999987546887" />
-        <NodeLayout
-          Size="165.6,41.6"
-          Id="Package\fact_ventas_G01\Order by cliente_id"
-          TopLeft="407.999993911811,183.714282968215" />
-        <NodeLayout
-          Size="224,41.6"
-          Id="Package\fact_ventas_G01\Order by cliente_id (intermedia)"
-          TopLeft="639.428561891828,243.714282074145" />
+        <EdgeLayout
+          Id="Package\fact_ventas_G01.Paths[Sort Output]"
+          TopLeft="490.799993911811,225.314282968215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.0476181429064,98.399997913837"
+              Start="0,0"
+              End="32.0476181429064,90.899997913837">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.4495987608191" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.4495987608191"
+                    Point2="0,58.4495987608191"
+                    Point3="4,58.4495987608191" />
+                  <mssgle:LineSegment
+                    End="28.0476181429064,58.4495987608191" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.0476181429064,58.4495987608191"
+                    Point2="32.0476181429064,58.4495987608191"
+                    Point3="32.0476181429064,62.4495987608191" />
+                  <mssgle:LineSegment
+                    End="32.0476181429064,90.899997913837" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_ventas_G01.Paths[OLE DB Source Output2]"
+          TopLeft="257.714283266238,138.342855716603">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-27.971428220187,67.5142840645138"
+              Start="0,0"
+              End="-27.971428220187,60.0142840645138">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.7571420322569" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.7571420322569"
+                    Point2="0,33.7571420322569"
+                    Point3="-4,33.7571420322569" />
+                  <mssgle:LineSegment
+                    End="-23.971428220187,33.7571420322569" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23.971428220187,33.7571420322569"
+                    Point2="-27.971428220187,33.7571420322569"
+                    Point3="-27.971428220187,37.7571420322569" />
+                  <mssgle:LineSegment
+                    End="-27.971428220187,60.0142840645138" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_ventas_G01.Paths[OLE DB Source Output1]"
           TopLeft="494.542851022737,124.599998754689">
@@ -5805,6 +6083,28 @@ FROM sales.prices;</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,51.6142842135258" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_ventas_G01.Paths[OLE DB Source Output]"
+          TopLeft="684.942848151071,126.599998733401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.8285701619727"
+              Start="0,0"
+              End="0,35.3285701619727">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.3285701619727" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5847,150 +6147,32 @@ FROM sales.prices;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\fact_ventas_G01\Join dim_clientes"
-          TopLeft="468.714278721384,323.714280882052" />
-        <EdgeLayout
-          Id="Package\fact_ventas_G01.Paths[Sort Output]"
-          TopLeft="490.799993911811,225.314282968215">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="32.0476181429062,98.3999979138376"
-              Start="0,0"
-              End="32.0476181429062,90.8999979138376">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.4495987608195" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,54.4495987608195"
-                    Point2="0,58.4495987608195"
-                    Point3="4,58.4495987608195" />
-                  <mssgle:LineSegment
-                    End="28.0476181429062,58.4495987608195" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28.0476181429062,58.4495987608195"
-                    Point2="32.0476181429062,58.4495987608195"
-                    Point3="32.0476181429062,62.4495987608195" />
-                  <mssgle:LineSegment
-                    End="32.0476181429062,90.8999979138376" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_ventas_G01.Paths[Sort Output1]"
-          TopLeft="751.428561891828,285.314282074145">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-178.447616503777,38.3999988079071"
-              Start="0,0"
-              End="-178.447616503777,30.8999988079071">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.8095992918968" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.8095992918968"
-                    Point2="0,22.8095992918968"
-                    Point3="-4,22.8095992918968" />
-                  <mssgle:LineSegment
-                    End="-174.447616503777,22.8095992918968" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-174.447616503777,22.8095992918968"
-                    Point2="-178.447616503777,22.8095992918968"
-                    Point3="-178.447616503777,26.8095992918968" />
-                  <mssgle:LineSegment
-                    End="-178.447616503777,30.8999988079071" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="188,43.2"
-          Id="Package\fact_ventas_G01\Source dim_empleados"
-          TopLeft="163.714283266238,95.1428557166032" />
-        <NodeLayout
-          Size="179.2,41.6"
-          Id="Package\fact_ventas_G01\order by empleado_id"
-          TopLeft="140.142855046051,205.857139781117" />
-        <EdgeLayout
-          Id="Package\fact_ventas_G01.Paths[OLE DB Source Output2]"
-          TopLeft="257.714283266238,138.342855716603">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-27.9714282201868,67.5142840645143"
-              Start="0,0"
-              End="-27.9714282201868,60.0142840645143">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.7571420322571" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.7571420322571"
-                    Point2="0,33.7571420322571"
-                    Point3="-4,33.7571420322571" />
-                  <mssgle:LineSegment
-                    End="-23.9714282201868,33.7571420322571" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-23.9714282201868,33.7571420322571"
-                    Point2="-27.9714282201868,33.7571420322571"
-                    Point3="-27.9714282201868,37.7571420322571" />
-                  <mssgle:LineSegment
-                    End="-27.9714282201868,60.0142840645143" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="173.6,41.6"
-          Id="Package\fact_ventas_G01\Join dim_empleados"
-          TopLeft="302.999995476433,602.285705302443" />
         <EdgeLayout
           Id="Package\fact_ventas_G01.Paths[Sort Output2]"
           TopLeft="229.742855046051,247.457139781117">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="160.057140430383,354.828565521325"
+              EndConnector="131.81611482438,291.495232628405"
               Start="0,0"
-              End="160.057140430383,347.328565521325">
+              End="131.81611482438,283.995232628405">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,173.414282760663" />
+                    End="0,169.299905425654" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,173.414282760663"
-                    Point2="0,177.414282760663"
-                    Point3="4,177.414282760663" />
+                    Point1="0,169.299905425654"
+                    Point2="0,173.299905425654"
+                    Point3="4,173.299905425654" />
                   <mssgle:LineSegment
-                    End="156.057140430383,177.414282760663" />
+                    End="127.81611482438,173.299905425654" />
                   <mssgle:CubicBezierSegment
-                    Point1="156.057140430383,177.414282760663"
-                    Point2="160.057140430383,177.414282760663"
-                    Point3="160.057140430383,181.414282760663" />
+                    Point1="127.81611482438,173.299905425654"
+                    Point2="131.81611482438,173.299905425654"
+                    Point3="131.81611482438,177.299905425654" />
                   <mssgle:LineSegment
-                    End="160.057140430383,347.328565521325" />
+                    End="131.81611482438,283.995232628405" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6000,35 +6182,35 @@ FROM sales.prices;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="207.2,41.6"
-          Id="Package\fact_ventas_G01\Order by empleado_id (join)"
-          TopLeft="483.714278497866,413.714279540948" />
+          Size="204.8,41.6"
+          Id="Package\fact_ventas_G01\order by empleado_id (join)"
+          TopLeft="525.640996921267,430.307689734759" />
         <EdgeLayout
           Id="Package\fact_ventas_G01.Paths[Merge Join Output]"
           TopLeft="547.914278721384,365.314280882052">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="39.3999997764822,48.3999986588955"
+              EndConnector="80.1267181998834,64.9934088527065"
               Start="0,0"
-              End="39.3999997764822,40.8999986588955">
+              End="80.1267181998834,57.4934088527065">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.1999993294477" />
+                    End="0,28.4967044263533" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.1999993294477"
-                    Point2="0,24.1999993294477"
-                    Point3="4,24.1999993294477" />
+                    Point1="0,28.4967044263533"
+                    Point2="0,32.4967044263533"
+                    Point3="4,32.4967044263533" />
                   <mssgle:LineSegment
-                    End="35.3999997764822,24.1999993294477" />
+                    End="76.1267181998834,32.4967044263533" />
                   <mssgle:CubicBezierSegment
-                    Point1="35.3999997764822,24.1999993294477"
-                    Point2="39.3999997764822,24.1999993294477"
-                    Point3="39.3999997764822,28.1999993294477" />
+                    Point1="76.1267181998834,32.4967044263533"
+                    Point2="80.1267181998834,32.4967044263533"
+                    Point3="80.1267181998834,36.4967044263533" />
                   <mssgle:LineSegment
-                    End="39.3999997764822,40.8999986588955" />
+                    End="80.1267181998834,57.4934088527065" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6039,30 +6221,30 @@ FROM sales.prices;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_ventas_G01.Paths[Sort Output3]"
-          TopLeft="587.314278497866,455.314279540948">
+          TopLeft="628.040996921267,471.907689734759">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-169.914283021433,146.971425761495"
+              EndConnector="-211.282027050836,67.0446826747631"
               Start="0,0"
-              End="-169.914283021433,139.471425761495">
+              End="-211.282027050836,59.5446826747631">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,83.3775325760122" />
+                    End="0,35.8594414806126" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,83.3775325760122"
-                    Point2="0,87.3775325760122"
-                    Point3="-4,87.3775325760122" />
+                    Point1="0,35.8594414806126"
+                    Point2="0,39.8594414806126"
+                    Point3="-4,39.8594414806126" />
                   <mssgle:LineSegment
-                    End="-165.914283021433,87.3775325760122" />
+                    End="-207.282027050836,39.8594414806126" />
                   <mssgle:CubicBezierSegment
-                    Point1="-165.914283021433,87.3775325760122"
-                    Point2="-169.914283021433,87.3775325760122"
-                    Point3="-169.914283021433,91.3775325760122" />
+                    Point1="-207.282027050836,39.8594414806126"
+                    Point2="-211.282027050836,39.8594414806126"
+                    Point3="-211.282027050836,43.8594414806126" />
                   <mssgle:LineSegment
-                    End="-169.914283021433,139.471425761495" />
+                    End="-211.282027050836,59.5446826747631" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6075,7 +6257,7 @@ FROM sales.prices;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\fact_ventas_G01\Source int_ventas">
+    design-time-name="Package\fact_ventas_G01\Source dim_clientes">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6088,7 +6270,7 @@ FROM sales.prices;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\fact_ventas_G01\Source dim_clientes">
+    design-time-name="Package\fact_ventas_G01\Source int_ventas">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
