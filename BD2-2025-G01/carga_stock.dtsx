@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{C03A59F8-A989-46D5-A5F6-07BBE2D84EEA}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{71D0F9FF-D6E6-4974-B53F-B598543F6AE2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -66,22 +66,6 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\Carga stock Datawarehouse"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{cacf0449-8d9f-4bd2-963a-a6a7f06b1878}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Carga stock Datawarehouse"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1" />
-      </DTS:ObjectData>
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Carga stock intermedia"
       DTS:CreationName="Microsoft.Pipeline"
@@ -775,14 +759,6 @@ FROM [bd_staging_2025_G01].[dbo].[stg_stock_G01]</property>
       DTS:ObjectName="Constraint"
       DTS:To="Package\Truncate int_stock" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{88fbef8e-0099-4e54-ae00-229f7125da11}"
-      DTS:From="Package\Carga stock intermedia"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Carga stock Datawarehouse" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{37f71e91-160e-4d26-9ba6-5c9724e27fcb}"
@@ -810,11 +786,7 @@ FROM [bd_staging_2025_G01].[dbo].[stg_stock_G01]</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\Carga stock Datawarehouse"
-          TopLeft="47.5000006829699,517.199996926387" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="184.8,41.6"
           Id="Package\Carga stock intermedia"
@@ -824,23 +796,39 @@ FROM [bd_staging_2025_G01].[dbo].[stg_stock_G01]</property>
           Id="Package\Carga stock staging"
           TopLeft="76.66666575604,151.866666027837" />
         <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Truncate int_stock"
+          TopLeft="62.1666635705369,269.833331495192" />
+        <NodeLayout
           Size="187.2,41.6"
           Id="Package\Truncate stg_stock"
           TopLeft="92.499998224278,60" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="151.516667053683,443.53333106127">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="161.86666575604,193.466666027837">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,73.6666658651171"
+              EndConnector="-18.1000021855031,76.3666654673554"
               Start="0,0"
-              End="0,66.1666658651171">
+              End="-18.1000021855031,68.8666654673554">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.1666658651171" />
+                    End="0,34.1833327336777" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.1833327336777"
+                    Point2="0,38.1833327336777"
+                    Point3="-4,38.1833327336777" />
+                  <mssgle:LineSegment
+                    End="-14.1000021855031,38.1833327336777" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.1000021855031,38.1833327336777"
+                    Point2="-18.1000021855031,38.1833327336777"
+                    Point3="-18.1000021855031,42.1833327336777" />
+                  <mssgle:LineSegment
+                    End="-18.1000021855031,68.8666654673554" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -875,44 +863,6 @@ FROM [bd_staging_2025_G01].[dbo].[stg_stock_G01]</property>
                     Point3="-24.233332468238,29.1333330139185" />
                   <mssgle:LineSegment
                     End="-24.233332468238,42.766666027837" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\Truncate int_stock"
-          TopLeft="62.1666635705369,269.833331495192" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="161.86666575604,193.466666027837">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-18.1000021855031,76.3666654673554"
-              Start="0,0"
-              End="-18.1000021855031,68.8666654673554">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.1833327336777" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.1833327336777"
-                    Point2="0,38.1833327336777"
-                    Point3="-4,38.1833327336777" />
-                  <mssgle:LineSegment
-                    End="-14.1000021855031,38.1833327336777" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-14.1000021855031,38.1833327336777"
-                    Point2="-18.1000021855031,38.1833327336777"
-                    Point3="-18.1000021855031,42.1833327336777" />
-                  <mssgle:LineSegment
-                    End="-18.1000021855031,68.8666654673554" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -996,6 +946,32 @@ FROM [bd_staging_2025_G01].[dbo].[stg_stock_G01]</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga stock intermedia\int_stock_G01">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga stock intermedia\source stg_stock">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Carga stock staging">
     <LayoutInfo>
@@ -1036,32 +1012,6 @@ FROM [bd_staging_2025_G01].[dbo].[stg_stock_G01]</property>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Carga stock staging\stg_stock_G01">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga stock intermedia\source stg_stock">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga stock intermedia\int_stock_G01">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
