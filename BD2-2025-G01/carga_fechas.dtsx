@@ -1,0 +1,111 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/25/2025 6:19:07 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-4O3KPEE"
+  DTS:CreatorName="DESKTOP-4O3KPEE\Administrador"
+  DTS:DTSID="{CFD5ECE2-EBCD-46D5-BD64-A36D58DDB0DA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="11274"
+  DTS:ObjectName="carga_fechas"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{74CE0E7D-0596-4376-871E-0301F372C1D2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Crear tabla dim_fecha"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1EAB5A95-9850-43CA-B243-2DB67B2DB0CF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Crear tabla dim_fecha"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CDD9B5C9-3876-442B-880A-133750C219D7}"
+          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'dim_fecha_G01' AND schema_id = SCHEMA_ID('dbo'))&#xA;BEGIN&#xA;    -- Crear la tabla de dimensiones de fecha&#xA;    CREATE TABLE dbo.dim_fecha_G01 (&#xA;        fecha_key INT PRIMARY KEY,&#xA;        fecha DATE,&#xA;        año INT,&#xA;        mes INT,&#xA;        dia INT,&#xA;        trimestre INT,&#xA;        semestre INT,&#xA;        nombre_mes VARCHAR(20),&#xA;        nombre_dia VARCHAR(20),&#xA;        semana_anio INT&#xA;    );&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Popular datos de dim_fecha"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{481DBEC0-D0B0-4249-A6FD-21C77136C798}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Popular datos de dim_fecha"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CDD9B5C9-3876-442B-880A-133750C219D7}"
+          SQLTask:SqlStatementSource="-- Población de la tabla de fechas&#xA;WITH CTE_Fechas AS (&#xA;    SELECT CAST('2000-01-01' AS DATE) AS fecha&#xA;    UNION ALL&#xA;    SELECT DATEADD(DAY, 1, fecha)&#xA;    FROM CTE_Fechas&#xA;    WHERE fecha &lt; '2030-12-31'&#xA;)&#xA;INSERT INTO dbo.dim_fecha_G01&#xA;SELECT&#xA;    YEAR(fecha) * 10000 + MONTH(fecha) * 100 + DAY(fecha) AS fecha_key,&#xA;    fecha,&#xA;    YEAR(fecha) AS año,&#xA;    MONTH(fecha) AS mes,&#xA;    DAY(fecha) AS dia,&#xA;    CEILING(MONTH(fecha) / 3.0) AS trimestre,&#xA;    CEILING(MONTH(fecha) / 6.0) AS semestre,&#xA;    DATENAME(MONTH, fecha) AS nombre_mes,&#xA;    DATENAME(WEEKDAY, fecha) AS nombre_dia,&#xA;    DATEPART(WEEK, fecha) AS semana_anio&#xA;FROM CTE_Fechas OPTION (MAXRECURSION 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B3334E0F-63D7-4872-828F-C0B3CD84CB6B}"
+      DTS:From="Package\Crear tabla dim_fecha"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Popular datos de dim_fecha" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Crear tabla dim_fecha"
+          TopLeft="550.384585312927,38.9999997287989" />
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\Popular datos de dim_fecha"
+          TopLeft="541.666637071306,138.666665702396" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="643.025611192117,80.5999997287989">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.0666659735971"
+              Start="0,0"
+              End="0,50.5666659735971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5666659735971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{4026DCFA-72AD-4FBC-A8FF-FAC7E589D858}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{018BF36C-20AB-4FCF-8AFA-10461E1C6795}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACdc0gYqV8jlgH3pF5ES7/J/lss1czh0xe55kI/QbxQpwAAAAAOgAAAAAIAACAAAADeMhgaQbIj5ED0kFSI8AqrqY3IDI24BcKgej1rbnE3BSAAAAA2NP348LWC4XtY6SlP12weEiCa7YWVmlYxr0VLBDiC/kAAAABS3e2RoAETKEooq1y667/D56orWrMtAgD/IUev5gFJELsTs7UIXTkEQEHR3IKo9+dJ0rkzsVsrCrFojZ4TTdy4</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC3H3lCf70sU5Noc/kvX/5ib54/4z9yijeoczsKYtjrgAAAAAAOgAAAAAIAACAAAAAdUrOCcG3oZrlePXboQcXEqwwvU11RTr0whTJgQo9tWiAAAADkAGhFBfP6DKAkznNO8nYkjtK5RAULUXZ5oKaYQcdCJkAAAABCZfMKLHW761xPIa9ZhFxzorP6SiMD19Yx4Iocjyuibkf7jLbI4ddBZwLvlrYxR43My/g0FzKyuRltqxkp+R/S</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2724,14 +2724,14 @@ FROM sales.prices;</property>
         <NodeLayout
           Size="263.2,41.6"
           Id="Package\Carga intermedia ventas\Source ventas_descuentos_precio_total"
-          TopLeft="100.714284213526,58.5714276986463" />
+          TopLeft="101.483514971294,58.5714276986463" />
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Carga intermedia ventas\int_ventas_G01"
           TopLeft="149.999997764826,210.714282574398" />
         <EdgeLayout
           Id="Package\Carga intermedia ventas.Paths[OLE DB Source Output]"
-          TopLeft="228.957140989176,100.171427698646">
+          TopLeft="229.34175636806,100.171427698646">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-4O3KPEE</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAACAAAAAAAQZgAAAAEAACAAAADfLq6g3G81A7J5OL+yrGq0JVURBQxkiq2FVjItAwB66gAAAAAOgAAAAAIAACAAAADPOddx6QUWEIVfJd863vEp2QW/ujTzA0/OqziTeQEL25AAAABKM6EHmL0QGnEOnGWlRM5K7TCJ3lbjkrCtlQh1y3rWa+1nU1lhoD0Vn3aeLi8OdG5HCEyKC5xtVLuMtn6kPQs18GuArduQrh+EaiREuqY8Eq+rWdSGtya30srXHhL6r27y1oqE2uI/ufRJPZwkmQVL1W+5/IWGrH6H+VMvc3ZzQD1hSArjjxUvq96zAwdK4ilAAAAAMBhn77GtJDOx5+FhpbMdHoXRu7f16ZUWSaAoNQiv9gksXASLRfGdApXuAqUKG0vxupH2JiOPqNbYqKyJRAc+ZA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAACAAAAAAAQZgAAAAEAACAAAABR3EKOj3TUeQWw++gAjJHQrTZDajOac36mBsiqcGPqeQAAAAAOgAAAAAIAACAAAADes7MAg2DH9aw8Ib8F2tNZOq+CD1N+MiJRLo0/kPURL5AAAAAxsARtNnSPemHl0/NOqFrRzBBhXWGU4Q+4Vb0F6yo1ccdfAGe/Puu1o98S9d1swCRFEXe1sU1T4mZDNaPGHIkA2T9kNgGUwA8vrSbZp4YsAxzLEowQ/S0+c0UzG9naGTPp+GuvsRgflPwCPVVKFm16ye2Af+yGjqT/nDGTu9iI8io5tIokxeVtX9apDkVGzqBAAAAAlKN038Opn+gudtEHeh3bBeJZeiKJttGF3sbPyO3+Nby544M1OtuthY5JlhFGfLqL5oqIE/D8L9xA4ZHFEwF+UQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -37,6 +37,7 @@
           <SSIS:Package SSIS:Name="carga_stock.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="carga_productos.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="carga_clientes.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="carga_fechas.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="localhost.staging_2025_g01.sa.conmgr" />
@@ -768,10 +769,10 @@
                 <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">54</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">55</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{4026DCFA-72AD-4FBC-A8FF-FAC7E589D858}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{018BF36C-20AB-4FCF-8AFA-10461E1C6795}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1730,6 +1731,23 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{C7E35546-1C51-493B-AC31-52258B2AD024}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="carga_fechas.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{CFD5ECE2-EBCD-46D5-BD64-A36D58DDB0DA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">carga_fechas</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{1E90ECF5-CC7A-42BE-AC6C-D225DCECB976}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
