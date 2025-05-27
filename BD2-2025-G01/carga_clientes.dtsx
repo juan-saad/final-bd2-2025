@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_clientes"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{C7E35546-1C51-493B-AC31-52258B2AD024}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{106B138B-001D-4CC1-AEA2-BA462F9213E4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1248,10 +1248,10 @@
                       externalMetadataColumnId="Package\Carga clientes intermedia\int_clientes_G01.Inputs[OLE DB Destination Input].ExternalColumns[ZIPCODE]"
                       lineageId="Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[ZIPCODE]" />
                     <inputColumn
-                      refId="Package\Carga clientes intermedia\int_clientes_G01.Inputs[OLE DB Destination Input].Columns[TIPO_CLIENTE]"
+                      refId="Package\Carga clientes intermedia\int_clientes_G01.Inputs[OLE DB Destination Input].Columns[CLIENT_TYPE]"
                       cachedDataType="wstr"
                       cachedLength="9"
-                      cachedName="TIPO_CLIENTE"
+                      cachedName="CLIENT_TYPE"
                       externalMetadataColumnId="Package\Carga clientes intermedia\int_clientes_G01.Inputs[OLE DB Destination Input].ExternalColumns[CLIENT_TYPE]"
                       lineageId="Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[CLIENT_TYPE]" />
                   </inputColumns>
@@ -3119,7 +3119,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions">TABLOCK</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -3461,7 +3461,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
           Text=""
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="28.8,60"
+          Size="28.8,40"
           Id="10d79bfd-13b1-484a-a978-0cf226112b66"
           TopLeft="5.5,5.5" />
       </GraphLayout>
@@ -3720,7 +3720,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
         <NodeLayout
           Size="120,41.6"
           Id="Package\Carga clientes intermedia\Union All"
-          TopLeft="589.999967763823,316.333331133591" />
+          TopLeft="590.999967748922,318.333331103789" />
         <NodeLayout
           Size="176,41.6"
           Id="Package\Carga clientes intermedia\TipoCliente Minorista"
@@ -3728,29 +3728,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
         <NodeLayout
           Size="156,41.6"
           Id="Package\Carga clientes intermedia\int_clientes_G01"
-          TopLeft="568.33330228097,414.266663785908" />
-        <EdgeLayout
-          Id="Package\Carga clientes intermedia.Paths[Union All Output 1]"
-          TopLeft="648.166635022397,357.933331133591">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56.3333326523172"
-              Start="0,0"
-              End="0,48.8333326523172">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.8333326523172" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="580.333302102156,475.266662876937" />
         <EdgeLayout
           Id="Package\Carga clientes intermedia.Paths[OLE DB Source Output1]"
           TopLeft="802.066627782916,105.066666931841">
@@ -3801,26 +3779,26 @@ ORDER BY cw.CUSTOMER_ID;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-136.766659791437,102.933331621753"
+              EndConnector="-135.766659806338,104.933331591951"
               Start="0,0"
-              End="-136.766659791437,95.4333316217527">
+              End="-135.766659806338,97.4333315919506">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.9473674076167" />
+                    End="0,58.1315779162865" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,56.9473674076167"
-                    Point2="0,60.9473674076167"
-                    Point3="-4,60.9473674076167" />
+                    Point1="0,58.1315779162865"
+                    Point2="0,62.1315779162865"
+                    Point3="-4,62.1315779162865" />
                   <mssgle:LineSegment
-                    End="-132.766659791437,60.9473674076167" />
+                    End="-131.766659806338,62.1315779162865" />
                   <mssgle:CubicBezierSegment
-                    Point1="-132.766659791437,60.9473674076167"
-                    Point2="-136.766659791437,60.9473674076167"
-                    Point3="-136.766659791437,64.9473674076167" />
+                    Point1="-131.766659806338,62.1315779162865"
+                    Point2="-135.766659806338,62.1315779162865"
+                    Point3="-135.766659806338,66.1315779162865" />
                   <mssgle:LineSegment
-                    End="-136.766659791437,95.4333316217527" />
+                    End="-135.766659806338,97.4333315919506" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3835,26 +3813,48 @@ ORDER BY cw.CUSTOMER_ID;</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="141.666656376588,105.733332308796"
+              EndConnector="142.666656361687,107.733332278994"
               Start="0,0"
-              End="141.666656376588,98.233332308796">
+              End="142.666656361687,100.233332278994">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.6052625512608" />
+                    End="0,59.7894730599304" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,58.6052625512608"
-                    Point2="0,62.6052625512608"
-                    Point3="4,62.6052625512608" />
+                    Point1="0,59.7894730599304"
+                    Point2="0,63.7894730599304"
+                    Point3="4,63.7894730599304" />
                   <mssgle:LineSegment
-                    End="137.666656376588,62.6052625512608" />
+                    End="138.666656361687,63.7894730599304" />
                   <mssgle:CubicBezierSegment
-                    Point1="137.666656376588,62.6052625512608"
-                    Point2="141.666656376588,62.6052625512608"
-                    Point3="141.666656376588,66.6052625512608" />
+                    Point1="138.666656361687,63.7894730599304"
+                    Point2="142.666656361687,63.7894730599304"
+                    Point3="142.666656361687,67.7894730599304" />
                   <mssgle:LineSegment
-                    End="141.666656376588,98.233332308796" />
+                    End="142.666656361687,100.233332278994" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga clientes intermedia.Paths[Union All Output 1]"
+          TopLeft="654.666634925539,359.933331103789">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,115.333331773148"
+              Start="0,0"
+              End="0,107.833331773148">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.833331773148" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3899,15 +3899,15 @@ ORDER BY cw.CUSTOMER_ID;</property>
     design-time-name="Package\Carga clientes staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="168,41.6"
           Id="Package\Carga clientes staging\stg_clientes_r_G01"
-          TopLeft="519.166638300652,171.599998806715" />
+          TopLeft="524.999971315266,287.733331332472" />
         <NodeLayout
           Size="132,41.6"
           Id="Package\Carga clientes staging\Clientes_W"
-          TopLeft="278.333318125871,61.5333329054382" />
+          TopLeft="279.166651413673,62.3999995660782" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Carga clientes staging\Clientes_R"
@@ -3915,53 +3915,61 @@ ORDER BY cw.CUSTOMER_ID;</property>
         <NodeLayout
           Size="172,41.6"
           Id="Package\Carga clientes staging\stg_clientes_w_G01"
-          TopLeft="259.166652506425,174.199998788635" />
+          TopLeft="263.333318945435,285.133331350552" />
         <EdgeLayout
           Id="Package\Carga clientes staging.Paths[cliente1]"
-          TopLeft="600.233304603068,97.9333329415983">
+          TopLeft="597.299970905484,97.9333329415983">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,73.666665865117"
+              EndConnector="11.7000004097822,189.799998390873"
               Start="0,0"
-              End="0,66.166665865117">
+              End="11.7000004097822,182.299998390873">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.166665865117" />
+                    End="0,90.8999991954366" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,90.8999991954366"
+                    Point2="0,94.8999991954366"
+                    Point3="4,94.8999991954366" />
+                  <mssgle:LineSegment
+                    End="7.70000040978221,94.8999991954366" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.70000040978221,94.8999991954366"
+                    Point2="11.7000004097822,94.8999991954366"
+                    Point3="11.7000004097822,98.8999991954366" />
+                  <mssgle:LineSegment
+                    End="11.7000004097822,182.299998390873" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga clientes staging.Paths[cliente]"
-          TopLeft="344.749985316148,103.133332905438">
+          TopLeft="347.249985179554,103.999999566078">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,71.0666658831968"
+              EndConnector="0,181.133331784474"
               Start="0,0"
-              End="0,63.5666658831968">
+              End="0,173.633331784474">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63.5666658831968" />
+                    End="0,173.633331784474" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
