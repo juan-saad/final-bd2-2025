@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="85"
-  DTS:VersionGUID="{93ABDAE4-72FC-41BB-B5CE-F399AF80A513}">
+  DTS:VersionBuild="95"
+  DTS:VersionGUID="{C2496119-2686-4901-B8F8-794C9C985C2B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACI9GL/lr0pbhDFFo+QgcJzpyD8n/jGDmHRFJ19NrqUgwAAAAAOgAAAAAIAACAAAABL4f9QPG3MpkueU1e6maKDWCmXmhkskpYZYynY/IvmxSAAAAAakbJC1gQZDtjxt36wfnBpugnquqQUERyBNeNv0FLwuEAAAAAIL1szBcNxdDrsgaQ0gwjRePvLdIIXHeKEjjaLCzPKUOL+sFw+yFD4+8J+VaW4Ts2mL5auACBUcllLVDr07PEQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAApHHj9hbzq+Od54xBlf0tDCRDzf6qgpEpe937ZQDox2QAAAAAOgAAAAAIAACAAAAAToHJRSFAR27jpP7/0fCogErA8CaC54m9BvF7Zv8yJzyAAAAD+e/2zbsJ7UnJKRfoG1U8rcwoaNoa7SL+BhBNNgqDyykAAAAAbUzdQUuuuxbPDZOnyXk6mXkjqCkyFwXhdTs8b1Ayf27MWd/Zh1qFthRUaxrxTga417aSC9z3tu26HKvf0uOc+</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -346,28 +346,32 @@
     TMP_Fact
     as
     (
-                    SELECT
+            SELECT
                 t1.BILLING_ID,
-                t1.DATE,
-                t1.CUSTOMER_ID,
-                t1.EMPLOYEE_ID,
+                MAX(t1.DATE) DATE,
+                MAX(t1.CUSTOMER_ID) CUSTOMER_ID,
+                MAX(t1.EMPLOYEE_ID) EMPLOYEE_ID,
                 t2.PRODUCT_ID,
-                t2.QUANTITY,
-                t1.REGION
+                SUM(t2.QUANTITY) QUANTITY,
+                MAX(t1.REGION) REGION
             FROM [bd_staging_2025_G01].[dbo].[stg_ventas_G01] as t1
                 INNER JOIN [bd_staging_2025_G01].dbo.[stg_detalle_ventas_G01] as t2 on t1.BILLING_ID = t2.BILLING_ID
+            GROUP BY t1.BILLING_ID,
+                t2.PRODUCT_ID
 
         UNION ALL
 
             SELECT
                 t1.BILLING_ID,
-                t1.DATE,
-                t1.CUSTOMER_ID,
-                t1.EMPLOYEE_ID,
+                MAX(t1.DATE) DATE,
+                MAX(t1.CUSTOMER_ID),
+                MAX(t1.EMPLOYEE_ID),
                 t1.PRODUCT_ID,
-                t1.QUANTITY,
-                t1.REGION
+                SUM(t1.QUANTITY) QUANTITY,
+                MAX(t1.REGION)
             FROM [bd_staging_2025_G01].[dbo].[stg_ventas_hist_G01] t1
+            GROUP BY t1.BILLING_ID,
+                t1.PRODUCT_ID
     ),
     TMP_Precios
     as
@@ -3324,6 +3328,23 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Truncate int_ventas"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ddb65573-b68c-49c4-8225-7ab05a724f21}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate int_ventas"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1FD3D4DB-85A5-46EF-A2C2-66EF42D73614}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [bd_intermedia_2025_G01].[dbo].int_ventas_G01&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Truncate ventas historicas"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -3361,19 +3382,19 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{51030D82-1CF2-4871-BD01-07048B6CA63B}"
+      DTS:DTSID="{5615A4E5-B503-457F-B533-9B54F996E280}"
       DTS:From="Package\Carga ventas sql server"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Carga intermedia ventas" />
+      DTS:To="Package\Truncate int_ventas" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{332E369D-4EDB-4AB7-AFE8-65FE70433A73}"
+      DTS:DTSID="{921B1BF0-E01F-4F17-8B19-564BA2604397}"
       DTS:From="Package\Carga ventas mysql"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Carga intermedia ventas" />
+      DTS:To="Package\Truncate int_ventas" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
@@ -3382,6 +3403,14 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
       DTS:To="Package\fact_ventas_G01" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{02524F56-DF4E-4348-BAF8-767B90526742}"
+      DTS:From="Package\Truncate int_ventas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Carga intermedia ventas" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3398,7 +3427,7 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
         <NodeLayout
           Size="191.2,41.6"
           Id="Package\Carga intermedia ventas"
-          TopLeft="428.571405155319,303.085712178094" />
+          TopLeft="436.071404745537,391.485711563371" />
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Carga ventas mysql"
@@ -3410,7 +3439,11 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\fact_ventas_G01"
-          TopLeft="455.853149696456,406.817457488503" />
+          TopLeft="459.186482847664,484.817456946101" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Truncate int_ventas"
+          TopLeft="449.166642125283,291.199997975032" />
         <NodeLayout
           Size="200,41.6"
           Id="Package\Truncate ventas historicas"
@@ -3489,26 +3522,26 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="96.3047550620551,79.4857134436988"
+              EndConnector="107.466660292281,67.5999992406366"
               Start="0,0"
-              End="96.3047550620551,71.9857134436988">
+              End="107.466660292281,60.0999992406366">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.2956485801926" />
+                    End="0,29.7999996203183" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,43.2956485801926"
-                    Point2="0,47.2956485801926"
-                    Point3="4,47.2956485801926" />
+                    Point1="0,29.7999996203183"
+                    Point2="0,33.7999996203183"
+                    Point3="4,33.7999996203183" />
                   <mssgle:LineSegment
-                    End="92.3047550620551,47.2956485801926" />
+                    End="103.466660292281,33.7999996203183" />
                   <mssgle:CubicBezierSegment
-                    Point1="92.3047550620551,47.2956485801926"
-                    Point2="96.3047550620551,47.2956485801926"
-                    Point3="96.3047550620551,51.2956485801926" />
+                    Point1="103.466660292281,33.7999996203183"
+                    Point2="107.466660292281,33.7999996203183"
+                    Point3="107.466660292281,37.7999996203183" />
                   <mssgle:LineSegment
-                    End="96.3047550620551,71.9857134436988" />
+                    End="107.466660292281,60.0999992406366" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3523,26 +3556,26 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-103.82856351913,78.6190467830588"
+              EndConnector="-97.6333265491669,66.7333325799966"
               Start="0,0"
-              End="-103.82856351913,71.1190467830588">
+              End="-97.6333265491669,59.2333325799966">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.7799639364756" />
+                    End="0,29.5991273202658" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,42.7799639364756"
-                    Point2="0,46.7799639364756"
-                    Point3="-4,46.7799639364756" />
+                    Point1="0,29.5991273202658"
+                    Point2="0,33.5991273202658"
+                    Point3="-4,33.5991273202658" />
                   <mssgle:LineSegment
-                    End="-99.8285635191303,46.7799639364756" />
+                    End="-93.6333265491669,33.5991273202658" />
                   <mssgle:CubicBezierSegment
-                    Point1="-99.8285635191303,46.7799639364756"
-                    Point2="-103.82856351913,46.7799639364756"
-                    Point3="-103.82856351913,50.7799639364756" />
+                    Point1="-93.6333265491669,33.5991273202658"
+                    Point2="-97.6333265491669,33.5991273202658"
+                    Point3="-97.6333265491669,37.5991273202658" />
                   <mssgle:LineSegment
-                    End="-103.82856351913,71.1190467830588" />
+                    End="-97.6333265491669,59.2333325799966" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3553,30 +3586,40 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="524.171405155319,344.685712178094">
+          TopLeft="534.6289437966,433.085711563371">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.0817445411371,62.1317453104085"
+              EndConnector="0,51.7317453827293"
               Start="0,0"
-              End="10.0817445411371,54.6317453104085">
+              End="0,44.2317453827293">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.0658726552043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.0658726552043"
-                    Point2="0,31.0658726552043"
-                    Point3="4,31.0658726552043" />
+                    End="0,44.2317453827293" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="532.81902343541,332.799997975032">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.6857135883398"
+              Start="0,0"
+              End="0,51.1857135883398">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="6.08174454113714,31.0658726552043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.08174454113714,31.0658726552043"
-                    Point2="10.0817445411371,31.0658726552043"
-                    Point3="10.0817445411371,35.0658726552043" />
-                  <mssgle:LineSegment
-                    End="10.0817445411371,54.6317453104085" />
+                    End="0,51.1857135883398" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3592,7 +3635,7 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
     design-time-name="Package\Carga intermedia ventas">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Carga intermedia ventas\int_ventas_G01"
@@ -3620,9 +3663,7 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3952,21 +3993,33 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\fact_ventas_G01\fact_ventas_G01"
-          TopLeft="532.499970905484,227.933331748313" />
+          TopLeft="542.499970359108,228.799998408953" />
         <EdgeLayout
           Id="Package\fact_ventas_G01.Paths[OLE DB Source Output]"
-          TopLeft="610.533304193286,135.199999349117">
+          TopLeft="610.166637481088,135.199999349117">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,92.7333323991961"
+              EndConnector="10.7333328780202,93.5999990598357"
               Start="0,0"
-              End="0,85.2333323991961">
+              End="10.7333328780202,86.0999990598357">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,85.2333323991961" />
+                    End="0,42.7999995299179" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.7999995299179"
+                    Point2="0,46.7999995299179"
+                    Point3="4,46.7999995299179" />
+                  <mssgle:LineSegment
+                    End="6.73333287802018,46.7999995299179" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.73333287802018,46.7999995299179"
+                    Point2="10.7333328780202,46.7999995299179"
+                    Point3="10.7333328780202,50.7999995299179" />
+                  <mssgle:LineSegment
+                    End="10.7333328780202,86.0999990598357" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3983,19 +4036,6 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_ventas_G01\fact_ventas_G01">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
