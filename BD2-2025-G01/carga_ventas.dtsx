@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="95"
-  DTS:VersionGUID="{C2496119-2686-4901-B8F8-794C9C985C2B}">
+  DTS:VersionBuild="98"
+  DTS:VersionGUID="{31B56CB8-EE2B-427E-B224-8E7BA09CB21F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAApHHj9hbzq+Od54xBlf0tDCRDzf6qgpEpe937ZQDox2QAAAAAOgAAAAAIAACAAAAAToHJRSFAR27jpP7/0fCogErA8CaC54m9BvF7Zv8yJzyAAAAD+e/2zbsJ7UnJKRfoG1U8rcwoaNoa7SL+BhBNNgqDyykAAAAAbUzdQUuuuxbPDZOnyXk6mXkjqCkyFwXhdTs8b1Ayf27MWd/Zh1qFthRUaxrxTga417aSC9z3tu26HKvf0uOc+</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAj+1tCF1QH0b67bctDDZ7b7IPg2PJBcBG+nm7M1uvs9AAAAAAOgAAAAAIAACAAAACtXmXKJIMlUYrOPY9ZZb6hZEu0LEJ3NWcPQ6PAYhGjOCAAAABhuV9E/9un+BcHHZWEYmYhJlDXtVTVgmxjh7/ErFVEz0AAAADvN223/m+Sjko0OyJ4nKauKLvxYL784ePo+teiq+6P14Ap24Zm2j9bUpGzbcfrGGZqSReQ/85nHMOYQURsI6cI</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2536,11 +2536,11 @@ FROM sales.prices;</property>
           version="1">
           <components>
             <component
-              refId="Package\fact_ventas_G01\fact_ventas_G01"
+              refId="Package\fact_ventas_G01\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="fact_ventas_G01"
+              name="OLE DB Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -2551,7 +2551,7 @@ FROM sales.prices;</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[fact_ventas_G01]</property>
+                  name="OpenRowset">[dbo].[fact_ventas_G01]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2593,7 +2593,7 @@ FROM sales.prices;</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\fact_ventas_G01\fact_ventas_G01.Connections[OleDbConnection]"
+                  refId="Package\fact_ventas_G01\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{CDD9B5C9-3876-442B-880A-133750C219D7}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.datawarehouse_2025_G01.sa]"
                   description="The OLE DB runtime connection used to access the database."
@@ -2601,240 +2601,250 @@ FROM sales.prices;</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input]"
+                  refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[employee_key]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[clientes_key]"
+                      cachedDataType="i4"
+                      cachedName="clientes_key"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[clientes_key]"
+                      lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[clientes_key]" />
+                    <inputColumn
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[employee_key]"
                       cachedDataType="i4"
                       cachedName="employee_key"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[employee_key]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[employee_key]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[employee_key]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[product_key]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[product_key]"
                       cachedDataType="i4"
                       cachedName="product_key"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[product_key]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_key]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[product_key]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[fecha_key]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fecha_key]"
                       cachedDataType="i4"
                       cachedName="fecha_key"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[fecha_key]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha_key]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[fecha_key]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[venta_id]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[venta_id]"
                       cachedDataType="i4"
                       cachedName="venta_id"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[venta_id]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[venta_id]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[venta_id]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[fecha_venta]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fecha_venta]"
                       cachedDataType="dbTimeStamp"
                       cachedName="fecha_venta"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[fecha_venta]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha_venta]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[fecha_venta]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[cliente_id]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cliente_id]"
                       cachedDataType="i4"
                       cachedName="cliente_id"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[cliente_id]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cliente_id]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[cliente_id]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[edad_cliente]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[edad_cliente]"
                       cachedDataType="i4"
                       cachedName="edad_cliente"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[edad_cliente]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[edad_cliente]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[edad_cliente]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[empleado_id]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[empleado_id]"
                       cachedDataType="i4"
                       cachedName="empleado_id"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[empleado_id]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[empleado_id]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[empleado_id]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[edad_empleado]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[edad_empleado]"
                       cachedDataType="i4"
                       cachedName="edad_empleado"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[edad_empleado]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[edad_empleado]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[edad_empleado]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[producto_id]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[producto_id]"
                       cachedDataType="i4"
                       cachedName="producto_id"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[producto_id]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[producto_id]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[producto_id]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[cantidad]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cantidad]"
                       cachedDataType="i4"
                       cachedName="cantidad"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[cantidad]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cantidad]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[cantidad]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[region]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[region]"
                       cachedDataType="wstr"
                       cachedLength="90"
                       cachedName="region"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[region]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[region]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[total_facturado]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_facturado]"
                       cachedDataType="r8"
                       cachedName="total_facturado"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[total_facturado]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_facturado]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_facturado]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[total_facturado_con_descuento]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_facturado_con_descuento]"
                       cachedDataType="r8"
                       cachedName="total_facturado_con_descuento"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[total_facturado_con_descuento]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_facturado_con_descuento]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_facturado_con_descuento]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[precio]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[precio]"
                       cachedDataType="r8"
                       cachedName="precio"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[precio]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[precio]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[precio]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[descuento]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[descuento]"
                       cachedDataType="numeric"
                       cachedName="descuento"
                       cachedPrecision="13"
                       cachedScale="6"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[descuento]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[descuento]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[descuento]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[litros_por_unidad]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[litros_por_unidad]"
                       cachedDataType="numeric"
                       cachedName="litros_por_unidad"
                       cachedPrecision="15"
                       cachedScale="6"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[litros_por_unidad]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[litros_por_unidad]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[litros_por_unidad]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[total_litros]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_litros]"
                       cachedDataType="numeric"
                       cachedName="total_litros"
                       cachedPrecision="26"
                       cachedScale="6"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[total_litros]"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_litros]"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_litros]" />
                     <inputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].Columns[clientes_key]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[antiguedad_empleado]"
                       cachedDataType="i4"
-                      cachedName="clientes_key"
-                      externalMetadataColumnId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[clientes_key]"
-                      lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[clientes_key]" />
+                      cachedName="antiguedad_empleado"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[antiguedad_empleado]"
+                      lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[antiguedad_empleado]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[employee_key]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[clientes_key]"
+                      dataType="i4"
+                      name="clientes_key" />
+                    <externalMetadataColumn
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[employee_key]"
                       dataType="i4"
                       name="employee_key" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[product_key]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[product_key]"
                       dataType="i4"
                       name="product_key" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[fecha_key]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha_key]"
                       dataType="i4"
                       name="fecha_key" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[venta_id]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[venta_id]"
                       dataType="i4"
                       name="venta_id" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[fecha_venta]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha_venta]"
                       dataType="dbTimeStamp"
                       name="fecha_venta" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[cliente_id]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cliente_id]"
                       dataType="i4"
                       name="cliente_id" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[edad_cliente]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[edad_cliente]"
                       dataType="i4"
                       name="edad_cliente" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[empleado_id]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[empleado_id]"
                       dataType="i4"
                       name="empleado_id" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[edad_empleado]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[edad_empleado]"
                       dataType="i4"
                       name="edad_empleado" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[producto_id]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[antiguedad_empleado]"
+                      dataType="i4"
+                      name="antiguedad_empleado" />
+                    <externalMetadataColumn
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[producto_id]"
                       dataType="i4"
                       name="producto_id" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[cantidad]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cantidad]"
                       dataType="i4"
                       name="cantidad" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[region]"
                       dataType="wstr"
                       length="90"
                       name="region" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[total_facturado]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_facturado]"
                       dataType="r8"
                       name="total_facturado" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[total_facturado_con_descuento]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_facturado_con_descuento]"
                       dataType="r8"
                       name="total_facturado_con_descuento" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[precio]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[precio]"
                       dataType="r8"
                       name="precio" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[descuento]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[descuento]"
                       dataType="numeric"
                       name="descuento"
                       precision="13"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[litros_por_unidad]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[litros_por_unidad]"
                       dataType="numeric"
                       name="litros_por_unidad"
                       precision="15"
                       scale="6" />
                     <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[total_litros]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_litros]"
                       dataType="numeric"
                       name="total_litros"
                       precision="26"
                       scale="6" />
-                    <externalMetadataColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input].ExternalColumns[clientes_key]"
-                      dataType="i4"
-                      name="clientes_key" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\fact_ventas_G01\fact_ventas_G01.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\fact_ventas_G01\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\fact_ventas_G01\fact_ventas_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\fact_ventas_G01\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\fact_ventas_G01\fact_ventas_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\fact_ventas_G01\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\fact_ventas_G01\fact_ventas_G01.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\fact_ventas_G01\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2878,6 +2888,7 @@ FROM sales.prices;</property>
 	ventas.edad_cliente,
 	ventas.empleado_id,
 	ventas.edad_empleado,
+	DATEDIFF(YEAR, empleados.employment_date, GETDATE()) AS antiguedad_empleado,
 	ventas.producto_id,
 	ventas.cantidad,
 	ventas.region,
@@ -3104,6 +3115,15 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
                       precision="26"
                       scale="6"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[antiguedad_empleado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[antiguedad_empleado]"
+                      lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].Columns[antiguedad_empleado]"
+                      name="antiguedad_empleado"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3190,6 +3210,10 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
                       name="total_litros"
                       precision="26"
                       scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[antiguedad_empleado]"
+                      dataType="i4"
+                      name="antiguedad_empleado" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3247,6 +3271,11 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
                       dataType="i4"
                       lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[edad_empleado]"
                       name="edad_empleado" />
+                    <outputColumn
+                      refId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[antiguedad_empleado]"
+                      dataType="i4"
+                      lineageId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[antiguedad_empleado]"
+                      name="antiguedad_empleado" />
                     <outputColumn
                       refId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[producto_id]"
                       dataType="i4"
@@ -3320,7 +3349,7 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
           <paths>
             <path
               refId="Package\fact_ventas_G01.Paths[OLE DB Source Output]"
-              endId="Package\fact_ventas_G01\fact_ventas_G01.Inputs[OLE DB Destination Input]"
+              endId="Package\fact_ventas_G01\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="OLE DB Source Output"
               startId="Package\fact_ventas_G01\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -3635,7 +3664,7 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
     design-time-name="Package\Carga intermedia ventas">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Carga intermedia ventas\int_ventas_G01"
@@ -3663,7 +3692,9 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3991,35 +4022,35 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
           Id="Package\fact_ventas_G01\OLE DB Source"
           TopLeft="534.166637481088,93.5999993491173" />
         <NodeLayout
-          Size="156.8,41.6"
-          Id="Package\fact_ventas_G01\fact_ventas_G01"
-          TopLeft="542.499970359108,228.799998408953" />
+          Size="171.2,41.6"
+          Id="Package\fact_ventas_G01\OLE DB Destination"
+          TopLeft="555.83330296394,261.733331513272" />
         <EdgeLayout
           Id="Package\fact_ventas_G01.Paths[OLE DB Source Output]"
           TopLeft="610.166637481088,135.199999349117">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.7333328780202,93.5999990598357"
+              EndConnector="31.2666654828524,126.533332164155"
               Start="0,0"
-              End="10.7333328780202,86.0999990598357">
+              End="31.2666654828524,119.033332164155">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.7999995299179" />
+                    End="0,59.2666660820775" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,42.7999995299179"
-                    Point2="0,46.7999995299179"
-                    Point3="4,46.7999995299179" />
+                    Point1="0,59.2666660820775"
+                    Point2="0,63.2666660820775"
+                    Point3="4,63.2666660820775" />
                   <mssgle:LineSegment
-                    End="6.73333287802018,46.7999995299179" />
+                    End="27.2666654828524,63.2666660820775" />
                   <mssgle:CubicBezierSegment
-                    Point1="6.73333287802018,46.7999995299179"
-                    Point2="10.7333328780202,46.7999995299179"
-                    Point3="10.7333328780202,50.7999995299179" />
+                    Point1="27.2666654828524,63.2666660820775"
+                    Point2="31.2666654828524,63.2666660820775"
+                    Point3="31.2666654828524,67.2666660820775" />
                   <mssgle:LineSegment
-                    End="10.7333328780202,86.0999990598357" />
+                    End="31.2666654828524,119.033332164155" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4036,6 +4067,19 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_ventas_G01\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
