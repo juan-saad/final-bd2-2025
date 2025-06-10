@@ -13,7 +13,7 @@ Asegúrate de tener instalados los siguientes programas en tu máquina:
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - [Git](https://git-scm.com/)
 - Un editor de texto o IDE, como [Visual Studio Code](https://code.visualstudio.com/) (opcional)
-- [Azure Data Studio](https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio) para administrar bases de datos SQL (opcional)
+- [SQL Server Management Studio](https://aka.ms/ssms/21/release/vs_SSMS.exe) para administrar bases de datos SQL (opcional)
 
 Para más detalles sobre el software necesario, consulta el documento [BasesDatos 2-TP Final-Software necesario.pdf](./docs/BasesDatos%202-TP%20Final-Software%20necesario.pdf).
 
