@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{71D0F9FF-D6E6-4974-B53F-B598543F6AE2}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{1C76170A-7E09-49E1-A6AE-63D953994864}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -790,45 +790,33 @@ FROM [bd_staging_2025_G01].[dbo].[stg_stock_G01]</property>
         <NodeLayout
           Size="184.8,41.6"
           Id="Package\Carga stock intermedia"
-          TopLeft="58.3333334243959,401.93333106127" />
+          TopLeft="93.3333315120803,355.133331386711" />
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Carga stock staging"
-          TopLeft="76.66666575604,151.866666027837" />
+          TopLeft="95.8333313754862,153.599999349117" />
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\Truncate int_stock"
-          TopLeft="62.1666635705369,269.833331495192" />
+          TopLeft="104.666661248439,249.899998300473" />
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\Truncate stg_stock"
           TopLeft="92.499998224278,60" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="161.86666575604,193.466666027837">
+          TopLeft="183.649996311963,195.199999349117">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-18.1000021855031,76.3666654673554"
+              EndConnector="0,54.6999989513556"
               Start="0,0"
-              End="-18.1000021855031,68.8666654673554">
+              End="0,47.1999989513556">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.1833327336777" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.1833327336777"
-                    Point2="0,38.1833327336777"
-                    Point3="-4,38.1833327336777" />
-                  <mssgle:LineSegment
-                    End="-14.1000021855031,38.1833327336777" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-14.1000021855031,38.1833327336777"
-                    Point2="-18.1000021855031,38.1833327336777"
-                    Point3="-18.1000021855031,42.1833327336777" />
-                  <mssgle:LineSegment
-                    End="-18.1000021855031,68.8666654673554" />
+                    End="0,47.1999989513556" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -839,30 +827,18 @@ FROM [bd_staging_2025_G01].[dbo].[stg_stock_G01]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="186.099998224278,101.6">
+          TopLeft="183.566664799882,101.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-24.233332468238,50.266666027837"
+              EndConnector="0,51.9999993491169"
               Start="0,0"
-              End="-24.233332468238,42.766666027837">
+              End="0,44.4999993491169">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.1333330139185" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.1333330139185"
-                    Point2="0,25.1333330139185"
-                    Point3="-4,25.1333330139185" />
-                  <mssgle:LineSegment
-                    End="-20.233332468238,25.1333330139185" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-20.233332468238,25.1333330139185"
-                    Point2="-24.233332468238,25.1333330139185"
-                    Point3="-24.233332468238,29.1333330139185" />
-                  <mssgle:LineSegment
-                    End="-24.233332468238,42.766666027837" />
+                    End="0,44.4999993491169" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -873,18 +849,18 @@ FROM [bd_staging_2025_G01].[dbo].[stg_stock_G01]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="147.249998497466,311.433331495192">
+          TopLeft="185.99999638026,291.499998300473">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,90.4999995660777"
+              EndConnector="0,63.6333330862388"
               Start="0,0"
-              End="0,82.9999995660777">
+              End="0,56.1333330862388">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,82.9999995660777" />
+                    End="0,56.1333330862388" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
