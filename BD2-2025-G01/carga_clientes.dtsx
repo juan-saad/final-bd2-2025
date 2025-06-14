@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="carga_clientes"
   DTS:PackageType="5"
-  DTS:VersionBuild="63"
-  DTS:VersionGUID="{5E5CAEE3-1E3E-4C2E-9541-F9E8BCF6B5B9}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{936058DC-908B-489A-9D2D-50314EFD7E2B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1342,7 +1342,25 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH
+    clientes_con_fecha
+    AS
+    (
+        SELECT
+            TRY_CONVERT(DATE, cr.BIRTH_DATE) AS fecha1,
+            TRY_CONVERT(DATE, REPLACE(cr.BIRTH_DATE, '*', '')) AS fecha2
+        FROM [bd_staging_2025_G01].dbo.[stg_clientes_r_G01] cr
+    ),
+    fecha_promedio_cte
+    AS
+    (
+        SELECT
+            DATEADD(DAY, AVG(DATEDIFF(DAY, '1900-01-01',
+            COALESCE(fecha1, fecha2))), '1900-01-01') AS fecha_promedio
+        FROM clientes_con_fecha
+        WHERE COALESCE(fecha1, fecha2) IS NOT NULL
+    )
+SELECT
     cr.CUSTOMER_ID,
     cr.FULL_NAME,
     CASE 
@@ -1350,6 +1368,12 @@
         WHEN TRY_CONVERT(DATE, REPLACE(cr.BIRTH_DATE, '*', '')) IS NOT NULL THEN TRY_CONVERT(DATE, REPLACE(cr.BIRTH_DATE, '*', ''))
         ELSE NULL
     END AS BIRTH_DATE,
+    CASE 
+        WHEN TRY_CONVERT(DATE, cr.BIRTH_DATE) IS NULL AND TRY_CONVERT(DATE, REPLACE(cr.BIRTH_DATE, '*', '')) IS NULL
+        THEN (SELECT fecha_promedio
+    FROM fecha_promedio_cte)
+        ELSE NULL
+    END AS BIRTH_DATE_PROMEDIO,
     cr.CITY,
     cr.STATE,
     cr.ZIPCODE
@@ -1447,6 +1471,15 @@ ORDER BY cr.CUSTOMER_ID;</property>
                       lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[ZIPCODE]"
                       name="ZIPCODE"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[BIRTH_DATE_PROMEDIO]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE_PROMEDIO]"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[BIRTH_DATE_PROMEDIO]"
+                      name="BIRTH_DATE_PROMEDIO"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1477,6 +1510,10 @@ ORDER BY cr.CUSTOMER_ID;</property>
                       refId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].ExternalColumns[ZIPCODE]"
                       dataType="i8"
                       name="ZIPCODE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE_PROMEDIO]"
+                      dataType="dbTimeStamp"
+                      name="BIRTH_DATE_PROMEDIO" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1500,6 +1537,11 @@ ORDER BY cr.CUSTOMER_ID;</property>
                       dataType="dbDate"
                       lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE]"
                       name="BIRTH_DATE" />
+                    <outputColumn
+                      refId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE_PROMEDIO]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE_PROMEDIO]"
+                      name="BIRTH_DATE_PROMEDIO" />
                     <outputColumn
                       refId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Error Output].Columns[CITY]"
                       dataType="wstr"
@@ -1559,14 +1601,38 @@ ORDER BY cr.CUSTOMER_ID;</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH
+    clientes_con_fecha
+    AS
+    (
+        SELECT
+            TRY_CONVERT(DATE, cw.BIRTH_DATE) AS fecha1,
+            TRY_CONVERT(DATE, REPLACE(cw.BIRTH_DATE, '*', '')) AS fecha2
+        FROM [bd_staging_2025_G01].dbo.[stg_clientes_w_G01] cw
+    ),
+    fecha_promedio_cte
+    AS
+    (
+        SELECT
+            DATEADD(DAY, AVG(DATEDIFF(DAY, '1900-01-01',
+            COALESCE(fecha1, fecha2))), '1900-01-01') AS fecha_promedio
+        FROM clientes_con_fecha
+        WHERE COALESCE(fecha1, fecha2) IS NOT NULL
+    )
+SELECT
     cw.CUSTOMER_ID,
     cw.FULL_NAME,
     CASE 
         WHEN TRY_CONVERT(DATE, cw.BIRTH_DATE) IS NOT NULL THEN TRY_CONVERT(DATE, cw.BIRTH_DATE)
-        WHEN TRY_CONVERT(DATE, REPLACE(cw.BIRTH_DATE, 'j', '')) IS NOT NULL THEN TRY_CONVERT(DATE, REPLACE(cw.BIRTH_DATE, 'j', ''))
+        WHEN TRY_CONVERT(DATE, REPLACE(cw.BIRTH_DATE, '*', '')) IS NOT NULL THEN TRY_CONVERT(DATE, REPLACE(cw.BIRTH_DATE, '*', ''))
         ELSE NULL
     END AS BIRTH_DATE,
+    CASE 
+        WHEN TRY_CONVERT(DATE, cw.BIRTH_DATE) IS NULL AND TRY_CONVERT(DATE, REPLACE(cw.BIRTH_DATE, '*', '')) IS NULL
+        THEN (SELECT fecha_promedio
+    FROM fecha_promedio_cte)
+        ELSE NULL
+    END AS BIRTH_DATE_PROMEDIO,
     cw.CITY,
     cw.STATE,
     cw.ZIPCODE
@@ -1664,6 +1730,15 @@ ORDER BY cw.CUSTOMER_ID;</property>
                       lineageId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[ZIPCODE]"
                       name="ZIPCODE"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[BIRTH_DATE_PROMEDIO]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE_PROMEDIO]"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[BIRTH_DATE_PROMEDIO]"
+                      name="BIRTH_DATE_PROMEDIO"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1694,6 +1769,10 @@ ORDER BY cw.CUSTOMER_ID;</property>
                       refId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].ExternalColumns[ZIPCODE]"
                       dataType="i8"
                       name="ZIPCODE" />
+                    <externalMetadataColumn
+                      refId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].ExternalColumns[BIRTH_DATE_PROMEDIO]"
+                      dataType="dbTimeStamp"
+                      name="BIRTH_DATE_PROMEDIO" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1717,6 +1796,11 @@ ORDER BY cw.CUSTOMER_ID;</property>
                       dataType="dbDate"
                       lineageId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE]"
                       name="BIRTH_DATE" />
+                    <outputColumn
+                      refId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE_PROMEDIO]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Error Output].Columns[BIRTH_DATE_PROMEDIO]"
+                      name="BIRTH_DATE_PROMEDIO" />
                     <outputColumn
                       refId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Error Output].Columns[CITY]"
                       dataType="wstr"
@@ -1836,6 +1920,34 @@ ORDER BY cw.CUSTOMER_ID;</property>
                           name="FriendlyExpression">TRIM(UPPER(STATE))</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\TipoCliente Mayorista.Inputs[Derived Column Input].Columns[BIRTH_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="BIRTH_DATE"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]}) ? #{Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[BIRTH_DATE_PROMEDIO]} : #{Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(BIRTH_DATE) ? BIRTH_DATE_PROMEDIO : BIRTH_DATE</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\TipoCliente Mayorista.Inputs[Derived Column Input].Columns[BIRTH_DATE_PROMEDIO]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BIRTH_DATE_PROMEDIO"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_w.Outputs[OLE DB Source Output].Columns[BIRTH_DATE_PROMEDIO]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1984,6 +2096,34 @@ ORDER BY cw.CUSTOMER_ID;</property>
                           name="FriendlyExpression">TRIM(UPPER(STATE))</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\TipoCliente Minorista.Inputs[Derived Column Input].Columns[BIRTH_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="BIRTH_DATE"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]}) ? #{Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[BIRTH_DATE_PROMEDIO]} : #{Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(BIRTH_DATE) ? BIRTH_DATE_PROMEDIO : BIRTH_DATE</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\TipoCliente Minorista.Inputs[Derived Column Input].Columns[BIRTH_DATE_PROMEDIO]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BIRTH_DATE_PROMEDIO"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[BIRTH_DATE_PROMEDIO]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2055,108 +2195,6 @@ ORDER BY cw.CUSTOMER_ID;</property>
               name="Union All"
               version="1">
               <inputs>
-                <input
-                  refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1]"
-                  name="Union All Input 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[CUSTOMER_ID]"
-                      cachedDataType="i4"
-                      cachedName="CUSTOMER_ID"
-                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[CUSTOMER_ID]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[FULL_NAME]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="FULL_NAME"
-                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[FULL_NAME]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[FULL_NAME]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[BIRTH_DATE]"
-                      cachedDataType="dbDate"
-                      cachedName="BIRTH_DATE"
-                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[BIRTH_DATE]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[CITY]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CITY"
-                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[CITY]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[CITY]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[STATE]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="STATE"
-                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[STATE]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[STATE]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[ZIPCODE]"
-                      cachedDataType="i8"
-                      cachedName="ZIPCODE"
-                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[ZIPCODE]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[ZIPCODE]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[CLIENT_TYPE]"
-                      cachedDataType="wstr"
-                      cachedLength="9"
-                      cachedName="CLIENT_TYPE"
-                      lineageId="Package\Carga clientes intermedia\TipoCliente Minorista.Outputs[Derived Column Output].Columns[CLIENT_TYPE]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[CLIENT_TYPE]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
                 <input
                   refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 2]"
                   hasSideEffects="true"
@@ -2267,6 +2305,108 @@ ORDER BY cw.CUSTOMER_ID;</property>
                   name="Union All Input 3">
                   <externalMetadataColumns />
                 </input>
+                <input
+                  refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[CUSTOMER_ID]"
+                      cachedDataType="i4"
+                      cachedName="CUSTOMER_ID"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[CUSTOMER_ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[FULL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FULL_NAME"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[FULL_NAME]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[FULL_NAME]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[BIRTH_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="BIRTH_DATE"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[BIRTH_DATE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[BIRTH_DATE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[CITY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CITY"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[CITY]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[CITY]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[STATE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="STATE"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[STATE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[STATE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[ZIPCODE]"
+                      cachedDataType="i8"
+                      cachedName="ZIPCODE"
+                      lineageId="Package\Carga clientes intermedia\Source stg_clientes_r.Outputs[OLE DB Source Output].Columns[ZIPCODE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[ZIPCODE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1].Columns[CLIENT_TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="CLIENT_TYPE"
+                      lineageId="Package\Carga clientes intermedia\TipoCliente Minorista.Outputs[Derived Column Output].Columns[CLIENT_TYPE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Carga clientes intermedia\Union All.Outputs[Union All Output 1].Columns[CLIENT_TYPE]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
               </inputs>
               <outputs>
                 <output
@@ -2321,14 +2461,14 @@ ORDER BY cw.CUSTOMER_ID;</property>
           <paths>
             <path
               refId="Package\Carga clientes intermedia.Paths[Derived Column Output]"
-              endId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1]"
-              name="Derived Column Output"
-              startId="Package\Carga clientes intermedia\TipoCliente Minorista.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Carga clientes intermedia.Paths[Derived Column Output1]"
               endId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 2]"
               name="Derived Column Output"
               startId="Package\Carga clientes intermedia\TipoCliente Mayorista.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Carga clientes intermedia.Paths[Derived Column Output1]"
+              endId="Package\Carga clientes intermedia\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\Carga clientes intermedia\TipoCliente Minorista.Outputs[Derived Column Output]" />
             <path
               refId="Package\Carga clientes intermedia.Paths[OLE DB Source Output]"
               endId="Package\Carga clientes intermedia\TipoCliente Minorista.Inputs[Derived Column Input]"
@@ -3344,7 +3484,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
         <NodeLayout
           Size="196,41.6"
           Id="Package\Carga clientes intermedia"
-          TopLeft="389.166645403538,298.133331260151" />
+          TopLeft="389.99997869134,298.999997920791" />
         <NodeLayout
           Size="181.6,41.6"
           Id="Package\Carga clientes staging"
@@ -3381,18 +3521,18 @@ ORDER BY cw.CUSTOMER_ID;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="485.933311842549,259.333332525757">
+          TopLeft="486.34997848645,259.333332525757">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38.7999987343942"
+              EndConnector="0,39.666665395034"
               Start="0,0"
-              End="0,31.2999987343942">
+              End="0,32.166665395034">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.2999987343942" />
+                    End="0,32.166665395034" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3403,18 +3543,18 @@ ORDER BY cw.CUSTOMER_ID;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="490.03331225233,339.733331260151">
+          TopLeft="490.449978896231,340.599997920791">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.933332634237"
+              EndConnector="0,58.066665973597"
               Start="0,0"
-              End="0,51.433332634237">
+              End="0,50.566665973597">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.433332634237" />
+                    End="0,50.566665973597" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3718,17 +3858,39 @@ ORDER BY cw.CUSTOMER_ID;</property>
           Id="Package\Carga clientes intermedia\TipoCliente Mayorista"
           TopLeft="715.833294221926,171.799999511838" />
         <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga clientes intermedia\TipoCliente Minorista"
+          TopLeft="403.666644690766,168.999998824795" />
+        <NodeLayout
           Size="120,41.6"
           Id="Package\Carga clientes intermedia\Union All"
           TopLeft="590.999967748922,318.333331103789" />
         <NodeLayout
-          Size="176,41.6"
-          Id="Package\Carga clientes intermedia\TipoCliente Minorista"
-          TopLeft="401.666644720568,168.999998824795" />
-        <NodeLayout
           Size="156,41.6"
           Id="Package\Carga clientes intermedia\int_clientes_G01"
           TopLeft="580.333302102156,475.266662876937" />
+        <EdgeLayout
+          Id="Package\Carga clientes intermedia.Paths[Union All Output 1]"
+          TopLeft="654.666634925539,359.933331103789">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,115.333331773148"
+              Start="0,0"
+              End="0,107.833331773148">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.833331773148" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga clientes intermedia.Paths[OLE DB Source Output1]"
           TopLeft="802.066627782916,105.066666931841">
@@ -3753,7 +3915,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Carga clientes intermedia.Paths[OLE DB Source Output]"
-          TopLeft="490.349978069217,100.533332923518">
+          TopLeft="491.349978054316,100.533332923518">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3774,7 +3936,7 @@ ORDER BY cw.CUSTOMER_ID;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga clientes intermedia.Paths[Derived Column Output1]"
+          Id="Package\Carga clientes intermedia.Paths[Derived Column Output]"
           TopLeft="805.433294221926,213.399999511838">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3808,53 +3970,31 @@ ORDER BY cw.CUSTOMER_ID;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga clientes intermedia.Paths[Derived Column Output]"
-          TopLeft="489.666644720568,210.599998824795">
+          Id="Package\Carga clientes intermedia.Paths[Derived Column Output1]"
+          TopLeft="491.666644690766,210.599998824795">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="142.666656361687,107.733332278994"
+              EndConnector="140.66665639149,107.733332278994"
               Start="0,0"
-              End="142.666656361687,100.233332278994">
+              End="140.66665639149,100.233332278994">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.7894730599304" />
+                    End="0,59.7894730599306" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,59.7894730599304"
-                    Point2="0,63.7894730599304"
-                    Point3="4,63.7894730599304" />
+                    Point1="0,59.7894730599306"
+                    Point2="0,63.7894730599306"
+                    Point3="4,63.7894730599306" />
                   <mssgle:LineSegment
-                    End="138.666656361687,63.7894730599304" />
+                    End="136.66665639149,63.7894730599306" />
                   <mssgle:CubicBezierSegment
-                    Point1="138.666656361687,63.7894730599304"
-                    Point2="142.666656361687,63.7894730599304"
-                    Point3="142.666656361687,67.7894730599304" />
+                    Point1="136.66665639149,63.7894730599306"
+                    Point2="140.66665639149,63.7894730599306"
+                    Point3="140.66665639149,67.7894730599307" />
                   <mssgle:LineSegment
-                    End="142.666656361687,100.233332278994" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga clientes intermedia.Paths[Union All Output 1]"
-          TopLeft="654.666634925539,359.933331103789">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,115.333331773148"
-              Start="0,0"
-              End="0,107.833331773148">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,107.833331773148" />
+                    End="140.66665639149,100.233332278994" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
