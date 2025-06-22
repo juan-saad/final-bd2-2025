@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="103"
-  DTS:VersionGUID="{E40B3684-8C27-4E37-ACC4-9B76D6C319F9}">
+  DTS:VersionBuild="104"
+  DTS:VersionGUID="{7EFFFFD6-7C53-4E06-9B4C-B29DE06CEAC7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACYdAgy506Vc6K4Xe2Q5pnxt/nYLlZ05/jKa2HLEoLvVQAAAAAOgAAAAAIAACAAAAD2eC29DSEWbcK91knKufIzNmXxM30ZZKUzCEzpVWGhFiAAAAB8PFZeoPb0IcC4NK3Lnk/nX8uE5xCNCghED6UlmxSIQ0AAAAB9gFxWaebkvZY4C1iwkrSdJ2t3XVaQklyYoremlAAmt6JVGLqF4MPFM4Zwrwr777JGm7YqMuDC0ZlTgO9qXzFU</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkgLT+qPA4UKy0RMtVWPq+AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACQoYyt0f1LAXn+Evp7u1H9tb2yivJamcQnOGiGgikmzQAAAAAOgAAAAAIAACAAAACx787hrHS5YuTUcIPYs3R/lrpvBCV3n/fFobXtZzCGviAAAACTZR5gdCjB8zEv21SP4jYanpUHyTBuH8Zq+oDpqPuA8EAAAABFXSfa33a7c/XQHpVH7FPfsdTVh7RMDel0Jckbl1RcK0dHR1kHqRsf2cql39d1J06aeNNqsvhHpjTVb3SJ80R7</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -3495,6 +3495,10 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
           Id="Package\fact_ventas_G01"
           TopLeft="455.853149696456,585.350789580338" />
         <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\Truncate fact_ventas"
+          TopLeft="439.166642671658,481.550791008664" />
+        <NodeLayout
           Size="169.6,41.6"
           Id="Package\Truncate int_ventas"
           TopLeft="449.166642125283,291.199997975032" />
@@ -3639,32 +3643,6 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="532.81902343541,332.799997975032">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58.6857135883398"
-              Start="0,0"
-              End="0,51.1857135883398">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.1857135883398" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\Truncate fact_ventas"
-          TopLeft="439.166642671658,481.550791008664" />
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="529.219023708598,433.085711563371">
           <EdgeLayout.Curve>
@@ -3678,6 +3656,28 @@ inner join [datawarehouse_2025_G01].[dbo].dim_productos_G01 productos with(noloc
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,40.9650794452928" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="532.81902343541,332.799997975032">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.6857135883398"
+              Start="0,0"
+              End="0,51.1857135883398">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.1857135883398" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
